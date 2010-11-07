@@ -12,16 +12,14 @@ Samples
    * Undo and redo. 
    * Database initialization.
 
-1. CryptoExercise demonstrates the use of the two main Cryptographic API sets on the iPhone OS SDK. 
+2. CryptoExercise demonstrates the use of the two main Cryptographic API sets on the iPhone OS SDK. 
    Asymmetric Key Encryption and random nonce generation is handled through the Security framework API set, 
    whereas, Symmetric Key Encryption is handled by the CommonCrypto API set. The CryptoExercise sample brings 
    both of these APIs together through a network service, discoverable via Bonjour, that performs a "dummy" 
    cryptographic protocol between devices found on the same subnet.
    For more information read the ReadMe.txt in the CryptoExercise branch.
 
-2. second sample
-   * bla
-   * fasel
+3. Icons demonstrates the proper use of application icons on iOS.
 
 Usage
 -----
