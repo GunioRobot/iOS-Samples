@@ -21,6 +21,14 @@ Samples
 
 3. Icons demonstrates the proper use of application icons on iOS.
 
+4. KeyboardAccessory shows how to use a keyboard accessory view.
+   The application uses a single view controller. The view controller's view is covered by a text view. 
+   When you tap the text view, the view controller loads a nib file containing an accessory view that 
+   it adds to the text view. The accessory view contains a button. When you tap the button, the text 
+   "You tapped me." is added to the text view. The sample also shows how you can use the keyboard-will-show 
+   and keyboard-will-hide notifications to animate resizing a view that is obscured by the keyboard.
+
+
 Usage
 -----
 t.b.d.
