@@ -30,6 +30,10 @@ Samples
 
 5. MultipleDetailViews shows how you can use UISplitViewController to manage multiple detail views.
 
+6. QuartzDemo is an iPhone OS application that demonstrates many of the Quartz2D APIs made available 
+   by the CoreGraphics framework. Quartz2D forms the foundation of all drawing on iPhone OS and provides 
+   facilities for drawing lines, polygons, curves, images, gradients, PDF and many other graphical facilities.
+
 Usage
 -----
 t.b.d.
