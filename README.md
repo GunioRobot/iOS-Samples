@@ -68,6 +68,7 @@ Samples
    * Use multiple entities in a Core Data application
    * Provide a default Core Data persistent store
 
+10.LaunchMe demonstrates how to register a new URL type. Registering a new URL type allows other applications to interact with yours.
 
 Usage
 -----
