@@ -28,6 +28,7 @@ Samples
    "You tapped me." is added to the text view. The sample also shows how you can use the keyboard-will-show 
    and keyboard-will-hide notifications to animate resizing a view that is obscured by the keyboard.
 
+5. MultipleDetailViews shows how you can use UISplitViewController to manage multiple detail views.
 
 Usage
 -----
