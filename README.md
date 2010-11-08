@@ -34,6 +34,21 @@ Samples
    by the CoreGraphics framework. Quartz2D forms the foundation of all drawing on iPhone OS and provides 
    facilities for drawing lines, polygons, curves, images, gradients, PDF and many other graphical facilities.
 
+7. TheElements provides access to the data contained in the Periodic Table of the Elements.  TheElements 
+   provides this data in multiple formats, allowing you to sort the data by name, atomic number, symbol name, 
+   and an elements physical state at room temperature.  The application illustrates the following techniques:
+   * Configuring and responding to selections in a tab bar
+   * Displaying information in a tableview using both plain and grouped style table views
+   * Using navigation controllers to navigate deeper into a data structure
+   * Subclassing UIView
+   * Providing a custom UITableViewCell consisting of multiple subviews
+   * Implementing the UITableViewDelegate protocol
+   * Implementing the UITableViewDataSource protocol
+   * Reacting to taps in views
+   * Open a URL to an external web site using Safari
+   * Flipping view content from front to back
+   * Creating a reflection of a view in the interface
+
 Usage
 -----
 t.b.d.
