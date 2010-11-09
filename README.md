@@ -76,6 +76,7 @@ Samples
     and Core Animation to provide a high performance graph view. It also demonstrates a low-pass filter that you can use to isolate 
     the effects of gravity, and a high-pass filter that you can use to remove the effects of gravity.
 
+13. Accessory demonstrates how to implement a custom accessory view for your UITableView in the form of a checkmark button.
 Usage
 -----
 t.b.d.
