@@ -80,6 +80,8 @@ Samples
 
 14. AppPrefs demonstrates how to display your app's preferences or settings in the "Settings" system application.
 
+15. AdvencedTableViewCells demonstrates several different ways to handle complex UITableViewCells.
+
 Usage
 -----
 t.b.d.
