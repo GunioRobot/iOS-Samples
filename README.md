@@ -88,6 +88,8 @@ Samples
     Specifically, it demonstrates how to respond to authentication challenges, how to modify the default server trust evaluation 
     (for example, to support a server with a self-signed certificate), and how to provide client identities.
 
+18. BatteryStatus demonstrates the use of the battery status properties and notifications provided via the iPhone OS SDK.
+
 Usage
 -----
 t.b.d.
