@@ -90,6 +90,9 @@ Samples
 
 18. BatteryStatus demonstrates the use of the battery status properties and notifications provided via the iPhone OS SDK.
 
+19. Breadcrumb Demonstrates how to draw a path using the Map Kit overlay, MKOverlayView, that follows and tracks the user's current location.  
+    The included CrumbPath and CrumbPathView overlay and overlay view classes can be used for any path of points that are expected to change over time.
+
 Usage
 -----
 t.b.d.
