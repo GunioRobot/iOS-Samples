@@ -77,6 +77,9 @@ Samples
     the effects of gravity, and a high-pass filter that you can use to remove the effects of gravity.
 
 13. Accessory demonstrates how to implement a custom accessory view for your UITableView in the form of a checkmark button.
+
+14. AppPrefs demonstrates how to display your app's preferences or settings in the "Settings" system application.
+
 Usage
 -----
 t.b.d.
