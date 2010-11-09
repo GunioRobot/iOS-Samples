@@ -103,6 +103,8 @@ Samples
 
 24. DateSectionTitles shows how to create section information for NSFetchedResultsController using dates.
 
+25. DocInteraction demonstrates how to use UIDocumentInteractionController to obtain information about documents and how to preview them. 
+
 Usage
 -----
 t.b.d.
