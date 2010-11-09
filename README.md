@@ -84,6 +84,10 @@ Samples
 
 16. AlternateViews demonstrates how to implement alternate or distinguishing view controllers for each particular device orientation.
 
+17. AdvancedURLConnections demonstrates various advanced networking techniques with NSURLConnection.  
+    Specifically, it demonstrates how to respond to authentication challenges, how to modify the default server trust evaluation 
+    (for example, to support a server with a self-signed certificate), and how to provide client identities.
+
 Usage
 -----
 t.b.d.
