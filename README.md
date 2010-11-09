@@ -97,6 +97,8 @@ Samples
 
 21. CopyPasteTile demonstrates how to implement the copy-cut-paste feature introduced in iPhone OS v3.0.
 
+22. CurrentAddress basic use of MapKit, displaying a map view and setting its region to current location.
+
 Usage
 -----
 t.b.d.
