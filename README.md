@@ -118,6 +118,14 @@ Samples
     the contents of that table. If an iPhone/iPod Touch application has large amounts of table data, this sample shows how to filter it down to a 
     manageable amount if memory usage is a concern or you just want users to scroll through less content in a table.
 
+30. The TableViewSuite shows how to use UITableView through a progression of increasingly advanced applications that display information about time zones.
+    * The first example shows a simple list of the time zone names. 
+      It shows how to display a simple data set in a table view.
+    * The second example shows the time zones split into sections by region, with the region name as the section heading. 
+      It shows how to create an indexed table view.
+    * The third example shows how to set up a table view to display an index. 
+      The time zones are separated into sections using UILocalizedIndexedCollation.
+
 Usage
 -----
 t.b.d.
