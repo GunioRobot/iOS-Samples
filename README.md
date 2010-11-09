@@ -95,6 +95,8 @@ Samples
 
 20. BubbleLevel demonstrates how to receive and interpret acceleration information, animate a view, and display a utility view (used for calibration).
 
+21. CopyPasteTile demonstrates how to implement the copy-cut-paste feature introduced in iPhone OS v3.0.
+
 Usage
 -----
 t.b.d.
