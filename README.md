@@ -93,6 +93,8 @@ Samples
 19. Breadcrumb Demonstrates how to draw a path using the Map Kit overlay, MKOverlayView, that follows and tracks the user's current location.  
     The included CrumbPath and CrumbPathView overlay and overlay view classes can be used for any path of points that are expected to change over time.
 
+20. BubbleLevel demonstrates how to receive and interpret acceleration information, animate a view, and display a utility view (used for calibration).
+
 Usage
 -----
 t.b.d.
