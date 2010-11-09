@@ -101,6 +101,8 @@ Samples
 
 23. DateCell demonstrates formatted display of date objects in table cells and use of UIDatePicker to edit those values.
 
+24. DateSectionTitles shows how to create section information for NSFetchedResultsController using dates.
+
 Usage
 -----
 t.b.d.
