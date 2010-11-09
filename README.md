@@ -108,6 +108,10 @@ Samples
 26. DrillDownSave demonstrates how to restore the user's current location in a drill-down list style user interface and restore that location 
     when the app is relaunched. The drill-down or content hierarchy is generated from a plist file called 'outline.plist'.
 
+27. Demonstrates how to implement and customize the 2 UIView properties of UITableView: header ('tableHeaderView') and footer ('tableFooterView'). 
+    It is designed to somewhat resemble the "Contacts" application, showing you ways to design your own header and footer content. 
+    It uses the UITableViewStyle: UITableViewStyleGrouped to achieve a more similar appearance as well.
+
 Usage
 -----
 t.b.d.
