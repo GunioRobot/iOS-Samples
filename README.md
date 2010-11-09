@@ -99,6 +99,8 @@ Samples
 
 22. CurrentAddress basic use of MapKit, displaying a map view and setting its region to current location.
 
+23. DateCell demonstrates formatted display of date objects in table cells and use of UIDatePicker to edit those values.
+
 Usage
 -----
 t.b.d.
