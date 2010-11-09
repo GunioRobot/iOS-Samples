@@ -114,6 +114,10 @@ Samples
 
 28. HeadsUpUI demonstrates how to implement a headsUp or HUD-like user interface over the app's primary view controller.
 
+29. TableSearch demonstrates how to use the UISearchDisplayController object in conjunction with a UISearchBar, effectively filtering in and out 
+    the contents of that table. If an iPhone/iPod Touch application has large amounts of table data, this sample shows how to filter it down to a 
+    manageable amount if memory usage is a concern or you just want users to scroll through less content in a table.
+
 Usage
 -----
 t.b.d.
