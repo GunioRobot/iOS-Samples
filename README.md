@@ -112,6 +112,8 @@ Samples
     It is designed to somewhat resemble the "Contacts" application, showing you ways to design your own header and footer content. 
     It uses the UITableViewStyle: UITableViewStyleGrouped to achieve a more similar appearance as well.
 
+28. HeadsUpUI demonstrates how to implement a headsUp or HUD-like user interface over the app's primary view controller.
+
 Usage
 -----
 t.b.d.
