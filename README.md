@@ -82,6 +82,8 @@ Samples
 
 15. AdvencedTableViewCells demonstrates several different ways to handle complex UITableViewCells.
 
+16. AlternateViews demonstrates how to implement alternate or distinguishing view controllers for each particular device orientation.
+
 Usage
 -----
 t.b.d.
