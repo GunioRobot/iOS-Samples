@@ -132,6 +132,9 @@ Samples
     * A UIPinchGestureRecognizer to allow dynamic changes to the height of table view rows; and
     * A UILongPressGestureRecognizer to allow press-and-hold on table view cells to initiate an email of the quotation.
 
+32. This sample shows how to use a search field in a toolbar. When you start a search, a table view displaying recent searches matching the 
+    current search string is displayed in a popover.
+
 Usage
 -----
 t.b.d.
