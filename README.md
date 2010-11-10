@@ -126,13 +126,14 @@ Samples
     * The third example shows how to set up a table view to display an index. 
       The time zones are separated into sections using UILocalizedIndexedCollation.
 
-31. Demonstrates how you can use animated updates to open and close sections of a table view for viewing, where each section represents a play, 
-    and each row contains a quotation from the play. It also uses gesture recognizers to respond to user input:
+31. TableViewUpdates demonstrates how you can use animated updates to open and close sections of a table view for viewing, 
+    where each section represents a play, and each row contains a quotation from the play. 
+    It also uses gesture recognizers to respond to user input:
     * A UITapGestureRecognizer to allow tapping on the section headers to expand the section;
     * A UIPinchGestureRecognizer to allow dynamic changes to the height of table view rows; and
     * A UILongPressGestureRecognizer to allow press-and-hold on table view cells to initiate an email of the quotation.
 
-32. This sample shows how to use a search field in a toolbar. When you start a search, a table view displaying recent searches matching the 
+32. ToolbarSearch shows how to use a search field in a toolbar. When you start a search, a table view displaying recent searches matching the 
     current search string is displayed in a popover.
 
 33. LazyTableImages demonstrates a multi-stage approach to loading and displaying a UITableView.  It displays the top paid iPhone apps on Apple's App Store.
