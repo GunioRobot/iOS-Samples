@@ -135,7 +135,7 @@ Samples
 32. This sample shows how to use a search field in a toolbar. When you start a search, a table view displaying recent searches matching the 
     current search string is displayed in a popover.
 
-33. This sample demonstrates a multi-stage approach to loading and displaying a UITableView.  It displays the top paid iPhone apps on Apple's App Store.
+33. LazyTableImages demonstrates a multi-stage approach to loading and displaying a UITableView.  It displays the top paid iPhone apps on Apple's App Store.
 
 Usage
 -----
