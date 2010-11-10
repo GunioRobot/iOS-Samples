@@ -126,6 +126,12 @@ Samples
     * The third example shows how to set up a table view to display an index. 
       The time zones are separated into sections using UILocalizedIndexedCollation.
 
+31. Demonstrates how you can use animated updates to open and close sections of a table view for viewing, where each section represents a play, 
+    and each row contains a quotation from the play. It also uses gesture recognizers to respond to user input:
+    * A UITapGestureRecognizer to allow tapping on the section headers to expand the section;
+    * A UIPinchGestureRecognizer to allow dynamic changes to the height of table view rows; and
+    * A UILongPressGestureRecognizer to allow press-and-hold on table view cells to initiate an email of the quotation.
+
 Usage
 -----
 t.b.d.
