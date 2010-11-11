@@ -212,6 +212,8 @@ Samples
 
 59. SimpleURLConnections shows how to do simple networking using the NSURLConnection API.
 
+60. _Reachability_ demonstrates how to use the System Configuration framework to monitor the network state of an iPhone or iPod touch.
+
 Usage
 -----
 t.b.d.
