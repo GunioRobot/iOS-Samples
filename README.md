@@ -214,6 +214,10 @@ Samples
 
 60. _Reachability_ demonstrates how to use the System Configuration framework to monitor the network state of an iPhone or iPod touch.
 
+61. _Touches_ includes two packages: 
+   * _Touches_Classic_ demonstrates how to handle touches using UIResponder's: touches began, touches moved, and touches ended.
+   * _Touches_GestureRecognizers_ demonstrates how to use UIGestureRecognizers introduced in iPhone OS 4.0 to handle touch events.
+
 Usage
 -----
 t.b.d.
