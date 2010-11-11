@@ -197,6 +197,9 @@ Samples
 
 54. _MoveMe_ illustrates simple drawing, touch handling, and animation using UIKit and Core Animation.
 
+55. _PhotoLocations_ illustrates a Core Data application that uses more than one entity and uses transformable attributes. 
+    It also shows inferred migration of the persistent store.
+
 Usage
 -----
 t.b.d.
