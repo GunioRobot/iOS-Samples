@@ -138,6 +138,8 @@ Samples
 
 33. _LazyTableImages_ demonstrates a multi-stage approach to loading and displaying a UITableView.  It displays the top paid iPhone apps on Apple's App Store.
 
+34. _AddMusic_ demonstrates basic use of iPod library access, part of the Media Player framework. 
+
 Usage
 -----
 t.b.d.
