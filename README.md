@@ -171,6 +171,8 @@ Samples
 45. _PhotoPicker_ demonstrates how to choose images from the photo library, take a picture using the device's camera, 
     and how to customize the look of the camera's user interface.
 
+46. _Popovers_ demonstrates proper use of UIPopoverController in iOS.
+
 Usage
 -----
 t.b.d.
