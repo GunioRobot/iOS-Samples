@@ -203,6 +203,10 @@ Samples
 56. _KMLViewer_ demonstrates how to use Map Kit's Annotations and Overlays to display KML (Keyhole Markup Language) 
     files on top of an MKMapView.
 
+57. _TopPaid_ demonstrates how to design and build a universal application capable of running on both the iPhone and iPad.  
+    It shows the steps needed to make an existing iPhone application universal by introducing two unique user interface 
+    designs for both devices, yet using the same data model.
+
 Usage
 -----
 t.b.d.
