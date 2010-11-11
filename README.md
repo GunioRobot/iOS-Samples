@@ -150,6 +150,10 @@ Samples
     to successfully set up calls to: SecItemAdd, SecItemCopyMatching, SecItemDelete, and SecItemUpdate.
 
 38. _InternationalMountains_ demonstrates some ways to incorporate and manage localized data in an iPhone application.
+
+39. _Teslameter_ implements a Teslameter, a magnetic field detector. It displays the raw x, y, and z magnetometer values, 
+    a plotted history of those values, and a computed magnitude (size or strength) of the magnetic field.
+
 Usage
 -----
 t.b.d.
