@@ -176,6 +176,8 @@ Samples
 47. _NavBar_ demonstrates how to use UINavigationController and UIViewController classes together as building blocks 
     to your application's user interface.  Use it as a launching pad in starting the development of your new application.
 
+48. _Metronome_ demonstrates how to animate a rotation, interpret touch events, and display a simple application preferences view.
+
 Usage
 -----
 t.b.d.
