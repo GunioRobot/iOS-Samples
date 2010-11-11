@@ -145,6 +145,10 @@ Samples
 
 36. _BonjourWeb_ demonstrates how to find network services that are advertised by Bonjour.
 
+37. _GenericKeychain_ shows how to navigate through the Keychain Services API provided by iOS. 
+    Its demonstration leverages the Generic Keychain Item class and provides a template on how 
+    to successfully set up calls to: SecItemAdd, SecItemCopyMatching, SecItemDelete, and SecItemUpdate.
+
 Usage
 -----
 t.b.d.
