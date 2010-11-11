@@ -168,6 +168,9 @@ Samples
 
 44. _TransWeb_ demonstrates how to implement UIWebView with a transparent background.
 
+45. _PhotoPicker_ demonstrates how to choose images from the photo library, take a picture using the device's camera, 
+    and how to customize the look of the camera's user interface.
+
 Usage
 -----
 t.b.d.
