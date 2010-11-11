@@ -181,6 +181,11 @@ Samples
 49. _MessageComposer_ demonstrates how to target older OS versions while building with newly released APIs. 
     It also illustrates how to use the MessageUI framework to compose and send email and SMS messages from within your application.
 
+50. _PageControl_ primarily demonstrates use of UIScrollView's paging functionality to use horizontal scrolling 
+    as a mechanism for navigating between different pages of content.  
+    With the iPad, this type of user interface is not really necessary since the screen is larger allowing for 
+    more content and detailed information.
+
 Usage
 -----
 t.b.d.
