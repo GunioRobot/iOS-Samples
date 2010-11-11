@@ -163,6 +163,9 @@ Samples
 42. _WhichWayIsUp_ demonstrates how to use a UIViewController to track the orientation of the device. The application draws 
     a small wooden crate that maintains the correct orientation as the user rotates the device.
 
+43. _WiTap_ demonstrates how to achieve network communication between applications. Using Bonjour, 
+    the application both advertises itself on the local network and displays a list of other instances of this application on the network.
+
 Usage
 -----
 t.b.d.
