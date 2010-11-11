@@ -186,6 +186,10 @@ Samples
     With the iPad, this type of user interface is not really necessary since the screen is larger allowing for 
     more content and detailed information.
 
+51. _Locations_ represents the completed project from the Core Data Tutorial for iPhone OS.  
+    The application displays a list of events, which encapsulate a time stamp and a geographical 
+    location expressed in latitude and longitude, and allows the user to add and remove events.
+
 Usage
 -----
 t.b.d.
