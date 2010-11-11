@@ -200,6 +200,9 @@ Samples
 55. _PhotoLocations_ illustrates a Core Data application that uses more than one entity and uses transformable attributes. 
     It also shows inferred migration of the persistent store.
 
+56. _KMLViewer_ demonstrates how to use Map Kit's Annotations and Overlays to display KML (Keyhole Markup Language) 
+    files on top of an MKMapView.
+
 Usage
 -----
 t.b.d.
