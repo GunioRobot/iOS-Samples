@@ -156,6 +156,10 @@ Samples
 
 40. UICatalog is a catalog exhibiting many views and controls in the UIKit framework, along with their various properties and styles.
 
+41. _WorldCities_ demonstrates basic use of MapKit, including displaying a map view and setting its region. 
+    A list of cities are stored in a plist file loaded at launch time.  Each city is represented by a "WorldCity" class 
+    which consists of a name, a latitude, and a longitude. 
+
 Usage
 -----
 t.b.d.
