@@ -160,6 +160,9 @@ Samples
     A list of cities are stored in a plist file loaded at launch time.  Each city is represented by a "WorldCity" class 
     which consists of a name, a latitude, and a longitude. 
 
+42. _WhichWayIsUp_ demonstrates how to use a UIViewController to track the orientation of the device. The application draws 
+    a small wooden crate that maintains the correct orientation as the user rotates the device.
+
 Usage
 -----
 t.b.d.
