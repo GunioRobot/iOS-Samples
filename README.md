@@ -207,6 +207,9 @@ Samples
     It shows the steps needed to make an existing iPhone application universal by introducing two unique user interface 
     designs for both devices, yet using the same data model.
 
+58. _URLCache_ demonstrate how an iPhone application can download a resource off the web, store it in the application's data directory, 
+    and use the local copy of the resource.
+
 Usage
 -----
 t.b.d.
