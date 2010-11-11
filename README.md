@@ -154,6 +154,8 @@ Samples
 39. _Teslameter_ implements a Teslameter, a magnetic field detector. It displays the raw x, y, and z magnetometer values, 
     a plotted history of those values, and a computed magnitude (size or strength) of the magnetic field.
 
+40. UICatalog is a catalog exhibiting many views and controls in the UIKit framework, along with their various properties and styles.
+
 Usage
 -----
 t.b.d.
