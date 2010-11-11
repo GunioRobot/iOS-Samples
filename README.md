@@ -195,6 +195,8 @@ Samples
 
 53. _MusicCube_ demonstrates basic use of OpenGL ES, OpenAL, Audio File Services on the iPhone for manipulating sound in a 3D environment.
 
+54. _MoveMe_ illustrates simple drawing, touch handling, and animation using UIKit and Core Animation.
+
 Usage
 -----
 t.b.d.
