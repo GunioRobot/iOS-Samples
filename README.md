@@ -166,6 +166,8 @@ Samples
 43. _WiTap_ demonstrates how to achieve network communication between applications. Using Bonjour, 
     the application both advertises itself on the local network and displays a list of other instances of this application on the network.
 
+44. _TransWeb_ demonstrates how to implement UIWebView with a transparent background.
+
 Usage
 -----
 t.b.d.
