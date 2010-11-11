@@ -190,6 +190,9 @@ Samples
     The application displays a list of events, which encapsulate a time stamp and a geographical 
     location expressed in latitude and longitude, and allows the user to add and remove events.
 
+52. _LocateMe_ demonstrates the two primary use cases for the Core Location Framework: getting the user's location and 
+    tracking changes to the user's location. 
+
 Usage
 -----
 t.b.d.
