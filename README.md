@@ -140,6 +140,9 @@ Samples
 
 34. _AddMusic_ demonstrates basic use of iPod library access, part of the Media Player framework. 
 
+35. _MailComposer_ demonstrates how to target older OS versions while building with newly released APIs. 
+    This sample also shows how to use the MessageUI framework to create and send email messages from within your application.
+
 Usage
 -----
 t.b.d.
