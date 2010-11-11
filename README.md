@@ -193,6 +193,8 @@ Samples
 52. _LocateMe_ demonstrates the two primary use cases for the Core Location Framework: getting the user's location and 
     tracking changes to the user's location. 
 
+53. _MusicCube_ demonstrates basic use of OpenGL ES, OpenAL, Audio File Services on the iPhone for manipulating sound in a 3D environment.
+
 Usage
 -----
 t.b.d.
