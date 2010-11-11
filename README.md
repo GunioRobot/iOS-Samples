@@ -210,6 +210,8 @@ Samples
 58. _URLCache_ demonstrate how an iPhone application can download a resource off the web, store it in the application's data directory, 
     and use the local copy of the resource.
 
+59. SimpleURLConnections shows how to do simple networking using the NSURLConnection API.
+
 Usage
 -----
 t.b.d.
