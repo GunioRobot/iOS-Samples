@@ -143,6 +143,8 @@ Samples
 35. _MailComposer_ demonstrates how to target older OS versions while building with newly released APIs. 
     This sample also shows how to use the MessageUI framework to create and send email messages from within your application.
 
+36. _BonjourWeb_ demonstrates how to find network services that are advertised by Bonjour.
+
 Usage
 -----
 t.b.d.
