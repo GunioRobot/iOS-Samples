@@ -218,6 +218,8 @@ Samples
    * _Touches_Classic_ demonstrates how to handle touches using UIResponder's: touches began, touches moved, and touches ended.
    * _Touches_GestureRecognizers_ demonstrates how to use UIGestureRecognizers introduced in iPhone OS 4.0 to handle touch events.
 
+62. _TopSongs_ shows you how to import data from XML into Core Data.
+
 Usage
 -----
 t.b.d.
