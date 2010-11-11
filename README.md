@@ -173,6 +173,9 @@ Samples
 
 46. _Popovers_ demonstrates proper use of UIPopoverController in iOS.
 
+47. _NavBar_ demonstrates how to use UINavigationController and UIViewController classes together as building blocks 
+    to your application's user interface.  Use it as a launching pad in starting the development of your new application.
+
 Usage
 -----
 t.b.d.
