@@ -149,6 +149,7 @@ Samples
     Its demonstration leverages the Generic Keychain Item class and provides a template on how 
     to successfully set up calls to: SecItemAdd, SecItemCopyMatching, SecItemDelete, and SecItemUpdate.
 
+38. _InternationalMountains_ demonstrates some ways to incorporate and manage localized data in an iPhone application.
 Usage
 -----
 t.b.d.
