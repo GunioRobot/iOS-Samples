@@ -6,37 +6,173 @@ as a starting point for a personal training developing iOS applications.
 
 Samples
 -------
+
+
+### General
+
+3. _Icons_ demonstrates the proper use of application icons on iOS.
+
+### Maps
+
+1. _Breadcrumb_ Demonstrates how to draw a path using the Map Kit overlay, MKOverlayView, that follows and tracks the user's current location. The included CrumbPath and CrumbPathView overlay and overlay view classes can be used for any path of points that are expected to change over time.
+
+1. _CopyPasteTile_ demonstrates how to implement the copy-cut-paste feature introduced in iPhone OS v3.0.
+
+2. _CurrentAddress_ basic use of MapKit, displaying a map view and setting its region to current location.
+
+3. _DateCell_ demonstrates formatted display of date objects in table cells and use of UIDatePicker to edit those values.
+
+4. _DateSectionTitles_ shows how to create section information for NSFetchedResultsController using dates.
+
+5. _DocInteraction_ demonstrates how to use UIDocumentInteractionController to obtain information about documents and how to preview them. 
+
+6. _DrillDownSave_ demonstrates how to restore the user's current location in a drill-down list style user interface and restore that location 
+    when the app is relaunched. The drill-down or content hierarchy is generated from a plist file called 'outline.plist'.
+
+7. _Demonstrates_ how to implement and customize the 2 UIView properties of UITableView: header ('tableHeaderView') and footer ('tableFooterView'). 
+    It is designed to somewhat resemble the "Contacts" application, showing you ways to design your own header and footer content. 
+    It uses the UITableViewStyle: UITableViewStyleGrouped to achieve a more similar appearance as well.
+
+8. _HeadsUpUI_ demonstrates how to implement a headsUp or HUD-like user interface over the app's primary view controller.
+
+9. _TableSearch_ demonstrates how to use the UISearchDisplayController object in conjunction with a UISearchBar, effectively filtering in and out 
+    the contents of that table. If an iPhone/iPod Touch application has large amounts of table data, this sample shows how to filter it down to a 
+    manageable amount if memory usage is a concern or you just want users to scroll through less content in a table.
+
+0. The _TableViewSuite_ shows how to use UITableView through a progression of increasingly advanced applications that display information about time zones.
+    * The first example shows a simple list of the time zone names. 
+      It shows how to display a simple data set in a table view.
+    * The second example shows the time zones split into sections by region, with the region name as the section heading. 
+      It shows how to create an indexed table view.
+    * The third example shows how to set up a table view to display an index. 
+      The time zones are separated into sections using UILocalizedIndexedCollation.
+
+1. _TableViewUpdates_ demonstrates how you can use animated updates to open and close sections of a table view for viewing, where each section represents a play, and each row contains a quotation from the play. 
+    It also uses gesture recognizers to respond to user input:
+    * A UITapGestureRecognizer to allow tapping on the section headers to expand the section;
+    * A UIPinchGestureRecognizer to allow dynamic changes to the height of table view rows; and
+    * A UILongPressGestureRecognizer to allow press-and-hold on table view cells to initiate an email of the quotation.
+
+2. _ToolbarSearch_ shows how to use a search field in a toolbar. When you start a search, a table view displaying recent searches matching the 
+    current search string is displayed in a popover.
+
+3. _LazyTableImages_ demonstrates a multi-stage approach to loading and displaying a UITableView.  It displays the top paid iPhone apps on Apple's App Store.
+
+4. _AddMusic_ demonstrates basic use of iPod library access, part of the Media Player framework. 
+
+5. _MailComposer_ demonstrates how to target older OS versions while building with newly released APIs. 
+    This sample also shows how to use the MessageUI framework to create and send email messages from within your application.
+
+6. _BonjourWeb_ demonstrates how to find network services that are advertised by Bonjour.
+
+7. _GenericKeychain_ shows how to navigate through the Keychain Services API provided by iOS. 
+    Its demonstration leverages the Generic Keychain Item class and provides a template on how 
+    to successfully set up calls to: SecItemAdd, SecItemCopyMatching, SecItemDelete, and SecItemUpdate.
+
+8. _InternationalMountains_ demonstrates some ways to incorporate and manage localized data in an iPhone application.
+
+9. _Teslameter_ implements a Teslameter, a magnetic field detector. It displays the raw x, y, and z magnetometer values, 
+    a plotted history of those values, and a computed magnitude (size or strength) of the magnetic field.
+
+0. UICatalog is a catalog exhibiting many views and controls in the UIKit framework, along with their various properties and styles.
+
+1. _WorldCities_ demonstrates basic use of MapKit, including displaying a map view and setting its region. 
+    A list of cities are stored in a plist file loaded at launch time.  Each city is represented by a "WorldCity" class 
+    which consists of a name, a latitude, and a longitude. 
+
+2. _WhichWayIsUp_ demonstrates how to use a UIViewController to track the orientation of the device. The application draws 
+    a small wooden crate that maintains the correct orientation as the user rotates the device.
+
+3. _WiTap_ demonstrates how to achieve network communication between applications. Using Bonjour, 
+    the application both advertises itself on the local network and displays a list of other instances of this application on the network.
+
+4. _TransWeb_ demonstrates how to implement UIWebView with a transparent background.
+
+5. _PhotoPicker_ demonstrates how to choose images from the photo library, take a picture using the device's camera, 
+    and how to customize the look of the camera's user interface.
+
+6. _Popovers_ demonstrates proper use of UIPopoverController in iOS.
+
+7. _NavBar_ demonstrates how to use UINavigationController and UIViewController classes together as building blocks 
+    to your application's user interface.  Use it as a launching pad in starting the development of your new application.
+
+8. _Metronome_ demonstrates how to animate a rotation, interpret touch events, and display a simple application preferences view.
+
+9. _MessageComposer_ demonstrates how to target older OS versions while building with newly released APIs. 
+    It also illustrates how to use the MessageUI framework to compose and send email and SMS messages from within your application.
+
+0. _PageControl_ primarily demonstrates use of UIScrollView's paging functionality to use horizontal scrolling 
+    as a mechanism for navigating between different pages of content.  
+    With the iPad, this type of user interface is not really necessary since the screen is larger allowing for 
+    more content and detailed information.
+
+1. _Locations_ represents the completed project from the Core Data Tutorial for iPhone OS.  
+    The application displays a list of events, which encapsulate a time stamp and a geographical 
+    location expressed in latitude and longitude, and allows the user to add and remove events.
+
+2. _LocateMe_ demonstrates the two primary use cases for the Core Location Framework: getting the user's location and 
+    tracking changes to the user's location. 
+
+3. _MusicCube_ demonstrates basic use of OpenGL ES, OpenAL, Audio File Services on the iPhone for manipulating sound in a 3D environment.
+
+4. _MoveMe_ illustrates simple drawing, touch handling, and animation using UIKit and Core Animation.
+
+5. _PhotoLocations_ illustrates a Core Data application that uses more than one entity and uses transformable attributes. 
+    It also shows inferred migration of the persistent store.
+
+6. _KMLViewer_ demonstrates how to use Map Kit's Annotations and Overlays to display KML (Keyhole Markup Language) 
+    files on top of an MKMapView.
+
+7. _TopPaid_ demonstrates how to design and build a universal application capable of running on both the iPhone and iPad.  
+    It shows the steps needed to make an existing iPhone application universal by introducing two unique user interface 
+    designs for both devices, yet using the same data model.
+
+8. _URLCache_ demonstrate how an iPhone application can download a resource off the web, store it in the application's data directory, 
+    and use the local copy of the resource.
+
+9. SimpleURLConnections shows how to do simple networking using the NSURLConnection API.
+
+0. _Reachability_ demonstrates how to use the System Configuration framework to monitor the network state of an iPhone or iPod touch.
+
+1. _Touches_ includes two packages: 
+   * _Touches_Classic_ demonstrates how to handle touches using UIResponder's: touches began, touches moved, and touches ended.
+   * _Touches_GestureRecognizers_ demonstrates how to use UIGestureRecognizers introduced in iPhone OS 4.0 to handle touch events.
+
+
+
+### Data Management
+
 1. _CoreDataBooks_ illustrates a number of aspects of working with the Core Data framework with an iPhone application:
    * Use of an instance of NSFetchedResultsController object to manage a collection of objects to be displayed in a table view.
    * Use of a second managed object context to isolate changes during an add operation.
    * Undo and redo. 
    * Database initialization.
 
+0. _LaunchMe_ demonstrates how to register a new URL type. Registering a new URL type allows other applications to interact with yours.
+
+2. _AccelerometerGraph_ graphs the motion of the device. It demonstrates how to use the UIAccelerometer class and how to use Quartz2D and Core Animation to provide a high performance graph view. It also demonstrates a low-pass filter that you can use to isolate the effects of gravity, and a high-pass filter that you can use to remove the effects of gravity.
+
+8. _BatteryStatus_ demonstrates the use of the battery status properties and notifications provided via the iPhone OS SDK.
+
+### Networking & Internet
+
+7. _AdvancedURLConnections_ demonstrates various advanced networking techniques with NSURLConnection. Specifically, it demonstrates how to respond to authentication challenges, how to modify the default server trust evaluation (for example, to support a server with a self-signed certificate), and how to provide client identities.
+
+### Security
+
 2. _CryptoExercise_ demonstrates the use of the two main Cryptographic API sets on the iPhone OS SDK. 
-   Asymmetric Key Encryption and random nonce generation is handled through the Security framework API set, 
-   whereas, Symmetric Key Encryption is handled by the CommonCrypto API set. The CryptoExercise sample brings 
-   both of these APIs together through a network service, discoverable via Bonjour, that performs a "dummy" 
-   cryptographic protocol between devices found on the same subnet.
-   For more information read the ReadMe.txt in the CryptoExercise branch.
 
-3. _Icons_ demonstrates the proper use of application icons on iOS.
+### User Experience
 
-4. _KeyboardAccessory_ shows how to use a keyboard accessory view.
-   The application uses a single view controller. The view controller's view is covered by a text view. 
-   When you tap the text view, the view controller loads a nib file containing an accessory view that 
-   it adds to the text view. The accessory view contains a button. When you tap the button, the text 
-   "You tapped me." is added to the text view. The sample also shows how you can use the keyboard-will-show 
-   and keyboard-will-hide notifications to animate resizing a view that is obscured by the keyboard.
+1. _BubbleLevel_ demonstrates how to receive and interpret acceleration information, animate a view, and display a utility view (used for calibration).
 
-5. _MultipleDetailViews_ shows how you can use UISplitViewController to manage multiple detail views.
+1. _KeyboardAccessory_ shows how to use a keyboard accessory view. 
 
-6. _QuartzDemo_ is an iPhone OS application that demonstrates many of the Quartz2D APIs made available 
-   by the CoreGraphics framework. Quartz2D forms the foundation of all drawing on iPhone OS and provides 
-   facilities for drawing lines, polygons, curves, images, gradients, PDF and many other graphical facilities.
+1. _MultipleDetailViews_ shows how you can use UISplitViewController to manage multiple detail views.
 
-7. _TheElements_ provides access to the data contained in the Periodic Table of the Elements.  TheElements 
-   provides this data in multiple formats, allowing you to sort the data by name, atomic number, symbol name, 
-   and an elements physical state at room temperature.  The application illustrates the following techniques:
+
+1. _TheElements_ provides access to the data contained in the Periodic Table of the Elements.  TheElements provides this data in multiple formats, allowing you to sort the data by name, atomic number, symbol name, and an elements physical state at room temperature.
+The application illustrates the following techniques:
    * Configuring and responding to selections in a tab bar
    * Displaying information in a tableview using both plain and grouped style table views
    * Using navigation controllers to navigate deeper into a data structure
@@ -49,15 +185,8 @@ Samples
    * Flipping view content from front to back
    * Creating a reflection of a view in the interface
 
-8. _XMLPerformance_ explores two approaches to parsing XML, focusing on performance with respect to 
-   speed, memory footprint, and user experience. The XML data used is the current "Top 300" songs 
-   from the iTunes store. The data itself is not particularly important to the sample - it was 
-   chosen because of its simplicity, availability, and because the size (approximately 850KB) is 
-   sufficient to demonstrate the performance issues central to the sample.
 
-9. _iPhoneCoreDataRecipes_ shows how you can use view controllers, table views, and Core Data in an iPhone application.
-   The application uses the domain of organizing and presenting recipes to show how you can use the view controller 
-   as the organizing unit to manage screenfuls of information, and how you can leverage table views to display and edit data in an elegant fashion.
+1. _iPhoneCoreDataRecipes_ shows how you can use view controllers, table views, and Core Data in an iPhone application. The application uses the domain of organizing and presenting recipes to show how you can use the view controller as the organizing unit to manage screenfuls of information, and how you can leverage table views to display and edit data in an elegant fashion.
    Amongst the techniques shown are how to:
    * Combine tab bar and navigation controllers to create a complex navigation flow
    * Customize a navigation bar
@@ -68,157 +197,29 @@ Samples
    * Use multiple entities in a Core Data application
    * Provide a default Core Data persistent store
 
-10. _LaunchMe_ demonstrates how to register a new URL type. Registering a new URL type allows other applications to interact with yours.
+1. _Accessory_ demonstrates how to implement a custom accessory view for your UITableView in the form of a checkmark button.
 
-11. _ViewTransitions_ demonstrates how to perform transitions between two views using built-in Core Animation transitions.
+1. _AppPrefs_ demonstrates how to display your app's preferences or settings in the "Settings" system application.
 
-12. _AccelerometerGraph_ graphs the motion of the device. It demonstrates how to use the UIAccelerometer class and how to use Quartz2D 
-    and Core Animation to provide a high performance graph view. It also demonstrates a low-pass filter that you can use to isolate 
-    the effects of gravity, and a high-pass filter that you can use to remove the effects of gravity.
+1. _AdvencedTableViewCells_ demonstrates several different ways to handle complex UITableViewCells.
 
-13. _Accessory_ demonstrates how to implement a custom accessory view for your UITableView in the form of a checkmark button.
+1. _AlternateViews_ demonstrates how to implement alternate or distinguishing view controllers for each particular device orientation.
 
-14. _AppPrefs_ demonstrates how to display your app's preferences or settings in the "Settings" system application.
+### Graphics & Animation
 
-15. _AdvencedTableViewCells_ demonstrates several different ways to handle complex UITableViewCells.
+6. _QuartzDemo_ is an iPhone OS application that demonstrates many of the Quartz2D APIs made available by the CoreGraphics framework. Quartz2D forms the foundation of all drawing on iPhone OS and provides facilities for drawing lines, polygons, curves, images, gradients, PDF and many other graphical facilities.
 
-16. _AlternateViews_ demonstrates how to implement alternate or distinguishing view controllers for each particular device orientation.
+1. _ViewTransitions_ demonstrates how to perform transitions between two views using built-in Core Animation transitions.
 
-17. _AdvancedURLConnections_ demonstrates various advanced networking techniques with NSURLConnection.  
-    Specifically, it demonstrates how to respond to authentication challenges, how to modify the default server trust evaluation 
-    (for example, to support a server with a self-signed certificate), and how to provide client identities.
 
-18. _BatteryStatus_ demonstrates the use of the battery status properties and notifications provided via the iPhone OS SDK.
+### Performance
 
-19. _Breadcrumb_ Demonstrates how to draw a path using the Map Kit overlay, MKOverlayView, that follows and tracks the user's current location.  
-    The included CrumbPath and CrumbPathView overlay and overlay view classes can be used for any path of points that are expected to change over time.
+1. _XMLPerformance_ explores two approaches to parsing XML, focusing on performance with respect to speed, memory footprint, and user experience. 
+1. _TopSongs_ shows you how to import data from XML into Core Data.
 
-20. _BubbleLevel_ demonstrates how to receive and interpret acceleration information, animate a view, and display a utility view (used for calibration).
+### Audio & Video
 
-21. _CopyPasteTile_ demonstrates how to implement the copy-cut-paste feature introduced in iPhone OS v3.0.
 
-22. _CurrentAddress_ basic use of MapKit, displaying a map view and setting its region to current location.
-
-23. _DateCell_ demonstrates formatted display of date objects in table cells and use of UIDatePicker to edit those values.
-
-24. _DateSectionTitles_ shows how to create section information for NSFetchedResultsController using dates.
-
-25. _DocInteraction_ demonstrates how to use UIDocumentInteractionController to obtain information about documents and how to preview them. 
-
-26. _DrillDownSave_ demonstrates how to restore the user's current location in a drill-down list style user interface and restore that location 
-    when the app is relaunched. The drill-down or content hierarchy is generated from a plist file called 'outline.plist'.
-
-27. _Demonstrates_ how to implement and customize the 2 UIView properties of UITableView: header ('tableHeaderView') and footer ('tableFooterView'). 
-    It is designed to somewhat resemble the "Contacts" application, showing you ways to design your own header and footer content. 
-    It uses the UITableViewStyle: UITableViewStyleGrouped to achieve a more similar appearance as well.
-
-28. _HeadsUpUI_ demonstrates how to implement a headsUp or HUD-like user interface over the app's primary view controller.
-
-29. _TableSearch_ demonstrates how to use the UISearchDisplayController object in conjunction with a UISearchBar, effectively filtering in and out 
-    the contents of that table. If an iPhone/iPod Touch application has large amounts of table data, this sample shows how to filter it down to a 
-    manageable amount if memory usage is a concern or you just want users to scroll through less content in a table.
-
-30. The _TableViewSuite_ shows how to use UITableView through a progression of increasingly advanced applications that display information about time zones.
-    * The first example shows a simple list of the time zone names. 
-      It shows how to display a simple data set in a table view.
-    * The second example shows the time zones split into sections by region, with the region name as the section heading. 
-      It shows how to create an indexed table view.
-    * The third example shows how to set up a table view to display an index. 
-      The time zones are separated into sections using UILocalizedIndexedCollation.
-
-31. _TableViewUpdates_ demonstrates how you can use animated updates to open and close sections of a table view for viewing, 
-    where each section represents a play, and each row contains a quotation from the play. 
-    It also uses gesture recognizers to respond to user input:
-    * A UITapGestureRecognizer to allow tapping on the section headers to expand the section;
-    * A UIPinchGestureRecognizer to allow dynamic changes to the height of table view rows; and
-    * A UILongPressGestureRecognizer to allow press-and-hold on table view cells to initiate an email of the quotation.
-
-32. _ToolbarSearch_ shows how to use a search field in a toolbar. When you start a search, a table view displaying recent searches matching the 
-    current search string is displayed in a popover.
-
-33. _LazyTableImages_ demonstrates a multi-stage approach to loading and displaying a UITableView.  It displays the top paid iPhone apps on Apple's App Store.
-
-34. _AddMusic_ demonstrates basic use of iPod library access, part of the Media Player framework. 
-
-35. _MailComposer_ demonstrates how to target older OS versions while building with newly released APIs. 
-    This sample also shows how to use the MessageUI framework to create and send email messages from within your application.
-
-36. _BonjourWeb_ demonstrates how to find network services that are advertised by Bonjour.
-
-37. _GenericKeychain_ shows how to navigate through the Keychain Services API provided by iOS. 
-    Its demonstration leverages the Generic Keychain Item class and provides a template on how 
-    to successfully set up calls to: SecItemAdd, SecItemCopyMatching, SecItemDelete, and SecItemUpdate.
-
-38. _InternationalMountains_ demonstrates some ways to incorporate and manage localized data in an iPhone application.
-
-39. _Teslameter_ implements a Teslameter, a magnetic field detector. It displays the raw x, y, and z magnetometer values, 
-    a plotted history of those values, and a computed magnitude (size or strength) of the magnetic field.
-
-40. UICatalog is a catalog exhibiting many views and controls in the UIKit framework, along with their various properties and styles.
-
-41. _WorldCities_ demonstrates basic use of MapKit, including displaying a map view and setting its region. 
-    A list of cities are stored in a plist file loaded at launch time.  Each city is represented by a "WorldCity" class 
-    which consists of a name, a latitude, and a longitude. 
-
-42. _WhichWayIsUp_ demonstrates how to use a UIViewController to track the orientation of the device. The application draws 
-    a small wooden crate that maintains the correct orientation as the user rotates the device.
-
-43. _WiTap_ demonstrates how to achieve network communication between applications. Using Bonjour, 
-    the application both advertises itself on the local network and displays a list of other instances of this application on the network.
-
-44. _TransWeb_ demonstrates how to implement UIWebView with a transparent background.
-
-45. _PhotoPicker_ demonstrates how to choose images from the photo library, take a picture using the device's camera, 
-    and how to customize the look of the camera's user interface.
-
-46. _Popovers_ demonstrates proper use of UIPopoverController in iOS.
-
-47. _NavBar_ demonstrates how to use UINavigationController and UIViewController classes together as building blocks 
-    to your application's user interface.  Use it as a launching pad in starting the development of your new application.
-
-48. _Metronome_ demonstrates how to animate a rotation, interpret touch events, and display a simple application preferences view.
-
-49. _MessageComposer_ demonstrates how to target older OS versions while building with newly released APIs. 
-    It also illustrates how to use the MessageUI framework to compose and send email and SMS messages from within your application.
-
-50. _PageControl_ primarily demonstrates use of UIScrollView's paging functionality to use horizontal scrolling 
-    as a mechanism for navigating between different pages of content.  
-    With the iPad, this type of user interface is not really necessary since the screen is larger allowing for 
-    more content and detailed information.
-
-51. _Locations_ represents the completed project from the Core Data Tutorial for iPhone OS.  
-    The application displays a list of events, which encapsulate a time stamp and a geographical 
-    location expressed in latitude and longitude, and allows the user to add and remove events.
-
-52. _LocateMe_ demonstrates the two primary use cases for the Core Location Framework: getting the user's location and 
-    tracking changes to the user's location. 
-
-53. _MusicCube_ demonstrates basic use of OpenGL ES, OpenAL, Audio File Services on the iPhone for manipulating sound in a 3D environment.
-
-54. _MoveMe_ illustrates simple drawing, touch handling, and animation using UIKit and Core Animation.
-
-55. _PhotoLocations_ illustrates a Core Data application that uses more than one entity and uses transformable attributes. 
-    It also shows inferred migration of the persistent store.
-
-56. _KMLViewer_ demonstrates how to use Map Kit's Annotations and Overlays to display KML (Keyhole Markup Language) 
-    files on top of an MKMapView.
-
-57. _TopPaid_ demonstrates how to design and build a universal application capable of running on both the iPhone and iPad.  
-    It shows the steps needed to make an existing iPhone application universal by introducing two unique user interface 
-    designs for both devices, yet using the same data model.
-
-58. _URLCache_ demonstrate how an iPhone application can download a resource off the web, store it in the application's data directory, 
-    and use the local copy of the resource.
-
-59. SimpleURLConnections shows how to do simple networking using the NSURLConnection API.
-
-60. _Reachability_ demonstrates how to use the System Configuration framework to monitor the network state of an iPhone or iPod touch.
-
-61. _Touches_ includes two packages: 
-   * _Touches_Classic_ demonstrates how to handle touches using UIResponder's: touches began, touches moved, and touches ended.
-   * _Touches_GestureRecognizers_ demonstrates how to use UIGestureRecognizers introduced in iPhone OS 4.0 to handle touch events.
-
-62. _TopSongs_ shows you how to import data from XML into Core Data.
 
 Usage
 -----
