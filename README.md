@@ -178,6 +178,9 @@ Samples
 
 48. _Metronome_ demonstrates how to animate a rotation, interpret touch events, and display a simple application preferences view.
 
+49. _MessageComposer_ demonstrates how to target older OS versions while building with newly released APIs. 
+    It also illustrates how to use the MessageUI framework to compose and send email and SMS messages from within your application.
+
 Usage
 -----
 t.b.d.
