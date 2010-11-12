@@ -63,8 +63,62 @@ Samples
 
 ### User Experience
 
-1. _TableSearch_ demonstrates how to use the UISearchDisplayController object in conjunction with a UISearchBar, effectively filtering in and out the contents of that table. If an iPhone/iPod Touch application has large amounts of table data, this sample shows how to filter it down to a manageable amount if memory usage is a concern or you just want users to scroll through less content in a table.
+1. _Accessory_ demonstrates how to implement a custom accessory view for your UITableView in the form of a checkmark button.
 
+1. _AppPrefs_ demonstrates how to display your app's preferences or settings in the "Settings" system application.
+
+1. _AdvencedTableViewCells_ demonstrates several different ways to handle complex UITableViewCells.
+
+1. _AlternateViews_ demonstrates how to implement alternate or distinguishing view controllers for each particular device orientation.
+
+
+1. _BubbleLevel_ demonstrates how to receive and interpret acceleration information, animate a view, and display a utility view (used for calibration).
+
+1. _CurrentAddress_ basic use of MapKit, displaying a map view and setting its region to current location.
+
+1. _DateCell_ demonstrates formatted display of date objects in table cells and use of UIDatePicker to edit those values.
+
+
+
+1. _HeadsUpUI_ demonstrates how to implement a headsUp or HUD-like user interface over the app's primary view controller.
+
+1. _HeaderFooter_ how to implement and customize the 2 UIView properties of UITableView: header ('tableHeaderView') and footer ('tableFooterView'). It is designed to somewhat resemble the "Contacts" application, showing you ways to design your own header and footer content. It uses the UITableViewStyle: UITableViewStyleGrouped to achieve a more similar appearance as well.
+
+1. _iPhoneCoreDataRecipes_ shows how you can use view controllers, table views, and Core Data in an iPhone application. The application uses the domain of organizing and presenting recipes to show how you can use the view controller as the organizing unit to manage screenfuls of information, and how you can leverage table views to display and edit data in an elegant fashion.
+   Amongst the techniques shown are how to:
+   * Combine tab bar and navigation controllers to create a complex navigation flow
+   * Customize a navigation bar
+   * Implement custom table view cells that reformat themselves in response to editing, removing unnecessary 
+     information to ensure that the display remains uncluttered
+   * Customize a table header view
+   * Present modal views
+   * Use multiple entities in a Core Data application
+   * Provide a default Core Data persistent store
+
+1. _KeyboardAccessory_ shows how to use a keyboard accessory view. 
+
+1. _LazyTableImages_ demonstrates a multi-stage approach to loading and displaying a UITableView.  It displays the top paid iPhone apps on Apple's App Store.
+
+1. _MoveMe_ illustrates simple drawing, touch handling, and animation using UIKit and Core Animation.
+
+1. _MultipleDetailViews_ shows how you can use UISplitViewController to manage multiple detail views.
+
+1. _NavBar_ demonstrates how to use UINavigationController and UIViewController classes together as building blocks to your application's user interface.  Use it as a launching pad in starting the development of your new application.
+
+1. _PhotoPicker_ demonstrates how to choose images from the photo library, take a picture using the device's camera, and how to customize the look of the camera's user interface.
+
+1. _Popovers_ demonstrates proper use of UIPopoverController in iOS.
+
+1. _PageControl_ primarily demonstrates use of UIScrollView's paging functionality to use horizontal scrolling as a mechanism for navigating between different pages of content. With the iPad, this type of user interface is not really necessary since the screen is larger allowing for more content and detailed information.
+
+1. _TransWeb_ demonstrates how to implement UIWebView with a transparent background.
+
+1. _TableViewSuite_ shows how to use UITableView through a progression of increasingly advanced applications that display information about time zones.
+    * The first example shows a simple list of the time zone names. It shows how to display a simple data set in a table view.
+    * The second example shows the time zones split into sections by region, with the region name as the section heading. It shows how to create an indexed table view.
+    * The third example shows how to set up a table view to display an index. The time zones are separated into sections using UILocalizedIndexedCollation.
+
+1. _TableSearch_ demonstrates how to use the UISearchDisplayController object in conjunction with a UISearchBar, effectively filtering in and out the contents of that table. If an iPhone/iPod Touch application has large amounts of table data, this sample shows how to filter it down to a manageable amount if memory usage is a concern or you just want users to scroll through less content in a table.
 
 1. _TableViewUpdates_ demonstrates how you can use animated updates to open and close sections of a table view for viewing, where each section represents a play, and each row contains a quotation from the play. It also uses gesture recognizers to respond to user input:
     * A UITapGestureRecognizer to allow tapping on the section headers to expand the section;
@@ -73,44 +127,9 @@ Samples
 
 1. _ToolbarSearch_ shows how to use a search field in a toolbar. When you start a search, a table view displaying recent searches matching the current search string is displayed in a popover.
 
-1. _LazyTableImages_ demonstrates a multi-stage approach to loading and displaying a UITableView.  It displays the top paid iPhone apps on Apple's App Store.
-
-1. _HeadsUpUI_ demonstrates how to implement a headsUp or HUD-like user interface over the app's primary view controller.
-
-1. The _TableViewSuite_ shows how to use UITableView through a progression of increasingly advanced applications that display information about time zones.
-    * The first example shows a simple list of the time zone names. It shows how to display a simple data set in a table view.
-    * The second example shows the time zones split into sections by region, with the region name as the section heading. It shows how to create an indexed table view.
-    * The third example shows how to set up a table view to display an index. The time zones are separated into sections using UILocalizedIndexedCollation.
-
-1. _UICatalog_ is a catalog exhibiting many views and controls in the UIKit framework, along with their various properties and styles.
-
-1. _HeaderFooter_ how to implement and customize the 2 UIView properties of UITableView: header ('tableHeaderView') and footer ('tableFooterView'). It is designed to somewhat resemble the "Contacts" application, showing you ways to design your own header and footer content. It uses the UITableViewStyle: UITableViewStyleGrouped to achieve a more similar appearance as well.
-
-1. _TransWeb_ demonstrates how to implement UIWebView with a transparent background.
-
-1. _PhotoPicker_ demonstrates how to choose images from the photo library, take a picture using the device's camera, and how to customize the look of the camera's user interface.
-
-1. _Popovers_ demonstrates proper use of UIPopoverController in iOS.
-
-1. _NavBar_ demonstrates how to use UINavigationController and UIViewController classes together as building blocks to your application's user interface.  Use it as a launching pad in starting the development of your new application.
-
-1. _PageControl_ primarily demonstrates use of UIScrollView's paging functionality to use horizontal scrolling as a mechanism for navigating between different pages of content. With the iPad, this type of user interface is not really necessary since the screen is larger allowing for more content and detailed information.
-
 1. _TopPaid_ demonstrates how to design and build a universal application capable of running on both the iPhone and iPad.  
     It shows the steps needed to make an existing iPhone application universal by introducing two unique user interface 
     designs for both devices, yet using the same data model.
-
-1. _MoveMe_ illustrates simple drawing, touch handling, and animation using UIKit and Core Animation.
-
-1. _CurrentAddress_ basic use of MapKit, displaying a map view and setting its region to current location.
-
-1. _DateCell_ demonstrates formatted display of date objects in table cells and use of UIDatePicker to edit those values.
-
-1. _BubbleLevel_ demonstrates how to receive and interpret acceleration information, animate a view, and display a utility view (used for calibration).
-
-1. _KeyboardAccessory_ shows how to use a keyboard accessory view. 
-
-1. _MultipleDetailViews_ shows how you can use UISplitViewController to manage multiple detail views.
 
 1. _TheElements_ provides access to the data contained in the Periodic Table of the Elements.  TheElements provides this data in multiple formats, allowing you to sort the data by name, atomic number, symbol name, and an elements physical state at room temperature.
 The application illustrates the following techniques:
@@ -126,66 +145,36 @@ The application illustrates the following techniques:
    * Flipping view content from front to back
    * Creating a reflection of a view in the interface
 
-
-1. _iPhoneCoreDataRecipes_ shows how you can use view controllers, table views, and Core Data in an iPhone application. The application uses the domain of organizing and presenting recipes to show how you can use the view controller as the organizing unit to manage screenfuls of information, and how you can leverage table views to display and edit data in an elegant fashion.
-   Amongst the techniques shown are how to:
-   * Combine tab bar and navigation controllers to create a complex navigation flow
-   * Customize a navigation bar
-   * Implement custom table view cells that reformat themselves in response to editing, removing unnecessary 
-     information to ensure that the display remains uncluttered
-   * Customize a table header view
-   * Present modal views
-   * Use multiple entities in a Core Data application
-   * Provide a default Core Data persistent store
-
-1. _Accessory_ demonstrates how to implement a custom accessory view for your UITableView in the form of a checkmark button.
-
-1. _AppPrefs_ demonstrates how to display your app's preferences or settings in the "Settings" system application.
-
-1. _AdvencedTableViewCells_ demonstrates several different ways to handle complex UITableViewCells.
-
-1. _AlternateViews_ demonstrates how to implement alternate or distinguishing view controllers for each particular device orientation.
-
+1. _UICatalog_ is a catalog exhibiting many views and controls in the UIKit framework, along with their various properties and styles.
 
 
 ### Graphics & Animation
 
-1. _QuartzDemo_ is an iPhone OS application that demonstrates many of the Quartz2D APIs made available by the CoreGraphics framework. Quartz2D forms the foundation of all drawing on iPhone OS and provides facilities for drawing lines, polygons, curves, images, gradients, PDF and many other graphical facilities.
-
-1. _ViewTransitions_ demonstrates how to perform transitions between two views using built-in Core Animation transitions.
-
 1. _MusicCube_ demonstrates basic use of OpenGL ES, OpenAL, Audio File Services on the iPhone for manipulating sound in a 3D environment.
-
+1. _QuartzDemo_ is an iPhone OS application that demonstrates many of the Quartz2D APIs made available by the CoreGraphics framework. Quartz2D forms the foundation of all drawing on iPhone OS and provides facilities for drawing lines, polygons, curves, images, gradients, PDF and many other graphical facilities.
+1. _ViewTransitions_ demonstrates how to perform transitions between two views using built-in Core Animation transitions.
 
 
 ### Networking & Internet
 
-1. _WiTap_ demonstrates how to achieve network communication between applications. Using Bonjour, the application both advertises itself on the local network and displays a list of other instances of this application on the network.
-
 1. _AdvancedURLConnections_ demonstrates various advanced networking techniques with NSURLConnection. Specifically, it demonstrates how to respond to authentication challenges, how to modify the default server trust evaluation (for example, to support a server with a self-signed certificate), and how to provide client identities.
-
-1. _Reachability_ demonstrates how to use the System Configuration framework to monitor the network state of an iPhone or iPod touch.
-
-1. _SimpleURLConnections_ shows how to do simple networking using the NSURLConnection API.
-
 1. _BonjourWeb_ demonstrates how to find network services that are advertised by Bonjour.
-
+1. _Reachability_ demonstrates how to use the System Configuration framework to monitor the network state of an iPhone or iPod touch.
+1. _SimpleURLConnections_ shows how to do simple networking using the NSURLConnection API.
+1. _WiTap_ demonstrates how to achieve network communication between applications. Using Bonjour, the application both advertises itself on the local network and displays a list of other instances of this application on the network.
 
 
 ### Security
 
 1. _CryptoExercise_ demonstrates the use of the two main Cryptographic API sets on the iPhone OS SDK. 
-
 1. _GenericKeychain_ shows how to navigate through the Keychain Services API provided by iOS. Its demonstration leverages the Generic Keychain Item class and provides a template on how to successfully set up calls to: SecItemAdd, SecItemCopyMatching, SecItemDelete, and SecItemUpdate.
-
 
 
 ### Performance
 
-1. _XMLPerformance_ explores two approaches to parsing XML, focusing on performance with respect to speed, memory footprint, and user experience. 
 1. _TopSongs_ shows you how to import data from XML into Core Data.
 1. _URLCache_ demonstrate how an iPhone application can download a resource off the web, store it in the application's data directory, and use the local copy of the resource.
-
+1. _XMLPerformance_ explores two approaches to parsing XML, focusing on performance with respect to speed, memory footprint, and user experience. 
 
 
 ### Maps
@@ -193,7 +182,6 @@ The application illustrates the following techniques:
 1. _Breadcrumb_ Demonstrates how to draw a path using the Map Kit overlay, MKOverlayView, that follows and tracks the user's current location. The included CrumbPath and CrumbPathView overlay and overlay view classes can be used for any path of points that are expected to change over time.
 1. _KMLViewer_ demonstrates how to use Map Kit's Annotations and Overlays to display KML (Keyhole Markup Language) files on top of an MKMapView.
 1. _WorldCities_ demonstrates basic use of MapKit, including displaying a map view and setting its region. A list of cities are stored in a plist file loaded at launch time.  Each city is represented by a "WorldCity" class which consists of a name, a latitude, and a longitude. 
-
 
 
 ### Audio & Video
