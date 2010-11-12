@@ -12,38 +12,18 @@ Samples
 
 1. _Icons_ demonstrates the proper use of application icons on iOS.
 
+1. _MailComposer_ demonstrates how to target older OS versions while building with newly released APIs. This sample also shows how to use the MessageUI framework to create and send email messages from within your application.
+
 1. _MessageComposer_ demonstrates how to target older OS versions while building with newly released APIs. It also illustrates how to use the MessageUI framework to compose and send email and SMS messages from within your application.
 
 1. _Teslameter_ implements a Teslameter, a magnetic field detector. It displays the raw x, y, and z magnetometer values, a plotted history of those values, and a computed magnitude (size or strength) of the magnetic field.
 
-1. _MailComposer_ demonstrates how to target older OS versions while building with newly released APIs. This sample also shows how to use the MessageUI framework to create and send email messages from within your application.
-
 
 ### Data Management
 
-1. _InternationalMountains_ demonstrates some ways to incorporate and manage localized data in an iPhone application.
+1. _AccelerometerGraph_ graphs the motion of the device. It demonstrates how to use the UIAccelerometer class and how to use Quartz2D and Core Animation to provide a high performance graph view. It also demonstrates a low-pass filter that you can use to isolate the effects of gravity, and a high-pass filter that you can use to remove the effects of gravity.
 
-1. _WhichWayIsUp_ demonstrates how to use a UIViewController to track the orientation of the device. The application draws a small wooden crate that maintains the correct orientation as the user rotates the device.
-
-1. _DateSectionTitles_ shows how to create section information for NSFetchedResultsController using dates.
-
-1. _DocInteraction_ demonstrates how to use UIDocumentInteractionController to obtain information about documents and how to preview them. 
-
-1. _DrillDownSave_ demonstrates how to restore the user's current location in a drill-down list style user interface and restore that location when the app is relaunched. The drill-down or content hierarchy is generated from a plist file called 'outline.plist'.
-
-
-1. _Metronome_ demonstrates how to animate a rotation, interpret touch events, and display a simple application preferences view.
-
-1. _Locations_ represents the completed project from the Core Data Tutorial for iPhone OS. The application displays a list of events, which encapsulate a time stamp and a geographical location expressed in latitude and longitude, and allows the user to add and remove events.
-
-1. _LocateMe_ demonstrates the two primary use cases for the Core Location Framework: getting the user's location and tracking changes to the user's location. 
-
-1. _PhotoLocations_ illustrates a Core Data application that uses more than one entity and uses transformable attributes. 
-    It also shows inferred migration of the persistent store.
-
-1. _Touches_ includes two packages: 
-   * _Touches_Classic_ demonstrates how to handle touches using UIResponder's: touches began, touches moved, and touches ended.
-   * _Touches_GestureRecognizers_ demonstrates how to use UIGestureRecognizers introduced in iPhone OS 4.0 to handle touch events.
+1. _BatteryStatus_ demonstrates the use of the battery status properties and notifications provided via the iPhone OS SDK.
 
 1. _CopyPasteTile_ demonstrates how to implement the copy-cut-paste feature introduced in iPhone OS v3.0.
 
@@ -53,12 +33,30 @@ Samples
    * Undo and redo. 
    * Database initialization.
 
+1. _DateSectionTitles_ shows how to create section information for NSFetchedResultsController using dates.
+
+1. _DocInteraction_ demonstrates how to use UIDocumentInteractionController to obtain information about documents and how to preview them. 
+
+1. _DrillDownSave_ demonstrates how to restore the user's current location in a drill-down list style user interface and restore that location when the app is relaunched. The drill-down or content hierarchy is generated from a plist file called 'outline.plist'.
+
+1. _InternationalMountains_ demonstrates some ways to incorporate and manage localized data in an iPhone application.
+
 1. _LaunchMe_ demonstrates how to register a new URL type. Registering a new URL type allows other applications to interact with yours.
 
-1. _AccelerometerGraph_ graphs the motion of the device. It demonstrates how to use the UIAccelerometer class and how to use Quartz2D and Core Animation to provide a high performance graph view. It also demonstrates a low-pass filter that you can use to isolate the effects of gravity, and a high-pass filter that you can use to remove the effects of gravity.
+1. _Locations_ represents the completed project from the Core Data Tutorial for iPhone OS. The application displays a list of events, which encapsulate a time stamp and a geographical location expressed in latitude and longitude, and allows the user to add and remove events.
 
-1. _BatteryStatus_ demonstrates the use of the battery status properties and notifications provided via the iPhone OS SDK.
+1. _LocateMe_ demonstrates the two primary use cases for the Core Location Framework: getting the user's location and tracking changes to the user's location. 
 
+1. _Metronome_ demonstrates how to animate a rotation, interpret touch events, and display a simple application preferences view.
+
+1. _PhotoLocations_ illustrates a Core Data application that uses more than one entity and uses transformable attributes. 
+    It also shows inferred migration of the persistent store.
+
+1. _Touches_ includes two packages: 
+   * _Touches_Classic_ demonstrates how to handle touches using UIResponder's: touches began, touches moved, and touches ended.
+   * _Touches_GestureRecognizers_ demonstrates how to use UIGestureRecognizers introduced in iPhone OS 4.0 to handle touch events.
+
+1. _WhichWayIsUp_ demonstrates how to use a UIViewController to track the orientation of the device. The application draws a small wooden crate that maintains the correct orientation as the user rotates the device.
 
 
 ### User Experience
@@ -144,7 +142,7 @@ The application illustrates the following techniques:
    * Open a URL to an external web site using Safari
    * Flipping view content from front to back
    * Creating a reflection of a view in the interface
-
+	
 1. _UICatalog_ is a catalog exhibiting many views and controls in the UIKit framework, along with their various properties and styles.
 
 
