@@ -28,10 +28,10 @@ Samples
 1. _CopyPasteTile_ demonstrates how to implement the copy-cut-paste feature introduced in iPhone OS v3.0.
 
 1. _CoreDataBooks_ illustrates a number of aspects of working with the Core Data framework with an iPhone application:
-  * Use of an instance of NSFetchedResultsController object to manage a collection of objects to be displayed in a table view.
-  * Use of a second managed object context to isolate changes during an add operation.
-  * Undo and redo. 
-  * Database initialization.
+    * Use of an instance of NSFetchedResultsController object to manage a collection of objects to be displayed in a table view.
+    * Use of a second managed object context to isolate changes during an add operation.
+    * Undo and redo. 
+    * Database initialization.
 
 1. _DateSectionTitles_ shows how to create section information for NSFetchedResultsController using dates.
 
@@ -53,8 +53,8 @@ Samples
     It also shows inferred migration of the persistent store.
 
 1. _Touches_ includes two packages: 
-  * _Touches_Classic_ demonstrates how to handle touches using UIResponder's: touches began, touches moved, and touches ended.
-  * _Touches_GestureRecognizers_ demonstrates how to use UIGestureRecognizers introduced in iPhone OS 4.0 to handle touch events.
+    * _Touches_Classic_ demonstrates how to handle touches using UIResponder's: touches began, touches moved, and touches ended.
+    * _Touches_GestureRecognizers_ demonstrates how to use UIGestureRecognizers introduced in iPhone OS 4.0 to handle touch events.
 
 1. _WhichWayIsUp_ demonstrates how to use a UIViewController to track the orientation of the device. The application draws a small wooden crate that maintains the correct orientation as the user rotates the device.
 
@@ -81,13 +81,13 @@ Samples
 1. _HeaderFooter_ how to implement and customize the 2 UIView properties of UITableView: header ('tableHeaderView') and footer ('tableFooterView'). It is designed to somewhat resemble the "Contacts" application, showing you ways to design your own header and footer content. It uses the UITableViewStyle: UITableViewStyleGrouped to achieve a more similar appearance as well.
 
 1. _iPhoneCoreDataRecipes_ shows how you can use view controllers, table views, and Core Data in an iPhone application. The application uses the domain of organizing and presenting recipes to show how you can use the view controller as the organizing unit to manage screenfuls of information, and how you can leverage table views to display and edit data in an elegant fashion. Amongst the techniques shown are how to:
-  * Combine tab bar and navigation controllers to create a complex navigation flow
-  * Customize a navigation bar
-  * Implement custom table view cells that reformat themselves in response to editing, removing unnecessary information to ensure that the display remains uncluttered
-  * Customize a table header view
-  * Present modal views
-  * Use multiple entities in a Core Data application
-  * Provide a default Core Data persistent store
+    * Combine tab bar and navigation controllers to create a complex navigation flow
+    * Customize a navigation bar
+    * Implement custom table view cells that reformat themselves in response to editing, removing unnecessary information to ensure that the display remains uncluttered
+    * Customize a table header view
+    * Present modal views
+    * Use multiple entities in a Core Data application
+    * Provide a default Core Data persistent store
 
 1. _KeyboardAccessory_ shows how to use a keyboard accessory view. 
 
@@ -108,33 +108,33 @@ Samples
 1. _TransWeb_ demonstrates how to implement UIWebView with a transparent background.
 
 1. _TableViewSuite_ shows how to use UITableView through a progression of increasingly advanced applications that display information about time zones.
-  * The first example shows a simple list of the time zone names. It shows how to display a simple data set in a table view.
-  * The second example shows the time zones split into sections by region, with the region name as the section heading. It shows how to create an indexed table view.
-  * The third example shows how to set up a table view to display an index. The time zones are separated into sections using UILocalizedIndexedCollation.
+    * The first example shows a simple list of the time zone names. It shows how to display a simple data set in a table view.
+    * The second example shows the time zones split into sections by region, with the region name as the section heading. It shows how to create an indexed table view.
+    * The third example shows how to set up a table view to display an index. The time zones are separated into sections using UILocalizedIndexedCollation.
 
 1. _TableSearch_ demonstrates how to use the UISearchDisplayController object in conjunction with a UISearchBar, effectively filtering in and out the contents of that table. If an iPhone/iPod Touch application has large amounts of table data, this sample shows how to filter it down to a manageable amount if memory usage is a concern or you just want users to scroll through less content in a table.
 
 1. _TableViewUpdates_ demonstrates how you can use animated updates to open and close sections of a table view for viewing, where each section represents a play, and each row contains a quotation from the play. It also uses gesture recognizers to respond to user input:
-  * A UITapGestureRecognizer to allow tapping on the section headers to expand the section;
-  * A UIPinchGestureRecognizer to allow dynamic changes to the height of table view rows; and
-  * A UILongPressGestureRecognizer to allow press-and-hold on table view cells to initiate an email of the quotation.
+    * A UITapGestureRecognizer to allow tapping on the section headers to expand the section;
+    * A UIPinchGestureRecognizer to allow dynamic changes to the height of table view rows; and
+    * A UILongPressGestureRecognizer to allow press-and-hold on table view cells to initiate an email of the quotation.
 
 1. _ToolbarSearch_ shows how to use a search field in a toolbar. When you start a search, a table view displaying recent searches matching the current search string is displayed in a popover.
 
 1. _TopPaid_ demonstrates how to design and build a universal application capable of running on both the iPhone and iPad. It shows the steps needed to make an existing iPhone application universal by introducing two unique user interface designs for both devices, yet using the same data model.
 
 1. _TheElements_ provides access to the data contained in the Periodic Table of the Elements.  TheElements provides this data in multiple formats, allowing you to sort the data by name, atomic number, symbol name, and an elements physical state at room temperature. The application illustrates the following techniques:
-  * Configuring and responding to selections in a tab bar
-  * Displaying information in a tableview using both plain and grouped style table views
-  * Using navigation controllers to navigate deeper into a data structure
-  * Subclassing UIView
-  * Providing a custom UITableViewCell consisting of multiple subviews
-  * Implementing the UITableViewDelegate protocol
-  * Implementing the UITableViewDataSource protocol
-  * Reacting to taps in views
-  * Open a URL to an external web site using Safari
-  * Flipping view content from front to back
-  * Creating a reflection of a view in the interface
+    * Configuring and responding to selections in a tab bar
+    * Displaying information in a tableview using both plain and grouped style table views
+    * Using navigation controllers to navigate deeper into a data structure
+    * Subclassing UIView
+    * Providing a custom UITableViewCell consisting of multiple subviews
+    * Implementing the UITableViewDelegate protocol
+    * Implementing the UITableViewDataSource protocol
+    * Reacting to taps in views
+    * Open a URL to an external web site using Safari
+    * Flipping view content from front to back
+    * Creating a reflection of a view in the interface
 	
 1. _UICatalog_ is a catalog exhibiting many views and controls in the UIKit framework, along with their various properties and styles.
 
