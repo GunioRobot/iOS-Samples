@@ -49,14 +49,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UITextViewDelegate> {
-    
-	UITextView *textView;
-	UIView *accessoryView;
+@interface ViewController : UIViewController <UITextViewDelegate> 
+{    
+	UITextView* textView;
+	UIView*     accessoryView;
 }
 
-@property (nonatomic, retain) IBOutlet UITextView *textView;
-@property (nonatomic, assign) IBOutlet UIView *accessoryView;
+@property (nonatomic, retain) IBOutlet UITextView* textView;
+@property (nonatomic, assign) IBOutlet UIView*     accessoryView;
 
 - (IBAction)tappedMe:(id)sender;
 

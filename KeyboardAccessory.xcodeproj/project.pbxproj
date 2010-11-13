@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D3623260D0F684500981E51 /* KeyboardAccessoryAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* KeyboardAccessoryAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -17,12 +16,23 @@
 		53D3DE9211763723002FCB6E /* AccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53D3DE8C11763723002FCB6E /* AccessoryView.xib */; };
 		53D3DE9311763723002FCB6E /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53D3DE8E11763723002FCB6E /* MainWindow.xib */; };
 		53D3DE9411763723002FCB6E /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53D3DE9011763723002FCB6E /* ViewController.xib */; };
+		856FACCA128E0D3D00BF9257 /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 856FACBF128E0D3D00BF9257 /* Default-Landscape.png */; };
+		856FACCB128E0D3D00BF9257 /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 856FACC0128E0D3D00BF9257 /* Default-Portrait.png */; };
+		856FACCC128E0D3D00BF9257 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 856FACC1128E0D3D00BF9257 /* Default.png */; };
+		856FACCD128E0D3D00BF9257 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 856FACC2128E0D3D00BF9257 /* Default@2x.png */; };
+		856FACCE128E0D3D00BF9257 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 856FACC3128E0D3D00BF9257 /* Icon-72.png */; };
+		856FACCF128E0D3D00BF9257 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 856FACC4128E0D3D00BF9257 /* Icon-Small-50.png */; };
+		856FACD0128E0D3D00BF9257 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 856FACC5128E0D3D00BF9257 /* Icon-Small.png */; };
+		856FACD1128E0D3D00BF9257 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 856FACC6128E0D3D00BF9257 /* Icon-Small@2x.png */; };
+		856FACD2128E0D3D00BF9257 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 856FACC7128E0D3D00BF9257 /* Icon.png */; };
+		856FACD3128E0D3D00BF9257 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 856FACC8128E0D3D00BF9257 /* Icon@2x.png */; };
+		856FACD4128E0D3D00BF9257 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 856FACC9128E0D3D00BF9257 /* iTunesArtwork */; };
+		856FACE1128E0DD900BF9257 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 856FACE0128E0DD900BF9257 /* Settings.bundle */; };
+		85B49D65128E16670037647E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B49D64128E16670037647E /* AppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D3623240D0F684500981E51 /* KeyboardAccessoryAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardAccessoryAppDelegate.h; sourceTree = "<group>"; };
-		1D3623250D0F684500981E51 /* KeyboardAccessoryAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardAccessoryAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* KeyboardAccessory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyboardAccessory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -34,6 +44,20 @@
 		53D3DE8D11763723002FCB6E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AccessoryView.xib; sourceTree = "<group>"; };
 		53D3DE8F11763723002FCB6E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		53D3DE9111763723002FCB6E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		856FACBF128E0D3D00BF9257 /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
+		856FACC0128E0D3D00BF9257 /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
+		856FACC1128E0D3D00BF9257 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		856FACC2128E0D3D00BF9257 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		856FACC3128E0D3D00BF9257 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		856FACC4128E0D3D00BF9257 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		856FACC5128E0D3D00BF9257 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		856FACC6128E0D3D00BF9257 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		856FACC7128E0D3D00BF9257 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		856FACC8128E0D3D00BF9257 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		856FACC9128E0D3D00BF9257 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		856FACE0128E0DD900BF9257 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		85B49D63128E16670037647E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		85B49D64128E16670037647E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* KeyboardAccessory-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KeyboardAccessory-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,8 +78,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1D3623240D0F684500981E51 /* KeyboardAccessoryAppDelegate.h */,
-				1D3623250D0F684500981E51 /* KeyboardAccessoryAppDelegate.m */,
+				85B49D63128E16670037647E /* AppDelegate.h */,
+				85B49D64128E16670037647E /* AppDelegate.m */,
 				2893B149114EFD4D0094356F /* ViewController.h */,
 				2893B14A114EFD4D0094356F /* ViewController.m */,
 			);
@@ -95,10 +119,12 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				856FACE0128E0DD900BF9257 /* Settings.bundle */,
 				53D3DE8C11763723002FCB6E /* AccessoryView.xib */,
 				53D3DE8E11763723002FCB6E /* MainWindow.xib */,
 				53D3DE9011763723002FCB6E /* ViewController.xib */,
 				8D1107310486CEB800E47090 /* KeyboardAccessory-Info.plist */,
+				856FACBE128E0D3D00BF9257 /* Images */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -111,6 +137,24 @@
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		856FACBE128E0D3D00BF9257 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				856FACBF128E0D3D00BF9257 /* Default-Landscape.png */,
+				856FACC0128E0D3D00BF9257 /* Default-Portrait.png */,
+				856FACC1128E0D3D00BF9257 /* Default.png */,
+				856FACC2128E0D3D00BF9257 /* Default@2x.png */,
+				856FACC3128E0D3D00BF9257 /* Icon-72.png */,
+				856FACC4128E0D3D00BF9257 /* Icon-Small-50.png */,
+				856FACC5128E0D3D00BF9257 /* Icon-Small.png */,
+				856FACC6128E0D3D00BF9257 /* Icon-Small@2x.png */,
+				856FACC7128E0D3D00BF9257 /* Icon.png */,
+				856FACC8128E0D3D00BF9257 /* Icon@2x.png */,
+				856FACC9128E0D3D00BF9257 /* iTunesArtwork */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +211,18 @@
 				53D3DE9211763723002FCB6E /* AccessoryView.xib in Resources */,
 				53D3DE9311763723002FCB6E /* MainWindow.xib in Resources */,
 				53D3DE9411763723002FCB6E /* ViewController.xib in Resources */,
+				856FACCA128E0D3D00BF9257 /* Default-Landscape.png in Resources */,
+				856FACCB128E0D3D00BF9257 /* Default-Portrait.png in Resources */,
+				856FACCC128E0D3D00BF9257 /* Default.png in Resources */,
+				856FACCD128E0D3D00BF9257 /* Default@2x.png in Resources */,
+				856FACCE128E0D3D00BF9257 /* Icon-72.png in Resources */,
+				856FACCF128E0D3D00BF9257 /* Icon-Small-50.png in Resources */,
+				856FACD0128E0D3D00BF9257 /* Icon-Small.png in Resources */,
+				856FACD1128E0D3D00BF9257 /* Icon-Small@2x.png in Resources */,
+				856FACD2128E0D3D00BF9257 /* Icon.png in Resources */,
+				856FACD3128E0D3D00BF9257 /* Icon@2x.png in Resources */,
+				856FACD4128E0D3D00BF9257 /* iTunesArtwork in Resources */,
+				856FACE1128E0DD900BF9257 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,8 +234,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				1D3623260D0F684500981E51 /* KeyboardAccessoryAppDelegate.m in Sources */,
 				2893B14B114EFD4D0094356F /* ViewController.m in Sources */,
+				85B49D65128E16670037647E /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,31 +299,31 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"ARCHS[sdk=iphoneos*]" = armv7;
-				"ARCHS[sdk=iphonesimulator*]" = i386;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.2;
-				TARGETED_DEVICE_FAMILY = 2;
+				SDKROOT = iphonesimulator4.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"ARCHS[sdk=iphoneos*]" = armv7;
-				"ARCHS[sdk=iphonesimulator*]" = i386;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.2;
-				TARGETED_DEVICE_FAMILY = 2;
+				SDKROOT = iphonesimulator4.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

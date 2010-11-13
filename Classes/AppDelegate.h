@@ -1,6 +1,6 @@
 
 /*
-     File: KeyboardAccessoryAppDelegate.m
+     File: KeyboardAccessoryAppDelegate.h
  Abstract: Simple application delegate that displays the application's window. 
  
   Version: 1.3
@@ -47,27 +47,35 @@
  
  */
 
-#import "KeyboardAccessoryAppDelegate.h"
-#import "ViewController.h"
+enum textColors
+{
+	blue = 1,
+	red,
+	green
+};
 
-@implementation KeyboardAccessoryAppDelegate
+enum backgroundColors
+{
+	blackBackColor = 1,
+	whiteBackColor,
+	blueBackColor,
+};
 
-@synthesize window;
-@synthesize viewController;
 
+@class ViewController;
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {    
-    
-    [window addSubview:viewController.view];
-    [window makeKeyAndVisible];
+@interface AppDelegate : NSObject <UIApplicationDelegate> 
+{
+  UIWindow*       window;
+  ViewController* viewController;
+
+	NSInteger	      backgroundColor;
+	NSInteger	      textColor;
 }
 
-
-- (void)dealloc {
-    [viewController release];
-    [window release];
-    [super dealloc];
-}
-
+@property (nonatomic, retain) IBOutlet UIWindow*       window;
+@property (nonatomic, retain) IBOutlet ViewController* viewController;
+@property (nonatomic, assign)          NSInteger       backgroundColor;
+@property (nonatomic, assign)          NSInteger       textColor;
 
 @end
