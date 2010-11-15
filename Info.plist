@@ -33,16 +33,16 @@
 	<true/>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
-  <key>UISupportedInterfaceOrientations</key>
+	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortraitTop</string>
+		<string>UIInterfaceOrientationPortraitBottom</string>
 	</array>
 </dict>
 </plist>

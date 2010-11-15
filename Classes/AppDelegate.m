@@ -46,7 +46,7 @@
  
  */
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "ContentController.h"
 
 NSString* kTextColorKey			  = @"textColorKey";
 NSString* kBackgroundColorKey	= @"backgroundColorKey";
@@ -54,7 +54,7 @@ NSString* kBackgroundColorKey	= @"backgroundColorKey";
 
 @implementation AppDelegate
 
-@synthesize window,viewController, backgroundColor, textColor;
+@synthesize window,contentController, backgroundColor, textColor;
 
 
 /**
@@ -117,7 +117,20 @@ NSString* kBackgroundColorKey	= @"backgroundColorKey";
  *
  */
 - (void)applicationDidFinishLaunching:(UIApplication *)application 
-{ [window addSubview:viewController.view];
+{ if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+  {
+    // load the content controller object for Phone-based devices
+    [[NSBundle mainBundle] loadNibNamed:@"Content_iPhone" owner:self options:nil];
+  }
+  else
+  {
+    // load the content controller object for Pad-based devices
+    [[NSBundle mainBundle] loadNibNamed:@"Content_iPad" owner:self options:nil];
+    
+  }
+  
+  [window addSubview:self.contentController.view];
+	
   
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(defaultsChanged:)
@@ -129,15 +142,137 @@ NSString* kBackgroundColorKey	= @"backgroundColorKey";
   [window makeKeyAndVisible];
 } // of applicationDidFinishLaunching()
 
+/**
+ applicationWillTerminate: saves changes in the application's managed object context before the application terminates.
+ */
+- (void)applicationWillTerminate:(UIApplication *)application 
+{ NSError *error;
+ 
+  if (managedObjectContext != nil) 
+  {
+    if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) 
+    {
+			/*
+			 Replace this implementation with code to handle the error appropriately.
+			 
+			 abort() causes the application to generate a crash log and terminate. You should not use this function 
+       in a shipping application, although it may be useful during development. If it is not possible to recover from the error, 
+       display an alert panel that instructs the user to quit the application by pressing the Home button.
+			 */
+      
+			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+			abort();
+    } 
+  }
+}
 
 /**
  *
  */
 - (void)dealloc 
 { [[NSNotificationCenter defaultCenter] removeObserver:self name:NSUserDefaultsDidChangeNotification object:nil];
+
+  [managedObjectContext release];
+  [managedObjectModel release];
+  [persistentStoreCoordinator release];
   
-  [viewController release];
+  [contentController release];
   [window release];
   [super dealloc];
 } // of dealloc()
+
+#pragma mark -
+#pragma mark Application's documents directory
+
+/**
+ Returns the path to the application's documents directory.
+ */
+- (NSString *)applicationDocumentsDirectory 
+{	return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]; }
+
+#pragma mark -
+#pragma mark Core Data stack
+
+
+/**
+ Returns the managed object context for the application.
+ If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
+ */
+- (NSManagedObjectContext *)managedObjectContext 
+{ if (managedObjectContext != nil) 
+    return managedObjectContext;
+	
+  NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+
+  if (coordinator != nil)
+  { managedObjectContext = [NSManagedObjectContext new];
+   
+    [managedObjectContext setPersistentStoreCoordinator: coordinator];
+  }
+  
+  return managedObjectContext;
+}
+
+
+/**
+ Returns the managed object model for the application.
+ If the model doesn't already exist, it is created by merging all of the models found in the application bundle.
+ */
+- (NSManagedObjectModel *)managedObjectModel 
+{ if (managedObjectModel != nil)
+    return managedObjectModel;
+  
+  managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];    
+  
+  return managedObjectModel;
+}
+
+/**
+ Returns the persistent store coordinator for the application.
+ If the coordinator doesn't already exist, it is created and the application's store added to it.
+ */
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator 
+{ if (persistentStoreCoordinator != nil)
+  return persistentStoreCoordinator;
+  
+	NSString *storePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"Notes.sqlite"];
+  
+	/*
+	 Set up the store.
+	 For the sake of illustration, provide a pre-populated default store.
+	 */
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	
+  // If the expected store doesn't exist, copy the default store.
+	if (![fileManager fileExistsAtPath:storePath]) 
+  {	NSString *defaultStorePath = [[NSBundle mainBundle] pathForResource:@"Notes" ofType:@"sqlite"];
+		
+    if (defaultStorePath) 
+			[fileManager copyItemAtPath:defaultStorePath toPath:storePath error:NULL];
+	} // of if
+	
+	NSURL *storeUrl = [NSURL fileURLWithPath:storePath];
+	
+	NSError *error;
+  
+  persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
+  
+  if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]) 
+  {
+		/*
+		 Replace this implementation with code to handle the error appropriately.
+		 
+		 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+		 
+		 Typical reasons for an error here include:
+		 * The persistent store is not accessible
+		 * The schema for the persistent store is incompatible with current managed object model
+		 Check the error message to determine what the actual problem was.
+		 */
+		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+		abort();
+  }    
+  
+  return persistentStoreCoordinator;
+}
 @end

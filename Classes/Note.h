@@ -1,9 +1,8 @@
-
 /*
-     File: KeyboardAccessoryAppDelegate.h
- Abstract: Simple application delegate that displays the application's window. 
+     File: Note.h
+ Abstract: Model class to represent a note.
  
-  Version: 1.3
+  Version: 1.4
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
  Inc. ("Apple") in consideration of your agreement to the following
@@ -47,42 +46,20 @@
  
  */
 
-enum textColors
-{ blue = 1,
-	red,
-	green
-};
-
-enum backgroundColors
-{ blackBackColor = 1,
-	whiteBackColor,
-	blueBackColor,
-};
+@interface TextToDataTransformer : NSValueTransformer 
+{
+}
+@end
 
 
-@class ContentController;
-
-@interface AppDelegate : NSObject <UIApplicationDelegate> 
-{ NSManagedObjectModel*         managedObjectModel;
-  NSManagedObjectContext*       managedObjectContext;	    
-  NSPersistentStoreCoordinator* persistentStoreCoordinator;
-  
-  UIWindow*                     window;
-  ContentController*            contentController;
-
-	NSInteger	                    backgroundColor;
-	NSInteger	                    textColor;
+@interface Note : NSManagedObject 
+{
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow*                      window;
-@property (nonatomic, retain) IBOutlet ContentController*             contentController;
-@property (nonatomic, assign)          NSInteger                      backgroundColor;
-@property (nonatomic, assign)          NSInteger                      textColor;
-
-@property (nonatomic, retain, readonly) NSManagedObjectModel*         managedObjectModel;
-@property (nonatomic, retain, readonly) NSManagedObjectContext*       managedObjectContext;
-@property (nonatomic, retain, readonly) NSPersistentStoreCoordinator* persistentStoreCoordinator;
-
-- (NSString *)applicationDocumentsDirectory;
+@property (nonatomic, retain) NSString*        title;
+@property (nonatomic, retain) NSDate*          created;
+@property (nonatomic, retain) NSDate*          modified;
+@property (nonatomic, retain) NSManagedObject* text;
 
 @end
+
