@@ -131,89 +131,58 @@
    */
 }
 
-// customize the number of rows in the table view
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView 
 {
-	int count = [[self.fetchedResultsController sections] count];
+  NSInteger count = [[fetchedResultsController sections] count];
   
-  /*  
-   [entries count];
-   
-   // if there's no data yet, return enough rows to fill the screen
-   if (count == 0)
-   count = kCustomRowCount;
-   */
-  
+	if (count == 0) 
+		count = 1;
+	
   return count;
 }
 
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
+{ NSInteger numberOfRows = 0;
+	
+  if ([[fetchedResultsController sections] count] > 0) 
+  {
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchedResultsController sections] objectAtIndex:section];
+  
+    numberOfRows = [sectionInfo numberOfObjects];
+  }
+  
+  return numberOfRows;
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	// customize the appearance of table view cells
-	//
-	static NSString *CellIdentifier = @"LazyTableCell";
-  static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
+	static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
   
-  // add a placeholder cell while waiting on table data
-  int nodeCount = 0; // [self.entries count];
-	
-	if (nodeCount == 0 && indexPath.row == 0)
-	{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PlaceholderCellIdentifier];
-    if (cell == nil)
-		{
-      cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                     reuseIdentifier:PlaceholderCellIdentifier] autorelease];   
-      
-      cell.detailTextLabel.textAlignment = UITextAlignmentCenter;
-      cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
-    
-		cell.detailTextLabel.text = @"Loading…";
-		
-		return cell;
-  }
+  Note* note = (Note *)[fetchedResultsController objectAtIndexPath:indexPath];
   
-  return nil;
-  
-/*  
-	
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PlaceholderCellIdentifier];
   if (cell == nil)
-	{
-    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                   reuseIdentifier:CellIdentifier] autorelease];
-  }
+	{ cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:PlaceholderCellIdentifier] autorelease];   
+      
+    cell.detailTextLabel.textAlignment = UITextAlignmentCenter;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+  } // of if
   
-  // Leave cells empty if there's no data yet
-  if (nodeCount > 0)
-	{
-    // Set up the cell...
-    AppRecord *appRecord = [self.entries objectAtIndex:indexPath.row];
-    
-		cell.textLabel.text = appRecord.appName;
-    cell.detailTextLabel.text = appRecord.artist;
-		
-    // Only load cached images; defer new downloads until scrolling ends
-    if (!appRecord.appIcon)
-    {
-      if (self.tableView.dragging == NO && self.tableView.decelerating == NO)
-      {
-        [self startIconDownload:appRecord forIndexPath:indexPath];
-      }
-      // if a download is deferred or in progress, return a placeholder image
-      cell.imageView.image = [UIImage imageNamed:@"Placeholder.png"];                
-    }
-    else
-    {
-      cell.imageView.image = appRecord.appIcon;
-    }
-    
-    cell.accessoryType = UITableViewCellAccessoryNone;
+  if( note!=nil )
+  { cell.detailTextLabel.text = @"bla";
+    cell.textLabel.text = note.title;
   }
-  
+  else 
+  {
+    cell.detailTextLabel.text = @"Details";
+    cell.textLabel.text = @"aa";
+  }
+
+  [note release];
+			
   return cell;
- */
 }
 
 
