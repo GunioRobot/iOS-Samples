@@ -62,12 +62,14 @@
 @class DetailViewController;
 @class ContentController;
 
-@interface NoteListViewController : UITableViewController <UIScrollViewDelegate>
+@interface NoteListViewController : UITableViewController <UIScrollViewDelegate, NSFetchedResultsControllerDelegate>
 {
-  ContentController*   contentController;
+  ContentController*          contentController;
+  NSFetchedResultsController* fetchedResultsController;
 }
 
-@property (nonatomic, retain) ContentController*   contentController;
+@property (nonatomic, retain) ContentController*          contentController;
+@property (nonatomic, retain) NSFetchedResultsController* fetchedResultsController;
 
 
 @end

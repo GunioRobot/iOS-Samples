@@ -50,11 +50,12 @@
 
 @interface ContentController : NSObject
 {
-  NSManagedObjectModel* managedObjectModel;
+  NSManagedObjectContext*       managedObjectContext;
 }
 
-@property (nonatomic, retain) NSManagedObjectModel* managedObjectModel;
+@property (nonatomic, retain) NSManagedObjectContext*       managedObjectContext;
 
 - (UIView *)view;
 
 @end
+

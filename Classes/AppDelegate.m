@@ -129,8 +129,10 @@ NSString* kBackgroundColorKey	= @"backgroundColorKey";
     
   }
   
+  self.contentController.managedObjectContext = self.managedObjectContext;
+  
   [window addSubview:self.contentController.view];
-	
+  
   
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(defaultsChanged:)

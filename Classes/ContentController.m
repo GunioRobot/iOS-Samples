@@ -49,17 +49,17 @@
 
 @implementation ContentController
 
-@synthesize managedObjectModel;
+@synthesize managedObjectContext;
 
 - (void)dealloc
 {
-  [managedObjectModel release];
+  [managedObjectContext release];
   [super dealloc];
 }
 
 - (UIView *)view
 {
-    return nil; // subclasses need to override this with their own view property
+  return nil; // subclasses need to override this with their own view property
 }
 
 @end

@@ -58,6 +58,7 @@
  */
 
 #import "AppDelegate.h"
+#import "Note.h"
 #import "NoteListViewController.h"
 #import "ContentController.h"
 
@@ -68,7 +69,7 @@
 
 @implementation NoteListViewController
 
-@synthesize contentController;
+@synthesize contentController,fetchedResultsController;
 
 
 #pragma mark -
@@ -79,6 +80,15 @@
   [super viewDidLoad];
   
   self.tableView.rowHeight = kCustomRowHeight;
+  
+  NSError *error = nil;
+  
+	if (![[self fetchedResultsController] performFetch:&error]) 
+  {
+		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+
+		abort();
+	}	
   
 }
 
@@ -124,7 +134,7 @@
 // customize the number of rows in the table view
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	int count = 0;
+	int count = [[self.fetchedResultsController sections] count];
   
   /*  
    [entries count];
@@ -154,6 +164,7 @@
 		{
       cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                      reuseIdentifier:PlaceholderCellIdentifier] autorelease];   
+      
       cell.detailTextLabel.textAlignment = UITextAlignmentCenter;
       cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
@@ -217,6 +228,159 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
   
+}
+
+#pragma mark -
+#pragma mark Fetched results controller
+
+- (NSFetchedResultsController *)fetchedResultsController 
+{
+  // Set up the fetched results controller if needed.
+  if (fetchedResultsController == nil) 
+  {
+    NSManagedObjectContext* context = contentController.managedObjectContext;
+    
+    // Create the fetch request for the entity.
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    // Edit the entity name as appropriate.
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+    // Edit the sort key as appropriate.
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"created" ascending:NO];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // Edit the section name key path and cache name if appropriate.
+    // nil for section name key path means "no sections".
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
+                                                                                                managedObjectContext:context 
+                                                                                                  sectionNameKeyPath:nil 
+                                                                                                           cacheName:@"Root"];
+    aFetchedResultsController.delegate = self;
+    self.fetchedResultsController = aFetchedResultsController;
+
+    int sectionCount = [[aFetchedResultsController sections] count];
+    
+    if( sectionCount<1 )
+    { NSLog(@"creating default values...\n");
+      
+      Note*  n = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
+      
+      n.title   = @"title 1";
+      n.created = [NSDate date];
+      
+      NSManagedObject* text = [NSEntityDescription insertNewObjectForEntityForName:@"Text" inManagedObjectContext:context];
+      n.text    = text;
+      
+      // Set the image for the image managed object.
+      [text setValue:@"das ist das haus vom nikolaus" forKey:@"data"];
+      [text setValue:n forKey:@"note"];
+            
+      [n release];
+      [text release];
+
+      n = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
+      
+      n.title   = @"title 2";
+      n.created = [NSDate date];
+      
+      text      = [NSEntityDescription insertNewObjectForEntityForName:@"Text" inManagedObjectContext:context];
+      n.text    = text;
+      
+      // Set the image for the image managed object.
+      [text setValue:@"und nebendran vom weihnachtsmann" forKey:@"data"];
+      [text setValue:n forKey:@"note"];
+      
+      [n release];
+      [text release];
+      
+    } // of if
+
+    [aFetchedResultsController release];
+    [fetchRequest release];
+    [sortDescriptor release];
+    [sortDescriptors release];
+    [entity release];    
+    
+    NSError *error;
+    
+    if ( ![context save:&error]) 
+    {
+			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+			abort();
+    } 
+    
+  } // of if
+	
+	return fetchedResultsController;
+}    
+
+
+/**
+ Delegate methods of NSFetchedResultsController to respond to additions, removals and so on.
+ */
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller 
+{
+	// The fetch controller is about to start sending change notifications, so prepare the table view for updates.
+	[self.tableView beginUpdates];
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller 
+   didChangeObject:(id)anObject 
+       atIndexPath:(NSIndexPath *)indexPath 
+     forChangeType:(NSFetchedResultsChangeType)type 
+      newIndexPath:(NSIndexPath *)newIndexPath 
+{
+	UITableView *tableView = self.tableView;
+	
+	switch(type) 
+  {
+		case NSFetchedResultsChangeInsert:
+			[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+			break;
+			
+		case NSFetchedResultsChangeDelete:
+			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+			break;
+			
+		case NSFetchedResultsChangeUpdate:
+			//[self configureCell:(RecipeTableViewCell *)[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+			break;
+			
+		case NSFetchedResultsChangeMove:
+			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+      [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+      break;
+	}
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller 
+  didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo 
+           atIndex:(NSUInteger)sectionIndex 
+     forChangeType:(NSFetchedResultsChangeType)type 
+{
+	switch(type) 
+  {
+		case NSFetchedResultsChangeInsert:
+			[self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+			break;
+			
+		case NSFetchedResultsChangeDelete:
+			[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+			break;
+	}
+}
+
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller 
+{
+	// The fetch controller has sent all current change notifications, so tell the table view to process all updates.
+	[self.tableView endUpdates];
 }
 
 @end
