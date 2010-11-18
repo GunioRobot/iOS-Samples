@@ -18,6 +18,7 @@ Samples
 
 1. _Teslameter_ implements a Teslameter, a magnetic field detector. It displays the raw x, y, and z magnetometer values, a plotted history of those values, and a computed magnitude (size or strength) of the magnetic field.
 
+1. _EADemo_ shows how to communicate from an iOS 3.x application, with an external accessory using the External Accessory (EA) Framework API.
 
 ### Data Management
 
@@ -179,10 +180,10 @@ Samples
 
 1. _AddMusic_ demonstrates basic use of iPod library access, part of the Media Player framework. 
 
-2. _aurioTouch_ demonstrates use of the remote i/o audio unit for handling audio input and output. The application can display the input audio in one of the forms, 
+1. _aurioTouch_ demonstrates use of the remote i/o audio unit for handling audio input and output. The application can display the input audio in one of the forms, 
 a regular time domain waveform, a frequency domain waveform (computed by performing a fast fourier transform on the incoming signal), and a sonogram view (a view displaying the frequency content of a signal over time, with the color signaling relative power, the y axis being frequency and the x as time). 
 
-3. _avTouch_ demonstrates use of the AV Foundation framework for basic playback of an audio file.
+1. _avTouch_ demonstrates use of the AV Foundation framework for basic playback of an audio file.
 
 Usage
 -----
