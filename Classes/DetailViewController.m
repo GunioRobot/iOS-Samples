@@ -52,6 +52,7 @@
 @implementation DetailViewController
 
 @synthesize textView, accessoryView;
+@dynamic navBar;
 
 
 #pragma mark -

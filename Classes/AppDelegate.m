@@ -118,21 +118,13 @@ NSString* kBackgroundColorKey	= @"backgroundColorKey";
  */
 - (void)applicationDidFinishLaunching:(UIApplication *)application 
 { if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-  {
-    // load the content controller object for Phone-based devices
     [[NSBundle mainBundle] loadNibNamed:@"Content_iPhone" owner:self options:nil];
-  }
   else
-  {
-    // load the content controller object for Pad-based devices
     [[NSBundle mainBundle] loadNibNamed:@"Content_iPad" owner:self options:nil];
-    
-  }
   
   self.contentController.managedObjectContext = self.managedObjectContext;
   
   [window addSubview:self.contentController.view];
-  
   
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(defaultsChanged:)

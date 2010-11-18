@@ -51,11 +51,11 @@
 @interface ContentController : NSObject
 {
   NSManagedObjectContext* managedObjectContext;
-  Note*                   selectedNote;
+  Note*                   note;
 }
 
 @property (nonatomic, retain) NSManagedObjectContext* managedObjectContext;
-@property (nonatomic, retain) Note*                   selectedNote;
+@property (nonatomic, retain) Note*                   note;
 
 - (UIView *)view;
 

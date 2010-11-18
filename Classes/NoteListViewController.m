@@ -60,8 +60,7 @@
 #import "AppDelegate.h"
 #import "Note.h"
 #import "NoteListViewController.h"
-#import "ContentController_iPad.h"
-#import "DetailViewController_iPad.h"
+#import "ContentController.h"
 
 #define kCustomRowHeight    60.0
 #define kCustomRowCount     7
@@ -142,13 +141,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 { Note* note = (Note *)[fetchedResultsController objectAtIndexPath:indexPath];
   
-  contentController.selectedNote = note;
-  
-  UITextView* textView = [(ContentController_iPad*)contentController detailViewController].textView;
-  
-  //NSString* text = [note valueForKey:@"text"];
-  
-  //textView.text = text;
+  contentController.note = note;
 }
 
 /**
@@ -171,8 +164,7 @@
 { NSInteger numberOfRows = 0;
 	
   if ([[fetchedResultsController sections] count] > 0) 
-  {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchedResultsController sections] objectAtIndex:section];
+  { id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchedResultsController sections] objectAtIndex:section];
   
     numberOfRows = [sectionInfo numberOfObjects];
   }
@@ -264,7 +256,7 @@
 - (NSFetchedResultsController *)fetchedResultsController 
 {
   // Set up the fetched results controller if needed.
-  if (fetchedResultsController == nil) 
+  if( fetchedResultsController==nil ) 
   { NSManagedObjectContext* context = contentController.managedObjectContext;
     
     // Create the fetch request for the entity.

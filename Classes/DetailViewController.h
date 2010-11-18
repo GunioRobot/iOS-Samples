@@ -55,6 +55,7 @@
 
 @property (nonatomic, retain) IBOutlet UITextView*      textView;
 @property (nonatomic, assign) IBOutlet UIView*          accessoryView;
+@property (nonatomic, retain) IBOutlet UINavigationBar* navBar;
 
 - (IBAction)tappedMe:(id)sender;
 

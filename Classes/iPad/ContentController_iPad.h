@@ -49,7 +49,7 @@
 
 #import "ContentController.h"
 
-@class DetailViewController_iPad;
+@class DetailViewController;
 @class NoteListViewController;
 
 @interface ContentController_iPad : ContentController <UIPopoverControllerDelegate, UISplitViewControllerDelegate>
@@ -58,7 +58,7 @@
     
   UINavigationController*    navigationController;   // contains our MasterViewController (UITableViewController)
   NoteListViewController*    masterViewController;
-  DetailViewController_iPad* detailViewController;
+  DetailViewController*      detailViewController;
     
   UIPopoverController*       popoverController;
 }
@@ -68,7 +68,7 @@
 @property (nonatomic,retain) IBOutlet UINavigationController*      navigationController;
 @property (nonatomic,retain) IBOutlet NoteListViewController*      masterViewController;
 
-@property (nonatomic,retain) IBOutlet DetailViewController_iPad*   detailViewController;
+@property (nonatomic,retain) IBOutlet DetailViewController*        detailViewController;
 
 @property (nonatomic,retain)          UIPopoverController*         popoverController;
 

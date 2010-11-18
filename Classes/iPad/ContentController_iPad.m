@@ -46,7 +46,7 @@
  */
 
 #import "ContentController_iPad.h"
-#import "DetailViewController_iPad.h"
+#import "DetailViewController.h"
 #import "NoteListViewController.h"
 
 static NSString *buttonTitle = @"Notes Title";
@@ -104,6 +104,9 @@ static NSString *buttonTitle = @"Notes Title";
   }
 }
 
+/**
+ *
+ */
 - (void)dealloc
 { [splitViewController release];
   [masterViewController release];
@@ -115,38 +118,21 @@ static NSString *buttonTitle = @"Notes Title";
   [super dealloc];
 }
 
-// when setting the detail item, update the view and dismiss the popover controller if it's showing
-//
-/*
-
-- (void)setDetailItem:(AppRecord *)newDetailItem
-{
-    if (detailItem != newDetailItem)
-    {
-        [detailItem release];
-        detailItem = [newDetailItem retain];
-        
-        self.detailViewController.appIcon.image = detailItem.appIcon;
-        self.detailViewController.appName.text = detailItem.appName;
-        self.detailViewController.appArtist.text = detailItem.artist;
-        self.detailViewController.appPrice.text = detailItem.price;
-        self.detailViewController.appRights.text = detailItem.rights;
-        self.detailViewController.appReleaseDate.text = detailItem.releaseDate;
-        self.detailViewController.appSummary.text = detailItem.summary;
-        
-        self.detailViewController.appURLButton.hidden = NO;
-        self.detailViewController.appURL = [NSURL URLWithString:detailItem.appURLString];
-
-        [self.detailViewController.appSummary scrollRectToVisible:CGRectMake(0.0, 0.0, 1.0, 1.0) animated:YES];
-        [self.detailViewController.appSummary flashScrollIndicators];
-    }
-    
-    if (self.popoverController != nil)
-    {
-        [self.popoverController dismissPopoverAnimated:YES];
-    }        
-}
+/**
+ * when setting the detail item, update the view and dismiss the popover controller if it's showing
  */
+- (void)setNote:(Note*)newNote
+{ if( note!=newNote )
+  { [note release];
+    note = [newNote retain];
+    
+    detailViewController.textView.text = [[note valueForKey:@"text"] valueForKey:@"data"];
+    [detailViewController.textView flashScrollIndicators];
+  } // of if
+  
+  if( popoverController!=nil )
+    [popoverController dismissPopoverAnimated:YES];
+} // of setNote()
 
 
 #pragma mark -
@@ -164,8 +150,8 @@ static NSString *buttonTitle = @"Notes Title";
 - (void)splitViewController: (UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController
                                                               withBarButtonItem:(UIBarButtonItem *)barButtonItem
                                                            forPopoverController:(UIPopoverController *)pc
-{
-  barButtonItem.title = buttonTitle;
+{ barButtonItem.title = buttonTitle;
+  
   [self.detailViewController.navBar.topItem setLeftBarButtonItem:barButtonItem animated:NO];
   self.popoverController = pc;
 }
@@ -176,8 +162,7 @@ static NSString *buttonTitle = @"Notes Title";
  */
 - (void)splitViewController: (UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController
                                                         invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
-{
-  [self.detailViewController.navBar.topItem setLeftBarButtonItem:nil animated:NO];
+{ [self.detailViewController.navBar.topItem setLeftBarButtonItem:nil animated:NO];
   self.popoverController = nil;
 }
 @end
