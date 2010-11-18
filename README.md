@@ -197,13 +197,12 @@ a regular time domain waveform, a frequency domain waveform (computed by perform
 
 1. _avTouch_ demonstrates use of the AV Foundation framework for basic playback of an audio file.
 
+1. _SysSound_ demonstrates basic use of System Sound Services (declared in AudioToolbox/AudioServices.h) for playing short sounds and invoking vibration.
+
 Usage
 -----
-t.b.d.
+To build a sample, clone the repository and checkout the sample branch.
 
-Testing
--------
-t.b.d.
 
 [apple]: http://developer.apple.com/library/ios/
 
