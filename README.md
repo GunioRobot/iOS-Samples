@@ -179,6 +179,8 @@ Samples
 
 1. _AddMusic_ demonstrates basic use of iPod library access, part of the Media Player framework. 
 
+2. _aurioTouch_ demonstrates use of the remote i/o audio unit for handling audio input and output. The application can display the input audio in one of the forms, 
+a regular time domain waveform, a frequency domain waveform (computed by performing a fast fourier transform on the incoming signal), and a sonogram view (a view displaying the frequency content of a signal over time, with the color signaling relative power, the y axis being frequency and the x as time). 
 
 
 Usage
