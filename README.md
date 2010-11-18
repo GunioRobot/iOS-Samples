@@ -109,6 +109,8 @@ Samples
 
 1. _PageControl_ primarily demonstrates use of UIScrollView's paging functionality to use horizontal scrolling as a mechanism for navigating between different pages of content. With the iPad, this type of user interface is not really necessary since the screen is larger allowing for more content and detailed information.
 
+1. _SimpleDrillDown_ shows how to create a basic drill down interface.
+
 1. _SimpleUndo_ illustrates how to use undo on iPhone.
 
 1. _TransWeb_ demonstrates how to implement UIWebView with a transparent background.
