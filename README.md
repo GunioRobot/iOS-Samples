@@ -182,6 +182,7 @@ Samples
 2. _aurioTouch_ demonstrates use of the remote i/o audio unit for handling audio input and output. The application can display the input audio in one of the forms, 
 a regular time domain waveform, a frequency domain waveform (computed by performing a fast fourier transform on the incoming signal), and a sonogram view (a view displaying the frequency content of a signal over time, with the color signaling relative power, the y axis being frequency and the x as time). 
 
+3. _avTouch_ demonstrates use of the AV Foundation framework for basic playback of an audio file.
 
 Usage
 -----
