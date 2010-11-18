@@ -72,7 +72,6 @@ Samples
 
 1. _AlternateViews_ demonstrates how to implement alternate or distinguishing view controllers for each particular device orientation.
 
-
 1. _BubbleLevel_ demonstrates how to receive and interpret acceleration information, animate a view, and display a utility view (used for calibration).
 
 1. _CurrentAddress_ basic use of MapKit, displaying a map view and setting its region to current location.
@@ -107,6 +106,8 @@ Samples
 1. _Popovers_ demonstrates proper use of UIPopoverController in iOS.
 
 1. _PageControl_ primarily demonstrates use of UIScrollView's paging functionality to use horizontal scrolling as a mechanism for navigating between different pages of content. With the iPad, this type of user interface is not really necessary since the screen is larger allowing for more content and detailed information.
+
+1. _SimpleUndo_ illustrates how to use undo on iPhone.
 
 1. _TransWeb_ demonstrates how to implement UIWebView with a transparent background.
 
