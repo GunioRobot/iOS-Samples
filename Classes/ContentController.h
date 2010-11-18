@@ -44,16 +44,18 @@
  Copyright (C) 2010 Apple Inc. All Rights Reserved. 
   
  */
-
 #import <Foundation/Foundation.h>
 
+@class Note;
 
 @interface ContentController : NSObject
 {
-  NSManagedObjectContext*       managedObjectContext;
+  NSManagedObjectContext* managedObjectContext;
+  Note*                   selectedNote;
 }
 
-@property (nonatomic, retain) NSManagedObjectContext*       managedObjectContext;
+@property (nonatomic, retain) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic, retain) Note*                   selectedNote;
 
 - (UIView *)view;
 

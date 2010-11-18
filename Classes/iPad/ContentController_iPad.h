@@ -54,13 +54,13 @@
 
 @interface ContentController_iPad : ContentController <UIPopoverControllerDelegate, UISplitViewControllerDelegate>
 {   
-    UISplitViewController*     splitViewController;
+  UISplitViewController*     splitViewController;
     
-    UINavigationController*    navigationController;   // contains our MasterViewController (UITableViewController)
-    NoteListViewController*    masterViewController;
-    DetailViewController_iPad* detailViewController;
+  UINavigationController*    navigationController;   // contains our MasterViewController (UITableViewController)
+  NoteListViewController*    masterViewController;
+  DetailViewController_iPad* detailViewController;
     
-    UIPopoverController*       popoverController;
+  UIPopoverController*       popoverController;
 }
 
 @property (nonatomic,retain) IBOutlet UISplitViewController*       splitViewController;

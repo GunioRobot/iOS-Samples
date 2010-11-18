@@ -105,8 +105,7 @@ static NSString *buttonTitle = @"Notes Title";
 }
 
 - (void)dealloc
-{
-  [splitViewController release];
+{ [splitViewController release];
   [masterViewController release];
   [popoverController release];
   [navigationController release];
@@ -153,11 +152,15 @@ static NSString *buttonTitle = @"Notes Title";
 #pragma mark -
 #pragma mark Split view support
 
+/**
+ *
+ */
 - (UIView *)view
-{
-    return self.splitViewController.view;
-}
+{ return self.splitViewController.view; }
 
+/**
+ *
+ */
 - (void)splitViewController: (UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController
                                                               withBarButtonItem:(UIBarButtonItem *)barButtonItem
                                                            forPopoverController:(UIPopoverController *)pc
@@ -168,13 +171,13 @@ static NSString *buttonTitle = @"Notes Title";
 }
 
 
-// called when the view is shown again in the split view, invalidating the button and popover controller
-//
+/**
+ * called when the view is shown again in the split view, invalidating the button and popover controller
+ */
 - (void)splitViewController: (UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController
                                                         invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
 {
   [self.detailViewController.navBar.topItem setLeftBarButtonItem:nil animated:NO];
   self.popoverController = nil;
 }
-
 @end

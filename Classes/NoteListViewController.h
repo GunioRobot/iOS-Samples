@@ -66,6 +66,10 @@
 {
   ContentController*          contentController;
   NSFetchedResultsController* fetchedResultsController;
+
+@private
+  NSDateFormatter*            dateFormatter;
+  
 }
 
 @property (nonatomic, retain) ContentController*          contentController;

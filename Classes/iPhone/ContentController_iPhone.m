@@ -46,20 +46,26 @@
  */
 
 #import "ContentController_iPhone.h"
+#import "NoteListViewController.h"
 
 @implementation ContentController_iPhone
 
-@synthesize navigationController;
+@synthesize navigationController,masterViewController;
+
+- (void)awakeFromNib
+{
+  self.masterViewController.contentController = self;
+}
 
 - (void)dealloc
 {
-    [navigationController release];
-    [super dealloc];
+  [navigationController release];
+  [super dealloc];
 }
 
 - (UIView *)view
 {
-    return self.navigationController.view;
+  return self.navigationController.view;
 }
 
 @end

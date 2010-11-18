@@ -46,14 +46,16 @@
  */
 
 #import "ContentController.h"
+#import "Note.h"
 
 @implementation ContentController
 
-@synthesize managedObjectContext;
+@synthesize managedObjectContext,selectedNote;
 
 - (void)dealloc
 {
   [managedObjectContext release];
+  [selectedNote release];
   [super dealloc];
 }
 

@@ -50,13 +50,16 @@
 
 #import "ContentController.h"
 
+@class NoteListViewController;
 
 @interface ContentController_iPhone : ContentController
 {   
-    UINavigationController *navigationController;
+  UINavigationController* navigationController;
+  NoteListViewController* masterViewController;
 }
 
-@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
+@property (nonatomic,retain) IBOutlet UINavigationController* navigationController;
+@property (nonatomic,retain) IBOutlet NoteListViewController* masterViewController;
 
 - (UIView *)view;
 

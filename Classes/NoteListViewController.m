@@ -60,7 +60,8 @@
 #import "AppDelegate.h"
 #import "Note.h"
 #import "NoteListViewController.h"
-#import "ContentController.h"
+#import "ContentController_iPad.h"
+#import "DetailViewController_iPad.h"
 
 #define kCustomRowHeight    60.0
 #define kCustomRowCount     7
@@ -75,65 +76,86 @@
 #pragma mark -
 #pragma mark UIViewController
 
+/**
+ *
+ */
+- (void)awakeFromNib
+{ NSLog(@"NoteListViewController.awakeFromNib()");
+  
+  dateFormatter = [[NSDateFormatter alloc] init];
+  [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+  [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+}
+
+/**
+ *
+ */
 - (void)viewDidLoad
-{
-  [super viewDidLoad];
+{ [super viewDidLoad];
   
   self.tableView.rowHeight = kCustomRowHeight;
   
   NSError *error = nil;
   
-	if (![[self fetchedResultsController] performFetch:&error]) 
-  {
-		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+	if( ![[self fetchedResultsController] performFetch:&error] ) 
+  { NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 
 		abort();
 	}	
-  
 }
 
+/**
+ *
+ */
 - (void)viewDidUnload
-{
-  [super viewDidUnload];
-  
-}
+{ [super viewDidUnload]; }
 
+/**
+ *
+ */
 - (void)dealloc
-{
-  [contentController release];
+{ [contentController release];
+  [dateFormatter release];
   
   [super dealloc];
 }
 
+/**
+ *
+ */
 - (void)didReceiveMemoryWarning
-{
-  [super didReceiveMemoryWarning];
-  
-}
+{ [super didReceiveMemoryWarning]; }
 
+/**
+ *
+ */
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-{
-  return YES;
-}
+{ return YES; }
 
 
 #pragma mark -
 #pragma mark Table view creation (UITableViewDataSource)
 
+/**
+ *
+ */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-  /*
-   if (entries != nil && entries.count > 0)
-   {
-   AppRecord *app = [entries objectAtIndex:indexPath.row];
-   contentController.detailItem = app;
-   }
-   */
+{ Note* note = (Note *)[fetchedResultsController objectAtIndexPath:indexPath];
+  
+  contentController.selectedNote = note;
+  
+  UITextView* textView = [(ContentController_iPad*)contentController detailViewController].textView;
+  
+  //NSString* text = [note valueForKey:@"text"];
+  
+  //textView.text = text;
 }
 
+/**
+ *
+ */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView 
-{
-  NSInteger count = [[fetchedResultsController sections] count];
+{ NSInteger count = [[fetchedResultsController sections] count];
   
 	if (count == 0) 
 		count = 1;
@@ -142,6 +164,9 @@
 }
 
 
+/**
+ *
+ */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 { NSInteger numberOfRows = 0;
 	
@@ -155,12 +180,11 @@
   return numberOfRows;
 }
 
-
+/**
+ *
+ */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
-  
-  Note* note = (Note *)[fetchedResultsController objectAtIndexPath:indexPath];
+{ static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
   
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PlaceholderCellIdentifier];
   if (cell == nil)
@@ -169,18 +193,17 @@
     cell.detailTextLabel.textAlignment = UITextAlignmentCenter;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
   } // of if
-  
+
+  Note* note = (Note *)[fetchedResultsController objectAtIndexPath:indexPath];
+
   if( note!=nil )
-  { cell.detailTextLabel.text = @"bla";
-    cell.textLabel.text = note.title;
+  { cell.detailTextLabel.text = [dateFormatter stringFromDate:note.created];
+    cell.textLabel.text       = note.title;
   }
   else 
-  {
-    cell.detailTextLabel.text = @"Details";
-    cell.textLabel.text = @"aa";
+  { cell.detailTextLabel.text = @"Details";
+    cell.textLabel.text       = @"aa";
   }
-
-  [note release];
 			
   return cell;
 }
@@ -189,25 +212,60 @@
 #pragma mark -
 #pragma mark Deferred image loading (UIScrollViewDelegate)
 
-// Load images for all onscreen rows when scrolling is finished
+/**
+ *  Load images for all onscreen rows when scrolling is finished
+ */
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
-}
+{ }
 
+/**
+ *
+ */
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-  
-}
+{ }
+
 
 #pragma mark -
 #pragma mark Fetched results controller
+/**
+ *
+ */
+-(void)saveData
+{ NSManagedObjectContext* context = contentController.managedObjectContext;
+  NSError* error=nil;
+  
+  if( ![context save:&error] ) 
+  { NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    
+    abort();
+  } // of if
+} // of if
 
+/**
+ *
+ */
+-(void)addNote:(NSString*)noteText andTitle:(NSString*) title
+{ NSManagedObjectContext* context = contentController.managedObjectContext;
+  Note*                   note    = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:context];
+  NSManagedObject*        text    = [NSEntityDescription insertNewObjectForEntityForName:@"Text" inManagedObjectContext:context];
+  
+  note.title   = title;
+  note.created = [NSDate date];
+  note.text    = text;
+  
+  // Set the image for the image managed object.
+  [text setValue:noteText forKey:@"data"];
+  [text setValue:note     forKey:@"note"];
+} // of addNote()
+
+/**
+ *
+ */
 - (NSFetchedResultsController *)fetchedResultsController 
 {
   // Set up the fetched results controller if needed.
   if (fetchedResultsController == nil) 
-  {
-    NSManagedObjectContext* context = contentController.managedObjectContext;
+  { NSManagedObjectContext* context = contentController.managedObjectContext;
     
     // Create the fetch request for the entity.
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -216,8 +274,8 @@
     [fetchRequest setEntity:entity];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"created" ascending:NO];
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    NSSortDescriptor* sortDescriptor  = [[NSSortDescriptor alloc] initWithKey:@"created" ascending:NO];
+    NSArray*          sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
     
@@ -233,71 +291,42 @@
     int sectionCount = [[aFetchedResultsController sections] count];
     
     if( sectionCount<1 )
-    { NSLog(@"creating default values...\n");
+    { 
+      [self addNote:@"Das ist das Haus" andTitle:@"Das Haus"];
+      [self addNote:@"und nebendran vom Weihnachtsmann" andTitle:@"Vom Nikolaus"];
       
-      Note*  n = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
+      [self saveData];
       
-      n.title   = @"title 1";
-      n.created = [NSDate date];
-      
-      NSManagedObject* text = [NSEntityDescription insertNewObjectForEntityForName:@"Text" inManagedObjectContext:context];
-      n.text    = text;
-      
-      // Set the image for the image managed object.
-      [text setValue:@"das ist das haus vom nikolaus" forKey:@"data"];
-      [text setValue:n forKey:@"note"];
-            
-      [n release];
-      [text release];
-
-      n = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
-      
-      n.title   = @"title 2";
-      n.created = [NSDate date];
-      
-      text      = [NSEntityDescription insertNewObjectForEntityForName:@"Text" inManagedObjectContext:context];
-      n.text    = text;
-      
-      // Set the image for the image managed object.
-      [text setValue:@"und nebendran vom weihnachtsmann" forKey:@"data"];
-      [text setValue:n forKey:@"note"];
-      
-      [n release];
-      [text release];
-      
+      NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
+                                                                                                  managedObjectContext:context 
+                                                                                                    sectionNameKeyPath:nil 
+                                                                                                             cacheName:@"Root"];
+      aFetchedResultsController.delegate = self;
+      self.fetchedResultsController = aFetchedResultsController;      
     } // of if
 
-    [aFetchedResultsController release];
     [fetchRequest release];
     [sortDescriptor release];
     [sortDescriptors release];
-    [entity release];    
-    
-    NSError *error;
-    
-    if ( ![context save:&error]) 
-    {
-			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-			abort();
-    } 
-    
   } // of if
 	
 	return fetchedResultsController;
-}    
+} // of fetchedResultsController()
+
 
 
 /**
- Delegate methods of NSFetchedResultsController to respond to additions, removals and so on.
+ * Delegate methods of NSFetchedResultsController to respond to additions, removals and so on.
  */
-
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller 
 {
 	// The fetch controller is about to start sending change notifications, so prepare the table view for updates.
 	[self.tableView beginUpdates];
 }
 
-
+/**
+ *
+ */
 - (void)controller:(NSFetchedResultsController *)controller 
    didChangeObject:(id)anObject 
        atIndexPath:(NSIndexPath *)indexPath 
@@ -321,13 +350,15 @@
 			break;
 			
 		case NSFetchedResultsChangeMove:
-			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]    withRowAnimation:UITableViewRowAnimationFade];
       [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
       break;
 	}
 }
 
-
+/**
+ *
+ */
 - (void)controller:(NSFetchedResultsController *)controller 
   didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo 
            atIndex:(NSUInteger)sectionIndex 
@@ -345,7 +376,9 @@
 	}
 }
 
-
+/**
+ *
+ */
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller 
 {
 	// The fetch controller has sent all current change notifications, so tell the table view to process all updates.
