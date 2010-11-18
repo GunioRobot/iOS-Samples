@@ -127,6 +127,11 @@ Samples
     * A UIPinchGestureRecognizer to allow dynamic changes to the height of table view rows; and
     * A UILongPressGestureRecognizer to allow press-and-hold on table view cells to initiate an email of the quotation.
 
+1. _TouchCells_ demonstrates how to implement trackable-settable UIControls embedded in a UITableView. 
+This approach is handy if an application already uses its accessory view to the right of the table cell, but still wants a check mark view that supports 
+toggling states of individual row items. The green check mark on the left provides this need which is trackable (checked/unchecked) independent of table selection. 
+This is a similar user interface to that of Mail's Inbox table where mail items can be individually checked and unchecked for deletion.
+
 1. _ToolbarSearch_ shows how to use a search field in a toolbar. When you start a search, a table view displaying recent searches matching the current search string is displayed in a popover.
 
 1. _TopPaid_ demonstrates how to design and build a universal application capable of running on both the iPhone and iPad. It shows the steps needed to make an existing iPhone application universal by introducing two unique user interface designs for both devices, yet using the same data model.
