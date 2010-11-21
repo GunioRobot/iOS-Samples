@@ -1,0 +1,43 @@
+::-webkit-scrollbar {
+    width: 13px;
+}
+
+::-webkit-scrollbar:vertical {
+    background-image: -webkit-gradient(linear, left 0, right 0, from(#D6D6D6), to(#AAA));
+    border-left: 1px solid #A9A9A9;
+}
+
+::-webkit-scrollbar-track-piece:vertical {
+    background-color: #E8E8E8;
+    background-image: -webkit-gradient(linear, left 0, right 0, from(#C7C7C7), to(#F3F3F3));
+    margin-top: 6px;
+    -webkit-border-radius: 6px;
+    border: 1px solid #B8B8B8;
+    border-right-width: 0;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    background-image: -webkit-gradient(linear, left 0, right 0, from(#9CA9BD), to(#627290));
+    -webkit-border-radius: 6px;
+	border: 1px solid #5C6881;
+    
+}
+::-webkit-scrollbar-thumb:vertical:window-inactive {
+    background-image: -webkit-gradient(linear, left 0, right 0, from(#D6D6D6), to(#AAA));
+	border-color: #878786;
+}
+
+::-webkit-scrollbar-button:end{
+    display: block;
+}
+::-webkit-scrollbar-button:end:active{
+    background-image: -webkit-gradient(linear, left 0, right 0, from(#9CA9BD), to(#627290));
+}
+
+::-webkit-scrollbar-button:vertical:decrement{
+    border-bottom: 1px solid rgba(30,30,30,0.2);
+    background: url(Images/scrollbarUpTriangle.png) no-repeat center center;
+}
+::-webkit-scrollbar-button:vertical:increment{
+    background: url(Images/scrollbarDownTriangle.png) no-repeat center center;
+}
