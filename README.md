@@ -10,7 +10,11 @@ Samples
 
 ### General
 
+1. _iAdSuite_ demonstrates how to manage ADBannerViews in three common scenarios, an application with a single view controller (BasicAdBanner), an application that uses a UITabBarViewController (AdBannerTabbed), and an application that uses a UINavigationViewController (AdBannerNavigation).
+
 1. _Icons_ demonstrates the proper use of application icons on iOS.
+
+1. _EADemo_ shows how to communicate from an iOS 3.x application, with an external accessory using the External Accessory (EA) Framework API.
 
 1. _MailComposer_ demonstrates how to target older OS versions while building with newly released APIs. This sample also shows how to use the MessageUI framework to create and send email messages from within your application.
 
@@ -18,7 +22,7 @@ Samples
 
 1. _Teslameter_ implements a Teslameter, a magnetic field detector. It displays the raw x, y, and z magnetometer values, a plotted history of those values, and a computed magnitude (size or strength) of the magnetic field.
 
-1. _EADemo_ shows how to communicate from an iOS 3.x application, with an external accessory using the External Accessory (EA) Framework API.
+1. _Trailers_ is a Dashcode Project contains the Trailer web application built on stage at WWDC 09 Session 208. It fetches an RSS feed from Apple's trailers website, and then populates the UI with it, letting you browse and watch trailers of the upcoming movies.
 
 ### Data Management
 
@@ -55,7 +59,11 @@ Samples
 
 1. _QuickContacts_ demonstrates how to use the Address Book UI controllers and various properties such as displayedProperties, allowsAddingToAddressBook, and displayPerson.
 
+1. _SeismicXML_ demonstrates how to use NSXMLParser to parse XML data.
+
 1. _SimpleEKDemo_ shows how to use EventKit and EventKitUI frameworks to access and edit calendar data in the Calendar database.
+
+1. _TaggedLocations_ illustrates how to manipulate attributes and relationships in an iPhone application.
 
 1. _Touches_ includes two packages: 
     * _Touches_Classic_ demonstrates how to handle touches using UIResponder's: touches began, touches moved, and touches ended.
@@ -109,7 +117,12 @@ Samples
 
 1. _PageControl_ primarily demonstrates use of UIScrollView's paging functionality to use horizontal scrolling as a mechanism for navigating between different pages of content. With the iPad, this type of user interface is not really necessary since the screen is larger allowing for more content and detailed information.
 
+1. _Scrolling_ demonstrates how to implement two different style UIScrollViews. 
+The first scroller contains multiple images, showing how to layout large content with multiple chunks of data (in our case 5 separate UIImageViews).
+
 1. _SimpleDrillDown_ shows how to create a basic drill down interface.
+
+1. _SimpleGestureRecognizers_ shows how to use standard gesture recognizers.
 
 1. _SimpleUndo_ illustrates how to use undo on iPhone.
 
@@ -156,14 +169,30 @@ This is a similar user interface to that of Mail's Inbox table where mail items 
 
 1. _MusicCube_ demonstrates basic use of OpenGL ES, OpenAL, Audio File Services on the iPhone for manipulating sound in a 3D environment.
 1. _QuartzDemo_ is an iPhone OS application that demonstrates many of the Quartz2D APIs made available by the CoreGraphics framework. Quartz2D forms the foundation of all drawing on iPhone OS and provides facilities for drawing lines, polygons, curves, images, gradients, PDF and many other graphical facilities.
+
+1. _PVRTextureLoader_ illustrates how to load a PVR texture file using the included PVRTexture class and then display it using OpenGL ES.
+
+1. _Reflection_ shows how to implement a "reflection" special effect on a given UIImageView most commonly seen in iTunes and iPod player apps.
+
 1. _ViewTransitions_ demonstrates how to perform transitions between two views using built-in Core Animation transitions.
 
+1. _ZoomingPDFViewer_ demonstrates how to build a PDF viewer that supports zooming in or out at any level of zooming.
 
 ### Networking & Internet
 
 1. _AdvancedURLConnections_ demonstrates various advanced networking techniques with NSURLConnection. Specifically, it demonstrates how to respond to authentication challenges, how to modify the default server trust evaluation (for example, to support a server with a self-signed certificate), and how to provide client identities.
 1. _BonjourWeb_ demonstrates how to find network services that are advertised by Bonjour.
+
+1. _MVCNetworking_ is a sample that shows how to create a network application using the Model-View-Controller design pattern.  Specifically, it displays a photo gallery by getting the gallery's XML description, thumbnails and photos from a web server, and uses Core Data to cache this information locally.
+
 1. _Reachability_ demonstrates how to use the System Configuration framework to monitor the network state of an iPhone or iPod touch.
+
+1. _SimpleFTPSample_ shows how to do simple FTP transfers using the NSURLConnection and CFFTPStream APIs.
+
+1. _SimpleNetworkStreams_ shows how to do simple networking using the NSStream API.  
+The goal of this sample is very limited: it does not demonstrate everything you need to implement a fully fledged networking product (more on this below), rather, 
+it focuses on using the NSStream API to move a realistic amount of data across the network.
+
 1. _SimpleURLConnections_ shows how to do simple networking using the NSURLConnection API.
 1. _WiTap_ demonstrates how to achieve network communication between applications. Using Bonjour, the application both advertises itself on the local network and displays a list of other instances of this application on the network.
 
@@ -185,6 +214,9 @@ This is a similar user interface to that of Mail's Inbox table where mail items 
 
 1. _Breadcrumb_ Demonstrates how to draw a path using the Map Kit overlay, MKOverlayView, that follows and tracks the user's current location. The included CrumbPath and CrumbPathView overlay and overlay view classes can be used for any path of points that are expected to change over time.
 1. _KMLViewer_ demonstrates how to use Map Kit's Annotations and Overlays to display KML (Keyhole Markup Language) files on top of an MKMapView.
+
+1. _WeatherMap_ demonstrates the use of the MapKit framework, displaying a map view with custom MKAnnotationViews.  
+
 1. _WorldCities_ demonstrates basic use of MapKit, including displaying a map view and setting its region. A list of cities are stored in a plist file loaded at launch time.  Each city is represented by a "WorldCity" class which consists of a name, a latitude, and a longitude. 
 
 
@@ -197,7 +229,19 @@ a regular time domain waveform, a frequency domain waveform (computed by perform
 
 1. _avTouch_ demonstrates use of the AV Foundation framework for basic playback of an audio file.
 
+1. _iPhoneMultichannelMixerTest_ demonstrates how to build an Audio Unit Graph connecting a MultiChannel Mixer instance to the RemoteIO unit.
+
+1. _iPhoneMixerEQGraphTest_ demonstrates how to build an Audio Unit Graph connecting a MultiChannel Mixer to the iPodEQ unit then to the RemoteIO unit.
+
+1. _iPhoneExtAudioFileConvertTest_ demonstrates the use of the ExtAudioFile API to convert from one audio format and file type to another.
+
+1. _MoviePlayer_iPhone_ demonstrates how to use the Media Player Framework to play a movie full-screen.
+
+1. _SpeakHere_ demonstrates basic use of Audio Queue Services, Audio File Services, and Audio Session Services on the iPhone and iPod touch for recording and playing back audio.
+
 1. _SysSound_ demonstrates basic use of System Sound Services (declared in AudioToolbox/AudioServices.h) for playing short sounds and invoking vibration.
+
+1. _oalTouch_ demonstrates basic use of OpenAL, Audio File Services, Core Animation, and Core Graphics Services on the iPhone for manipulating sound in a spatial environment.
 
 Usage
 -----
