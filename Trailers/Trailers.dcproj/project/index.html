@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Trailers</title>
+    <!--[if IE]><script>document.write('<base href="' + location.protocol + '//' + location.host + location.pathname.replace(/\/[^\/]*$/, '/safari/') + '"/>')</script><![endif]-->
+    <base href="safari/">
+    <script id="DC_baseScript">if(navigator.userAgent.indexOf('AppleWebKit/') == -1) document.write('<base href="' + location.protocol + '//' + location.host + location.pathname.replace(/\/[^\/]*$/, '/safari/') + '"/>')</script>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="scrollbars.css">
+    <link rel="stylesheet" type="text/css" href="../Parts/Transitions.css">
+    <link rel="icon" href="Images/Favicon.ico" sizes="32x32 16x16">
+    <script type="text/javascript" src="../Parts/redirector.js"></script>
+    <script type="text/javascript" src="Parts/parts.js" charset="utf-8"></script>
+    <script type="text/javascript" src="main.js" charset="utf-8"></script>
+</head>
+<body onload="load();">
+    <div id="splitLayout" apple-part="com.apple.Dashcode.part.splitlayout">
+        <div id="leftView" apple-part="com.apple.Dashcode.part.box" apple-part-locked="true">
+            <div id="header" apple-part="com.apple.Dashcode.part.rectanglewebshape" apple-style="image-theme: 1; image-shape: 3; image-button-type: 3; image-opacity: 1.00; image-top-color: 0.967391304,0.967391304,0.967391304,1; image-bottom-color: 0.6154,0.6154,0.6154,1; image-radius: 0,0,0,0; image-border: 0; image-border-color: 0.5294,0.5294,0.5294,1; image-border-width: 0; shine-strength: 0.90; shine-alpha-level: 0.67; shine-height: 0.50; glass-arc-height: 0.06; shadow-include-shadow: 0;">
+                <input id="search" type="search" value="" placeholder="Search..." results="10" incremental="incremental" class="apple-textfield apple-no-children" apple-part="com.apple.Dashcode.part.searchfield" name="">
+            </div>
+            <div id="listContainer" apple-part="com.apple.Dashcode.part.box">
+                <ul id="trailersList" apple-part="com.apple.Dashcode.part.widgetList" class="">
+                    <li id="listRowTemplate" apple-template="true" class="listRowTemplate_template first" style="">
+                        <div id="rowTitle" apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children rowTitle_template" apple-text-overflow="ellipsis"></div>
+                        <div id="rowPoster" apple-part="com.apple.Dashcode.part.imageLayout" apple-group="image" class="rowPoster_template">
+                            <img id="DC_img" class="apple-hidden DC_img_template" apple-group="image">
+                        </div>
+                        <div id="divider" apple-part="com.apple.Dashcode.part.box" class="divider_template"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="splitter" apple-part="com.apple.Dashcode.part.splitlayoutdivider" apple-style="image-theme: 0; image-shape: 3; image-button-type: 3; image-opacity: 1.00; image-top-color: 0.547773242,0.547857165,0.547733247,1; image-bottom-color: 0.98,0.98,0.98,1; image-radius: 0,0,0,0; image-border: 0; image-border-color: 0.587518096,0.587518096,0.587518096,1; image-border-width: 1; shine-strength: 0.90; shine-alpha-level: 0.67; shine-height: 0.50; glass-arc-height: 0.06; shadow-include-shadow: 0;" apple-group="splitter">
+        </div>
+        <div id="rightView" apple-part="com.apple.Dashcode.part.box" apple-part-locked="true">
+            <div id="stackLayout" apple-part="com.apple.Dashcode.part.StackLayout"><div id="detailsView" apple-part-locked="true" style="">
+                    <div id="detailBox" apple-part="com.apple.Dashcode.part.desktopBox" apple-group="detailBox">
+                        <div id="detailTitle" apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-default-image-visibility="hidden" apple-text-overflow="ellipsis"></div>
+                        <div id="detailDirector" apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-default-image-visibility="hidden" apple-text-overflow="ellipsis"></div>
+                        <div id="detailDescription" apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-default-image-visibility="hidden" apple-text-overflow="ellipsis"></div>
+                        <div id="detailPoster" apple-part="com.apple.Dashcode.part.imageLayout" apple-group="detailPoster">
+                            <img id="DC_img1" class="apple-hidden invalid" apple-group="detailPoster">
+                        </div>
+                        <div id="rating" apple-part="com.apple.Dashcode.part.imageLayout" apple-group="image">
+                            <img id="DC_img2" class="apple-hidden" apple-group="image">
+                        </div>
+                        <div id="playButton" apple-part="com.apple.Dashcode.part.pushbutton" class="apple-no-children" apple-text-overflow="ellipsis" apple-style="image-theme: 0; image-shape: 3; image-button-type: 0; image-opacity: 1.00; image-top-color: 0.203007472,0.312321321,0.445652174,1; image-bottom-color: 1,1,1,1; image-radius: 5,5,5,5; image-border: 1; image-border-color: 0,0,0,0.2; image-border-width: 1; shine-on: 1; shine-strength: 0.17; shine-alpha-level: 0.04; shine-height: 0.50; glass-arc-height: 0.00; embossed-on: 1; embossed-depth: 1; embossed-shadow: 0.68; embossed-highlight: 0.3; shadow-include-shadow: 0;"></div>
+                    </div>
+                </div><div id="videoView" apple-part-locked="true" style="">
+                    <div id="spots" apple-part="com.apple.Dashcode.part.box"></div>
+                    <div id="video" apple-part="com.apple.Dashcode.part.videoLayout" apple-default-image-visibility="hidden" apple-group="video">
+                        <video id="dc_ivideo" class="apple-hidden" controls="" apple-group="video"><!--[if IE]><object id="_ie_event_984943658" classid="clsid:CB927D12-4FF7-4a9e-A169-56E4B8A75598"></object><![endif]-->
+                            <object classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" apple-group="video" codebase="http://www.apple.com/qtactivex/qtplugin.cab" height="100%" width="100%" style="behavior:url(#_ie_event_984943658);">
+                                <param name="src" value="">
+                                <param name="href" value="">
+                                <param name="enablejavascript" value="true">
+                                <param name="postdomevents" value="true">
+                                <param name="scale" value="aspect">
+                                <param name="loop" value="false">
+                                <param name="autoplay" value="false">
+                                <param name="controller" value="true">
+                                <embed src="" pluginspage="http://www.apple.com/quicktime/download/" apple-group="video" enablejavascript="true" postdomevents="true" type="video/quicktime" target="myself" scale="aspect" style="width:100%;height:100%" height="100%" width="100%">
+                            </object>
+                        </video>
+                    </div>
+                    <div id="backButton" apple-part="com.apple.Dashcode.part.bottomrectanglewebshape" apple-style="image-theme: 1; image-shape: 10; image-button-type: 3; image-opacity: 1.00; image-top-color: 0.581600796,0.59348186,0.608695652,1; image-bottom-color: 0.854936016,0.862669403,0.885869565,1; image-radius: -1,-1,9,9; image-border: 1; image-border-color: 0.668478261,0.668478261,0.668478261,1; image-border-width: 1; shine-strength: 0.90; shine-alpha-level: 0.67; shine-height: 0.50; glass-arc-height: 0.06; shadow-include-shadow: 0;" onclick="toggleStackLayout(event)">
+                        <div id="text" apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-default-image-visibility="hidden" apple-text-overflow="ellipsis" apple-style="part-height-dependent: true;"></div>
+                    </div>
+                </div></div>
+            <div id="seats" apple-part="com.apple.Dashcode.part.box"></div>
+        </div>
+    </div>
+</body>
+</html>
