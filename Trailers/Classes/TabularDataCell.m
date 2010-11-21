@@ -1,6 +1,6 @@
 /*
-     File: main.m
- Abstract: Entry point for application. Creates the application object and causes the event loop to start.
+     File: TabularDataCell.m
+ Abstract: The table cell presenting the formula data in tabular form
   Version: 1.2
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
@@ -45,11 +45,47 @@
  
 */
 
+#import "TabularDataCell.h"
 
-int main(int argc, char *argv[]) 
-{    
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
-    [pool release];
-    return retVal;
+@implementation TabularDataCell
+
+@synthesize row;
+@synthesize formulaConstant;
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if ( self == nil )
+    {
+        return nil;
+    }
+    
+    label1 = [[UILabel alloc] initWithFrame:CGRectMake(5, 10, 100, 30)];
+    [label1 setFont:[UIFont fontWithName:@"Arial" size:14]];
+    [self addSubview:label1];
+    [label1 release];
+    
+    label2 = [[UILabel alloc] initWithFrame:CGRectMake(105, 10, 100, 30)];
+    [label2 setFont:[UIFont fontWithName:@"Courier" size:18]];
+    [self addSubview:label2];
+    [label2 release];
+    
+    return self;
 }
+
+- (void)setRow:(NSInteger)r
+{
+    row = r;
+    
+    // normalize from r/100 rows to an x value between -2∏ -> 2∏
+    CGFloat x = ((row / 100.0) * 4*M_PI) - (2*M_PI);
+    CGFloat fx = formulaConstant * x * sin(x);
+    
+    label1.text = [NSString stringWithFormat:@"f(%.2f) = ",x];
+    label2.text = [NSString stringWithFormat:@"%0.5f",fx]; 
+    
+    // update the accessibility label with an appropriate string representing the data succinctly
+    [self setAccessibilityLabel:[NSString stringWithFormat:@"f of %.2f equals %.2f",x, fx]];
+}
+
+@end

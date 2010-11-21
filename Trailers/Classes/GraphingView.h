@@ -1,6 +1,6 @@
 /*
-     File: main.m
- Abstract: Entry point for application. Creates the application object and causes the event loop to start.
+     File: GraphingView.h
+ Abstract: Graphing View, the class responsible for drawing the graph, based on the formula
   Version: 1.2
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
@@ -45,11 +45,17 @@
  
 */
 
+#import <QuartzCore/QuartzCore.h>
 
-int main(int argc, char *argv[]) 
-{    
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
-    [pool release];
-    return retVal;
+@interface GraphingView : UIControl 
+{
+@private
+    CAShapeLayer *shapeLayer;
+    CGFloat formulaConstant;
+    
+    NSMutableArray *accessibilityChildren;
 }
+
+@property(assign) CGFloat formulaConstant;
+
+@end

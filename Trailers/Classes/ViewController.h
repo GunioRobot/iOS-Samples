@@ -1,6 +1,6 @@
 /*
-     File: main.m
- Abstract: Entry point for application. Creates the application object and causes the event loop to start.
+     File: ViewController.h
+ Abstract: View controller, the main view controller of the app
   Version: 1.2
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
@@ -45,11 +45,36 @@
  
 */
 
+#import "GraphingView.h"
 
-int main(int argc, char *argv[]) 
-{    
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
-    [pool release];
-    return retVal;
+@interface ViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource> 
+{
+@private
+    // Main View
+    IBOutlet GraphingView *graphingView;
+    IBOutlet UITextField *valueField;
+    IBOutlet UISlider *slider;
+    IBOutlet UILabel *resultLabel;
+    IBOutlet UIButton *stopWatch;
+    
+    // Tabular Data slide in view
+    IBOutlet UIView *tabularDataView;
+    IBOutlet UITableView *tabularDataTableView;
+    
+    BOOL stopWatchStateOn;
+    BOOL stopWatchDirectionUp;
+    BOOL shouldUpdateGraph;
 }
+
+- (IBAction)sliderWasChanged:(id)sender;
+
+- (IBAction)stopWatchButtonWasPressed:(id)sender;
+- (IBAction)tableButtonWasPressed:(id)sender;
+
+- (IBAction)textFieldChanged:(id)sender;
+- (IBAction)touchesEndedForGraphingView:(id)sender event:(UIEvent *)event;
+
+- (IBAction)doneButtonPressed;
+
+@end
+

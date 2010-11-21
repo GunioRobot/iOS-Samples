@@ -1,6 +1,6 @@
 /*
-     File: main.m
- Abstract: Entry point for application. Creates the application object and causes the event loop to start.
+     File: TabularDataCell.h
+ Abstract: The table cell presenting the formula data in tabular form
   Version: 1.2
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
@@ -45,11 +45,15 @@
  
 */
 
-
-int main(int argc, char *argv[]) 
-{    
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
-    [pool release];
-    return retVal;
+@interface TabularDataCell : UITableViewCell 
+{
+    UILabel *label1;
+    UILabel *label2;
+    NSInteger row;
+    CGFloat formulaConstant;
 }
+
+@property(assign) NSInteger row;
+@property(assign) CGFloat formulaConstant;
+
+@end

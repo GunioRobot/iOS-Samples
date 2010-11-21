@@ -1,6 +1,6 @@
 /*
-     File: main.m
- Abstract: Entry point for application. Creates the application object and causes the event loop to start.
+     File: AppDelegate.m
+ Abstract: Application delegate
   Version: 1.2
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
@@ -45,11 +45,25 @@
  
 */
 
+#import "AppDelegate.h"
+#import "ViewController.h"
 
-int main(int argc, char *argv[]) 
-{    
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
-    [pool release];
-    return retVal;
+@implementation AppDelegate
+
+@synthesize window;
+@synthesize viewController;
+
+- (void)applicationDidFinishLaunching:(UIApplication *)application 
+{        
+    [window addSubview:viewController.view];
+    [window makeKeyAndVisible];
 }
+
+- (void)dealloc 
+{
+    [viewController release];
+    [window release];
+    [super dealloc];
+}
+
+@end

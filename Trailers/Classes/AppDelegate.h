@@ -1,6 +1,6 @@
 /*
-     File: main.m
- Abstract: Entry point for application. Creates the application object and causes the event loop to start.
+     File: AppDelegate.h
+ Abstract: Application delegate
   Version: 1.2
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
@@ -45,11 +45,17 @@
  
 */
 
+@class ViewController;
 
-int main(int argc, char *argv[]) 
-{    
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
-    [pool release];
-    return retVal;
+@interface AppDelegate : NSObject <UIApplicationDelegate> 
+{
+@private
+    UIWindow *window;
+    ViewController *viewController;
 }
+
+@property(nonatomic, retain) IBOutlet UIWindow *window;
+@property(nonatomic, retain) IBOutlet ViewController *viewController;
+
+@end
+

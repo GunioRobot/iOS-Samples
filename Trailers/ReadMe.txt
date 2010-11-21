@@ -1,54 +1,105 @@
-GKRocket
+### Formulaic ###
 
 ================================================================================
 DESCRIPTION:
 
-The GKRocket sample application demonstrates the major features of GameKit.  It uses GKSession and GKVoiceChatService in a two player networked voice enabled game.
+Formulaic is a sample iPhone app that illustrates how to effectively use the
+iPhone Accessibility API. Using the Accessibility API allows your app to work
+correctly with VoiceOver.
 
-The code demonstrates using GKSession to connect devices without using PeerPicker.  It shows how to use GKSession to set up a GKVoiceChatService between two peers, as well as how to send both voice and game data over the GKSession.  Build the game simply by opening it with Xcode and clicking on Build and Go.
+The app draws a graph of a formula and allows the user to change certain
+constants in the formula, however its main purpose is to illustrate the
+iPhone Accessibility API.
 
-To play the game, use two devices or Simulators with microphones.  Both devices must be on the same network or within Bluetooth range to see each other.  Available peers will appear in the peer list.  Upon selecting a peer, the peer will be asked to accept or reject the invitation.  If the peer accepts, both players will enter the game screen, in which each player controls the thrust of their rocket by yelling into the microphone on the device.
+The accessibility additions in the app demonstrate the following:
+    How to use accessibilityLabel, accessibilityTraits and
+        isAccessibilityElement to control the accessibility of the app.
+    How to programmatically set values through accessibility to change 
+        various accessibility attributes.
+    How to use notifications to inform accessibility that an event has
+        occurred.
+    How to use the accessibility container protocol to transform a single
+        UIView that has multiple components into separate accessible elements.
+    How to use best practices to craft accessibilityLabels and
+        accessibilityHints correctly.
 
-The goal is to bounce a ball into the other player's end of the screen to score points and prevent the ball from going into their own end of the screen.  Players can talk without thrusting their rockets by touching the screen.  Untouching resumes thrusting.
+To test the application, build and run Formulaic in iPhone Simulator. Turn on 
+Accessibility Inspector, located in Settings > General > Accessibility.
+While Accessibility Inspector is active, single-click a user interface element 
+to inspect its accessibility information and double-click an element to 
+activate it.
+
+Alternatively, sync Formulaic to iPhone and turn on VoiceOver. Touch the 
+user interface elements to hear how the accessibility information is presented
+to a VoiceOver user.
 
 ===========================================================================
+RELATED INFORMATION:
+
+Accessibility Programming Guide for iPhone OS 
+http://developer.apple.com/iPhone/library/documentation/UserExperience/Conceptual/iPhoneAccessibility/Accessibility_on_iPhone/Accessibility_on_iPhone.html
+
+Testing the Accessibility of Your iPhone Application 
+http://developer.apple.com/iPhone/library/documentation/UserExperience/Conceptual/iPhoneAccessibility/Testing_Accessibility/Testing_Accessibility.html
+
+iPhone User Guide for iPhone OS 3.1 Software 
+http://manuals.info.apple.com/en_US/iPhone_User_Guide.pdf
+
+================================================================================
 BUILD REQUIREMENTS:
 
-iPhone OS 3.1
+iOS SDK 4.0
 
-===========================================================================
+================================================================================
 RUNTIME REQUIREMENTS:
 
-iPhone OS 3.1
+iPhone OS 3.2 or later
 
-===========================================================================
+================================================================================
 PACKAGING LIST:
 
-GKRocketAppDelegate.h
-GKRocketAppDelegate.m
-UIApplication's delegate class, the central controller of the application.
+AppDelegate.h
+AppDelegate.m
+UIApplication's delegate class i.e. the central controller of the application.
 
-GameLobbyController.h
-GameLobbyController.m
-Lists available peers and handles the user interface related to connecting to
-a peer.
+GraphingView.h
+GraphingView.m
+The class responsible for drawing the graph, based on the formula.
 
-SessionManager.h
-SessionManager.m
-Manages the GKSession and GKVoiceChatService.  While the game is
-running, it transfers game packets to and from the game and the peer.
+TabularDataCell.h 
+TabularDataCell.m
+A UITableViewCell subclass that presents data from the formula in a tabular form.
 
-RocketController.h
-RocketController.m
-Controls the logic, controls, networking, and view of the actual game.
+ViewController.h
+ViewController.m
+The main view controller of the app.
 
-RocketView.h
-RocketView.m
-Displays the game's graphics.
+main.m
+The main entry point for the Formulaic application.
 
-===========================================================================
-CHANGES FROM PREVIOUS VERSIONS:
+Prefix_header.pch
+A prefix header.
 
+countdown-on.png
+A picture used for a button in the on state.
 
+countdown-off.png
+A picture used for a button in the off state.
 
-Copyright (C) 2010 Apple Inc. All rights reserved.
+table.png
+A picture used for a button.
+
+Sound.aiff
+A sound that is played when a specific button is pressed.
+
+ViewController.xib
+An xib file for the main view.
+
+MainWindow.xib
+A xib file for the main window.
+
+Formulaic-Info.plist
+The Info plist file.
+
+================================================================================
+Copyright (C) 2009-2010 Apple Inc. All rights reserved.
