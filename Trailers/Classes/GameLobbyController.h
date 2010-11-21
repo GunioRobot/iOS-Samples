@@ -1,6 +1,7 @@
 /*
- File: main.m
- Abstract: Main
+ File: GameLobbyController.h
+ Abstract: Lists available peers and handles the user interface related to connecting to
+ a peer.
  Version: 1.0
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
@@ -46,11 +47,18 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "SessionManager.h"
 
-int main(int argc, char *argv[]) {
-    
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
-    [pool release];
-    return retVal;
+@interface GameLobbyController : UITableViewController <UITableViewDelegate, UITableViewDataSource, SessionManagerLobbyDelegate, UIAlertViewDelegate> {
+	NSArray	*peerList;
+    UIAlertView *alertView;
+	SessionManager *manager;
 }
+
+@property (nonatomic, readonly) SessionManager *manager; 
+
+- (void) peerListDidChange:(SessionManager *)session;
+- (void) didReceiveInvitation:(SessionManager *)session fromPeer:(NSString *)participantID;
+- (void) invitationDidFail:(SessionManager *)session fromPeer:(NSString *)participantID;
+
+@end

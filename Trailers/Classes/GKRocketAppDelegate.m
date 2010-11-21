@@ -1,6 +1,6 @@
 /*
- File: main.m
- Abstract: Main
+ File: GKRocketAppDelegate.m
+ Abstract: UIApplication's delegate class, the central controller of the application.
  Version: 1.0
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
@@ -45,12 +45,36 @@
  
  */
 
-#import <UIKit/UIKit.h>
+#import "GKRocketAppDelegate.h"
 
-int main(int argc, char *argv[]) {
+
+@implementation GKRocketAppDelegate
+
+@synthesize window;
+@synthesize navigationController;
+
+#pragma mark -
+#pragma mark Application lifecycle
+
+- (void)applicationDidFinishLaunching:(UIApplication *)application {    
     
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
-    [pool release];
-    return retVal;
+	[window addSubview:[navigationController view]];
+    [window makeKeyAndVisible];
 }
+
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+	// Save data if appropriate
+}
+
+#pragma mark -
+#pragma mark Memory management
+
+- (void)dealloc {
+	[navigationController release];
+	[window release];
+	[super dealloc];
+}
+
+@end
+

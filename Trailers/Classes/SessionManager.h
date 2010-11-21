@@ -1,6 +1,7 @@
 /*
- File: main.m
- Abstract: Main
+ File: SessionManager.h
+ Abstract: Manages the GKSession and GKVoiceChatService.  While the game is
+ running, it transfers game packets to and from the game and the peer.
  Version: 1.0
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
@@ -46,11 +47,80 @@
  */
 
 #import <UIKit/UIKit.h>
+#import <GameKit/GameKit.h> 
 
-int main(int argc, char *argv[]) {
-    
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
-    [pool release];
-    return retVal;
+typedef enum {
+    PacketTypeVoice = 0,
+    PacketTypeStart = 1,
+    PacketTypeBounce = 2,
+    PacketTypeScore = 3,
+    PacketTypeTalking = 4,
+    PacketTypeEndTalking = 5
+} PacketType;
+
+typedef enum {
+    ConnectionStateDisconnected,
+    ConnectionStateConnecting,
+    ConnectionStateConnected
+} ConnectionState;
+
+@interface SessionManager : NSObject <GKSessionDelegate> {
+	NSString *sessionID;
+	GKSession *myGKSession;
+	NSString *currentConfPeerID;
+	NSMutableArray *peerList;
+	id lobbyDelegate;
+	id gameDelegate;
+    ConnectionState sessionState;
 }
+
+@property (nonatomic, readonly) NSString *currentConfPeerID;
+@property (nonatomic, readonly) NSMutableArray *peerList;
+@property (nonatomic, assign) id lobbyDelegate;
+@property (nonatomic, assign) id gameDelegate;
+
+- (void) setupSession;
+- (void) connect:(NSString *)peerID;
+- (BOOL) didAcceptInvitation;
+- (void) didDeclineInvitation;
+- (void) sendPacket:(NSData*)data ofType:(PacketType)type;
+- (void) disconnectCurrentCall;
+- (NSString *) displayNameForPeer:(NSString *)peerID;
+
+@end
+
+// Class extension for private methods.
+@interface SessionManager ()
+
+- (BOOL) comparePeerID:(NSString*)peerID;
+- (BOOL) isReadyToStart;
+- (void) voiceChatDidStart;
+- (void) destroySession;
+- (void) willTerminate:(NSNotification *)notification;
+- (void) willResume:(NSNotification *)notification;
+
+@end
+
+@interface SessionManager (VoiceManager) <GKVoiceChatClient>
+
+- (void) setupVoice;
+
+@end
+
+@protocol SessionManagerLobbyDelegate
+
+- (void) peerListDidChange:(SessionManager *)session;
+- (void) didReceiveInvitation:(SessionManager *)session fromPeer:(NSString *)participantID;
+- (void) invitationDidFail:(SessionManager *)session fromPeer:(NSString *)participantID;
+
+@end
+
+@protocol SessionManagerGameDelegate
+
+- (void) voiceChatWillStart:(SessionManager *)session;
+- (void) session:(SessionManager *)session didConnectAsInitiator:(BOOL)shouldStart;
+- (void) willDisconnect:(SessionManager *)session;
+- (void) session:(SessionManager *)session didReceivePacket:(NSData*)data ofType:(PacketType)packetType;
+
+@end
+

@@ -1,6 +1,6 @@
 /*
- File: main.m
- Abstract: Main
+ File: RocketView.h
+ Abstract: Displays the game's graphics.
  Version: 1.0
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
@@ -47,10 +47,22 @@
 
 #import <UIKit/UIKit.h>
 
-int main(int argc, char *argv[]) {
-    
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
-    [pool release];
-    return retVal;
+#define kSize 30.0
+#define kRocketHeightRatio 3.0
+
+@interface RocketView : UIView {
+    CGRect playerFrame;
+	CGRect enemyFrame;
+    UIImageView *playerImage;
+    UIImageView *enemyImage;
+    CGRect ball;
+    Float32 playerThrust;
+    Float32 enemyThrust;
+    UIColor* ballColor;
+    CGFloat ballHue;
 }
+
+- (void)newBall;
+- (void)updatePlayer:(CGRect)newPlayer enemy:(CGRect)newEnemy ball:(CGRect)newBall playerThrust:(Float32) pThrust enemyThrust:(Float32) eThrust;
+
+@end

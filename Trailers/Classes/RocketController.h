@@ -1,6 +1,6 @@
 /*
- File: main.m
- Abstract: Main
+ File: RocketController.h
+ Abstract: Controls the logic, controls, networking, and view of the actual game.
  Version: 1.0
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
@@ -46,11 +46,70 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "SessionManager.h"
+#import "RocketView.h"
 
-int main(int argc, char *argv[]) {
+typedef struct {
+    CGRect bounds;
+    Float32 velocity;
+    Float32 thrust;
+} Rocket;
+
+typedef struct {
+    CGRect bounds;
+    CGPoint velocity;
+} Ball;
+
+@interface RocketController : UIViewController <SessionManagerGameDelegate> {
+	IBOutlet UILabel *stateLabel;
+	IBOutlet UILabel *callTimerLabel;
+    IBOutlet UILabel *playerScoreLabel;
+    IBOutlet UILabel *enemyScoreLabel;
+    IBOutlet UILabel *touchLabel;
+
+	NSTimeInterval startTime;
+	NSTimer *callTimer;
+    NSTimer *rocketTimer;
+
+	RocketView *rocketView;
+	SessionManager *manager; 
     
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
-    [pool release];
-    return retVal;
+    Rocket player;
+    Rocket enemy;
+    Ball ball;
+    NSUInteger playerScore;
+    NSUInteger enemyScore;
+    BOOL rocketStart;
+    BOOL playerTalking;
+    BOOL enemyTalking;
+    NSTimeInterval frameskipTimestamp;
 }
+
+@property (nonatomic, retain) UILabel *stateLabel;
+@property (nonatomic, retain) UILabel *playerScoreLabel;
+@property (nonatomic, retain) UILabel *enemyScoreLabel;
+@property (nonatomic, retain) UILabel *touchLabel; 
+
+- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil manager:(SessionManager *)aManager;
+- (void) voiceChatWillStart:(SessionManager *)session;
+- (void) session:(SessionManager *)session didConnectAsInitiator:(BOOL)shouldStart;
+- (void) willDisconnect:(SessionManager *)session;
+- (void) session:(SessionManager *)session didReceivePacket:(NSData*)data ofType:(PacketType)packetType;
+
+@end
+
+// Class extension for private methods.
+@interface RocketController ()
+
+- (void) updateElapsedTime:(NSTimer *) timer;
+- (void) endButtonHit;
+- (void) sendPacket:(PacketType)packetType;
+- (void) updateRockets:(NSTimer*)timer;
+- (void) moveRockets;
+- (void) moveBall;
+- (void) collideRocketsWithWorld;
+- (void) collideBallWithWorld;
+- (void) checkScoring;
+- (void) resetRockets:(BOOL)serve initialVelocity:(Float32)vel;
+
+@end
