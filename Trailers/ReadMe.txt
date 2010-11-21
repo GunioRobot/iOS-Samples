@@ -1,105 +1,15 @@
-### Formulaic ###
+FastEnumerationSample
 
-================================================================================
-DESCRIPTION:
+FastEnumerationSample is a Mac OS X command line project that demonstrates how to implement the NSFastEnumeration protocol. In this sample the MyFastEnumerationSample class implements -countByEnumeratingWithState:objects:count: to return strings when used with the Obj-C 2.0 "for…in" construct. This sample avoids the issues of implementing a storage class in order to demonstrate the protocol. A real implementation would likely do less work to provide values, such as directly copying object pointers from an internal representation.
 
-Formulaic is a sample iPhone app that illustrates how to effectively use the
-iPhone Accessibility API. Using the Accessibility API allows your app to work
-correctly with VoiceOver.
+All code for this sample is in the FastEnumerationSample.mm source file. To view the sample's output in Xcode, open the Console by choosing "Console" from the "Run" menu (or entering Command-Shift-R). See the comments for -countByEnumeratingWithState:objects:count: for details on this sample's implementation. While provided as a Mac OS X application, the techniques demonstrated by this sample are fully applicable to iPhone OS development.
 
-The app draws a graph of a formula and allows the user to change certain
-constants in the formula, however its main purpose is to illustrate the
-iPhone Accessibility API.
+Keep in mind that while this sample demonstrates how to implement the NSFastEnumeration protocol, most developers will be better served by using one of the built in Foundation container classes, such as NSArray or NSDictionary, rather than implementing their own custom container class.
 
-The accessibility additions in the app demonstrate the following:
-    How to use accessibilityLabel, accessibilityTraits and
-        isAccessibilityElement to control the accessibility of the app.
-    How to programmatically set values through accessibility to change 
-        various accessibility attributes.
-    How to use notifications to inform accessibility that an event has
-        occurred.
-    How to use the accessibility container protocol to transform a single
-        UIView that has multiple components into separate accessible elements.
-    How to use best practices to craft accessibilityLabels and
-        accessibilityHints correctly.
+For more information on the NSFastEnumeration protocol, see the Fast Enumeration section of the Objective C 2.0 Programming Language guide at <http://developer.apple.com/DOCUMENTATION/Cocoa/Conceptual/ObjectiveC/Articles/ocFastEnumeration.html#//apple_ref/doc/uid/TP30001163-CH18-SW1>
 
-To test the application, build and run Formulaic in iPhone Simulator. Turn on 
-Accessibility Inspector, located in Settings > General > Accessibility.
-While Accessibility Inspector is active, single-click a user interface element 
-to inspect its accessibility information and double-click an element to 
-activate it.
+Changes From Previous Versions
 
-Alternatively, sync Formulaic to iPhone and turn on VoiceOver. Touch the 
-user interface elements to hear how the accessibility information is presented
-to a VoiceOver user.
+1.0: Initial Version
 
-===========================================================================
-RELATED INFORMATION:
-
-Accessibility Programming Guide for iPhone OS 
-http://developer.apple.com/iPhone/library/documentation/UserExperience/Conceptual/iPhoneAccessibility/Accessibility_on_iPhone/Accessibility_on_iPhone.html
-
-Testing the Accessibility of Your iPhone Application 
-http://developer.apple.com/iPhone/library/documentation/UserExperience/Conceptual/iPhoneAccessibility/Testing_Accessibility/Testing_Accessibility.html
-
-iPhone User Guide for iPhone OS 3.1 Software 
-http://manuals.info.apple.com/en_US/iPhone_User_Guide.pdf
-
-================================================================================
-BUILD REQUIREMENTS:
-
-iOS SDK 4.0
-
-================================================================================
-RUNTIME REQUIREMENTS:
-
-iPhone OS 3.2 or later
-
-================================================================================
-PACKAGING LIST:
-
-AppDelegate.h
-AppDelegate.m
-UIApplication's delegate class i.e. the central controller of the application.
-
-GraphingView.h
-GraphingView.m
-The class responsible for drawing the graph, based on the formula.
-
-TabularDataCell.h 
-TabularDataCell.m
-A UITableViewCell subclass that presents data from the formula in a tabular form.
-
-ViewController.h
-ViewController.m
-The main view controller of the app.
-
-main.m
-The main entry point for the Formulaic application.
-
-Prefix_header.pch
-A prefix header.
-
-countdown-on.png
-A picture used for a button in the on state.
-
-countdown-off.png
-A picture used for a button in the off state.
-
-table.png
-A picture used for a button.
-
-Sound.aiff
-A sound that is played when a specific button is pressed.
-
-ViewController.xib
-An xib file for the main view.
-
-MainWindow.xib
-A xib file for the main window.
-
-Formulaic-Info.plist
-The Info plist file.
-
-================================================================================
-Copyright (C) 2009-2010 Apple Inc. All rights reserved.
+Copyright (C) 2009 Apple Inc. All rights reserved.
