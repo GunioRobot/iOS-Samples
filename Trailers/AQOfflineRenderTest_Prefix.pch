@@ -1,4 +1,7 @@
-//     File: main.m
+//
+// Prefix header for all source files of the 'AQOfflineRenderTest' target in the 'AQOffilineRenderTest' project
+//
+//     File: AQOfflineRenderTest_Prefix.pch
 // Abstract: n/a
 //  Version: 1.2
 // 
@@ -43,12 +46,7 @@
 // Copyright (C) 2010 Apple Inc. All Rights Reserved.
 // 
 
-#import <UIKit/UIKit.h>
-
-int main(int argc, char *argv[]) {
-    
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
-    [pool release];
-    return retVal;
-}
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+#endif
