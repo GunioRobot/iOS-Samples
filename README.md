@@ -16,6 +16,9 @@ Samples
 
 1. _iAdSuite_ demonstrates how to manage ADBannerViews in three common scenarios, an application with a single view controller (BasicAdBanner), an application that uses a UITabBarViewController (AdBannerTabbed), and an application that uses a UINavigationViewController (AdBannerNavigation).
 
+1. iPhoneUnitTests illustrates the use of unit tests to ensure that an application’s functionality does not degrade as its source code undergoes 
+changes to improve the application or to fix bugs. The project showcases two types of unit tests: logic and application.
+
 1. _Icons_ demonstrates the proper use of application icons on iOS.
 
 1. _MailComposer_ demonstrates how to target older OS versions while building with newly released APIs. This sample also shows how to use the MessageUI framework to create and send email messages from within your application.
@@ -176,6 +179,18 @@ This is a similar user interface to that of Mail's Inbox table where mail items 
 
 1. _Reflection_ shows how to implement a "reflection" special effect on a given UIImageView most commonly seen in iTunes and iPod player apps.
 
+1. _GLPaint_ demonstrates how to support single finger painting using OpenGL ES. This sample also shows how to detect a "shake" motion of the device.
+
+1. _GLImageProcessing_ demonstrates how to implement simple image processing filters (Brightness, Contrast, Saturation, Hue rotation, Sharpness) using OpenGL ES1.1. 
+The sample also shows how to create simple procedural button icons using CoreGraphics.
+
+1. _GLGravity_ demonstrates how to use the UIAccelerometer class in combination with OpenGL rendering. 
+It shows how to extract the gravity vector from the accelerometer values using a basic low-pass filter, and how to build an OpenGL transformation matrix from it.
+
+1. _GLSprite_ shows how to create a texture from an image.
+
+1. _GLTextureAtlas_ demonstrates how to use a texture atlas to draw multiple objects with different textures simultaneously using OpenGL ES.
+
 1. _ViewTransitions_ demonstrates how to perform transitions between two views using built-in Core Animation transitions.
 
 1. _ZoomingPDFViewer_ demonstrates how to build a PDF viewer that supports zooming in or out at any level of zooming.
@@ -188,17 +203,6 @@ This is a similar user interface to that of Mail's Inbox table where mail items 
 1. iPhone 3GS supports both OpenGL ES 1.1 and 2.0. _GLES2Sample_ demonstrates how to create an OpenGL ES 1.1 and 2.0 compatible project. 
 When running on 1st generation iPhone, iPhone 3G, and 1st and 2nd generation iPod touch the sample draws using OpenGL ES 1.1; 
 when running on iPhone 3GS and 3rd generation iPod touch, the sample draws using OpenGL ES 2.0.
-
-1. _GLImageProcessing_ demonstrates how to implement simple image processing filters (Brightness, Contrast, Saturation, Hue rotation, Sharpness) using OpenGL ES1.1. 
-The sample also shows how to create simple procedural button icons using CoreGraphics.
-
-1. _GLGravity_ demonstrates how to use the UIAccelerometer class in combination with OpenGL rendering. 
-It shows how to extract the gravity vector from the accelerometer values using a basic low-pass filter, and how to build an OpenGL transformation matrix from it.
-
-1. _GLSprite_ shows how to create a texture from an image.
-
-1. _GLTextureAtlas_ demonstrates how to use a texture atlas to draw multiple objects with different textures simultaneously using OpenGL ES.
-
 
 1. _MVCNetworking_ is a sample that shows how to create a network application using the Model-View-Controller design pattern.  Specifically, it displays a photo gallery by getting the gallery's XML description, thumbnails and photos from a web server, and uses Core Data to cache this information locally.
 
