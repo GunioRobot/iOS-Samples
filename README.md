@@ -10,11 +10,13 @@ Samples
 
 ### General
 
+1. _EADemo_ shows how to communicate from an iOS 3.x application, with an external accessory using the External Accessory (EA) Framework API.
+
+1. _Formulaic_ is a sample iPhone app that illustrates how to effectively use the iPhone Accessibility API. Using the Accessibility API allows your app to work correctly with VoiceOver.
+
 1. _iAdSuite_ demonstrates how to manage ADBannerViews in three common scenarios, an application with a single view controller (BasicAdBanner), an application that uses a UITabBarViewController (AdBannerTabbed), and an application that uses a UINavigationViewController (AdBannerNavigation).
 
 1. _Icons_ demonstrates the proper use of application icons on iOS.
-
-1. _EADemo_ shows how to communicate from an iOS 3.x application, with an external accessory using the External Accessory (EA) Framework API.
 
 1. _MailComposer_ demonstrates how to target older OS versions while building with newly released APIs. This sample also shows how to use the MessageUI framework to create and send email messages from within your application.
 
@@ -183,6 +185,21 @@ This is a similar user interface to that of Mail's Inbox table where mail items 
 1. _AdvancedURLConnections_ demonstrates various advanced networking techniques with NSURLConnection. Specifically, it demonstrates how to respond to authentication challenges, how to modify the default server trust evaluation (for example, to support a server with a self-signed certificate), and how to provide client identities.
 1. _BonjourWeb_ demonstrates how to find network services that are advertised by Bonjour.
 
+1. iPhone 3GS supports both OpenGL ES 1.1 and 2.0. _GLES2Sample_ demonstrates how to create an OpenGL ES 1.1 and 2.0 compatible project. 
+When running on 1st generation iPhone, iPhone 3G, and 1st and 2nd generation iPod touch the sample draws using OpenGL ES 1.1; 
+when running on iPhone 3GS and 3rd generation iPod touch, the sample draws using OpenGL ES 2.0.
+
+1. _GLImageProcessing_ demonstrates how to implement simple image processing filters (Brightness, Contrast, Saturation, Hue rotation, Sharpness) using OpenGL ES1.1. 
+The sample also shows how to create simple procedural button icons using CoreGraphics.
+
+1. _GLGravity_ demonstrates how to use the UIAccelerometer class in combination with OpenGL rendering. 
+It shows how to extract the gravity vector from the accelerometer values using a basic low-pass filter, and how to build an OpenGL transformation matrix from it.
+
+1. _GLSprite_ shows how to create a texture from an image.
+
+1. _GLTextureAtlas_ demonstrates how to use a texture atlas to draw multiple objects with different textures simultaneously using OpenGL ES.
+
+
 1. _MVCNetworking_ is a sample that shows how to create a network application using the Model-View-Controller design pattern.  Specifically, it displays a photo gallery by getting the gallery's XML description, thumbnails and photos from a web server, and uses Core Data to cache this information locally.
 
 1. _Reachability_ demonstrates how to use the System Configuration framework to monitor the network state of an iPhone or iPod touch.
@@ -213,7 +230,14 @@ it focuses on using the NSStream API to move a realistic amount of data across t
 ### Maps
 
 1. _Breadcrumb_ Demonstrates how to draw a path using the Map Kit overlay, MKOverlayView, that follows and tracks the user's current location. The included CrumbPath and CrumbPathView overlay and overlay view classes can be used for any path of points that are expected to change over time.
+
+1. _HazardMap_ demonstrates how to create a custom Map Kit overlay and corresponding view to display USGS earthquake hazard data on top of an MKMapView.
+
 1. _KMLViewer_ demonstrates how to use Map Kit's Annotations and Overlays to display KML (Keyhole Markup Language) files on top of an MKMapView.
+
+1. _MapCallouts_ demonstrates the use of the MapKit framework, displaying a map view with custom MKAnnotations each with custom callouts.  
+An annotation object on a map is any object that conforms to the MKAnnotation protocol and is displayed on the screen as a MKAnnotationView.  
+Through the use of the MKAnnotation protocol and MKAnnotationView, this application shows how you can extend annotations with custom strings and left/right calloutAccessoryViews.
 
 1. _WeatherMap_ demonstrates the use of the MapKit framework, displaying a map view with custom MKAnnotationViews.  
 
@@ -223,6 +247,8 @@ it focuses on using the NSStream API to move a realistic amount of data across t
 ### Audio & Video
 
 1. _AddMusic_ demonstrates basic use of iPod library access, part of the Media Player framework. 
+
+1. _AQOfflineRenderTest_ demonstrates the use of the AudioQueueOfflineRender API.
 
 1. _aurioTouch_ demonstrates use of the remote i/o audio unit for handling audio input and output. The application can display the input audio in one of the forms, 
 a regular time domain waveform, a frequency domain waveform (computed by performing a fast fourier transform on the incoming signal), and a sonogram view (a view displaying the frequency content of a signal over time, with the color signaling relative power, the y axis being frequency and the x as time). 
@@ -235,6 +261,9 @@ a regular time domain waveform, a frequency domain waveform (computed by perform
 
 1. _iPhoneExtAudioFileConvertTest_ demonstrates the use of the ExtAudioFile API to convert from one audio format and file type to another.
 
+1. _MixerHost_ demonstrates how to use the Multichannel Mixer audio unit in an iOS application. 
+It also demonstrates how to use a render callback function to provide audio to an audio unit input bus.
+
 1. _MoviePlayer_iPhone_ demonstrates how to use the Media Player Framework to play a movie full-screen.
 
 1. _SpeakHere_ demonstrates basic use of Audio Queue Services, Audio File Services, and Audio Session Services on the iPhone and iPod touch for recording and playing back audio.
@@ -242,6 +271,15 @@ a regular time domain waveform, a frequency domain waveform (computed by perform
 1. _SysSound_ demonstrates basic use of System Sound Services (declared in AudioToolbox/AudioServices.h) for playing short sounds and invoking vibration.
 
 1. _oalTouch_ demonstrates basic use of OpenAL, Audio File Services, Core Animation, and Core Graphics Services on the iPhone for manipulating sound in a spatial environment.
+
+### GameCenter
+
+1. _GKRocket_ demonstrates the major features of GameKit.  It uses GKSession and GKVoiceChatService in a two player networked voice enabled game.
+
+1. _GKTank_ demonstrates how to use the GKSession and GKPeerPickerController classes in the GameKit framework to add Peer-to-Peer Connectivity to an application.
+
+1. _GKTapper_ demonstrates how to support GameCenter Leaderboards and Achievements. 
+It also demonstrates using GKLeaderboardViewController and GKAchievementViewController to display this data.
 
 Usage
 -----
