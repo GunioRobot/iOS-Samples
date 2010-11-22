@@ -92,6 +92,14 @@
 - (void)viewDidLoad
 { [super viewDidLoad];
   
+  UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewNote:)];
+  self.navigationItem.leftBarButtonItem = addButtonItem;
+  [addButtonItem release];
+  
+  UIBarButtonItem *removeButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeSelectedNote:)];
+  self.navigationItem.rightBarButtonItem = removeButtonItem;
+  [removeButtonItem release];
+  
   self.tableView.rowHeight = kCustomRowHeight;
   
   NSError *error = nil;
@@ -236,8 +244,8 @@
 /**
  *
  */
--(void)addNote:(NSString*)noteText andTitle:(NSString*) title
-{ NSManagedObjectContext* context = contentController.managedObjectContext;
+- (Note*) addNote:(NSString*)noteText andTitle:(NSString*) title
+{ NSManagedObjectContext* context = self.contentController.managedObjectContext;
   Note*                   note    = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:context];
   NSManagedObject*        text    = [NSEntityDescription insertNewObjectForEntityForName:@"Text" inManagedObjectContext:context];
   
@@ -248,7 +256,26 @@
   // Set the image for the image managed object.
   [text setValue:noteText forKey:@"data"];
   [text setValue:note     forKey:@"note"];
+  
+  return note;
 } // of addNote()
+
+/**
+ *
+ */
+- (void) addNewNote:(id)sender
+{
+  [self addNote:@"" andTitle:@"Empty Title"];  
+}
+
+/**
+ *
+ */
+- (void) removeSelectedNote:(id)sender
+{
+  if( self.contentController.note!=nil )
+    [contentController.managedObjectContext deleteObject:self.contentController.note];
+}
 
 /**
  *
@@ -283,18 +310,11 @@
     int sectionCount = [[aFetchedResultsController sections] count];
     
     if( sectionCount<1 )
-    { 
-      [self addNote:@"Das ist das Haus" andTitle:@"Das Haus"];
-      [self addNote:@"und nebendran vom Weihnachtsmann" andTitle:@"Vom Nikolaus"];
+    { Note* newNote = [self addNote:@"" andTitle:@"New Note"];
       
       [self saveData];
       
-      NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
-                                                                                                  managedObjectContext:context 
-                                                                                                    sectionNameKeyPath:nil 
-                                                                                                             cacheName:@"Root"];
-      aFetchedResultsController.delegate = self;
-      self.fetchedResultsController = aFetchedResultsController;      
+      self.contentController.note = newNote;
     } // of if
 
     [fetchRequest release];
@@ -335,10 +355,11 @@
 			
 		case NSFetchedResultsChangeDelete:
 			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+      self.contentController.note = nil;
 			break;
 			
 		case NSFetchedResultsChangeUpdate:
-			//[self configureCell:(RecipeTableViewCell *)[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+      [tableView cellForRowAtIndexPath:indexPath];
 			break;
 			
 		case NSFetchedResultsChangeMove:

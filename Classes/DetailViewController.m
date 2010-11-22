@@ -47,11 +47,11 @@
 
 #import "DetailViewController.h"
 #import "AppDelegate.h"
-
+#import "ContentController.h"
 
 @implementation DetailViewController
 
-@synthesize textView, accessoryView;
+@synthesize textView, accessoryView,contentController;
 @dynamic navBar;
 
 
@@ -62,8 +62,7 @@
  *
  */
 - (void)viewDidLoad 
-{
-  [super viewDidLoad];
+{ [super viewDidLoad];
   
   // Observe keyboard hide and show notifications to resize the text view appropriately.
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
@@ -147,13 +146,11 @@
 #pragma mark Accessory view action
 
 /**
- *
+ * When the accessory view button is tapped, add a suitable string to the text view
  */
 - (IBAction)tappedMe:(id)sender 
-{
-  // When the accessory view button is tapped, add a suitable string to the text view.
-  NSMutableString *text = [textView.text mutableCopy];
-  NSRange selectedRange = textView.selectedRange;
+{ NSMutableString* text          = [textView.text mutableCopy];
+  NSRange          selectedRange = textView.selectedRange;
   
   [text replaceCharactersInRange:selectedRange withString:@"You tapped me.\n"];
   textView.text = text;

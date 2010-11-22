@@ -58,18 +58,17 @@
 #pragma mark View lifecycle
 
 
+/**
+ *
+ */
 - (void)awakeFromNib
-{
-  NSLog(@"DetailedViewController_iPad.awakeFromNib()");
-}
+{ }
 
 /**
  *
  */
 - (void)viewDidLoad 
-{
-  [super viewDidLoad];
-}
+{ [super viewDidLoad]; }
 
 
 /**
@@ -88,9 +87,7 @@
 { // Make the keyboard appear when the application launches.
   [super viewWillAppear:animated];
   
-  BOOL bfr = [textView becomeFirstResponder];
-  
-  NSLog(@"DetailedViewController.bfr=%d\n",bfr);
+  [textView becomeFirstResponder];
 }
 
 /**

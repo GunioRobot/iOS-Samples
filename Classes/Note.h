@@ -61,6 +61,8 @@
 @property (nonatomic, retain) NSDate*          modified;
 @property (nonatomic, retain) NSManagedObject* text;
 
+- (void)      updateNoteText:(NSString*) text;
+- (NSString*) getNoteText;
 @end
 
 

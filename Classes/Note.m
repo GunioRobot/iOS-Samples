@@ -52,6 +52,22 @@
 
 @dynamic created,modified,title,text;
 
+
+- (void) updateNoteText:(NSString*) text
+{
+  [[self valueForKey:@"text"] setValue:text forKey:@"data"];
+  
+  NSArray* lines = [text componentsSeparatedByCharactersInSet: [NSCharacterSet newlineCharacterSet]];
+  
+  NSString* firstLine = [lines objectAtIndex:0];
+  
+  self.title = firstLine;
+}
+
+- (NSString*) getNoteText
+{
+  return [[self valueForKey:@"text"] valueForKey:@"data"];
+}
 @end
 
 

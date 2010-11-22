@@ -72,8 +72,10 @@
   
 }
 
-@property (nonatomic, retain) ContentController*          contentController;
-@property (nonatomic, retain) NSFetchedResultsController* fetchedResultsController;
+@property (nonatomic, retain) IBOutlet ContentController*          contentController;
+@property (nonatomic, retain)          NSFetchedResultsController* fetchedResultsController;
 
+- (IBAction) addNewNote:(id)sender;
+- (IBAction) removeSelectedNote:(id)sender;
 
 @end

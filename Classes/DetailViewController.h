@@ -47,16 +47,21 @@
 
 #import <UIKit/UIKit.h>
 
+@class ContentController;
+
 @interface DetailViewController : UIViewController
 {
-	UITextView*      textView;
-	UIView*          accessoryView;
+  UITextView*         textView;
+	UIView*             accessoryView;
+  ContentController*  contentController;
 }
 
-@property (nonatomic, retain) IBOutlet UITextView*      textView;
-@property (nonatomic, assign) IBOutlet UIView*          accessoryView;
-@property (nonatomic, retain) IBOutlet UINavigationBar* navBar;
+@property (nonatomic, retain) IBOutlet UITextView*        textView;
+@property (nonatomic, assign) IBOutlet UIView*            accessoryView;
+@property (nonatomic, retain) IBOutlet UINavigationBar*   navBar;
+@property (nonatomic, retain) IBOutlet ContentController* contentController;
 
-- (IBAction)tappedMe:(id)sender;
+- (IBAction) tappedMe:(id)sender;
+
 
 @end

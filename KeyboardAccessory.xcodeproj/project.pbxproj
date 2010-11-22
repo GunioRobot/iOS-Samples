@@ -112,10 +112,10 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				859711C8129069E6006D5710 /* DetailViewController.h */,
-				859711C9129069E6006D5710 /* DetailViewController.m */,
 				85D4D9FB128F76D20093DF2A /* ContentController.h */,
 				85D4D9FC128F76D20093DF2A /* ContentController.m */,
+				859711C8129069E6006D5710 /* DetailViewController.h */,
+				859711C9129069E6006D5710 /* DetailViewController.m */,
 				85D4D9C8128F6E1B0093DF2A /* iPad */,
 				85D4D9CD128F6E1B0093DF2A /* iPhone */,
 				85D4D9D0128F6E1B0093DF2A /* NoteListViewController.h */,

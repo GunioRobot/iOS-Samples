@@ -52,17 +52,26 @@
 
 @synthesize navigationController,masterViewController;
 
+/**
+ *
+ */
 - (void)awakeFromNib
 {
-  self.masterViewController.contentController = self;
+  //self.masterViewController.contentController = self;
 }
 
+/**
+ *
+ */
 - (void)dealloc
 {
   [navigationController release];
   [super dealloc];
 }
 
+/**
+ *
+ */
 - (UIView *)view
 {
   return self.navigationController.view;

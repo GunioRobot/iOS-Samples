@@ -48,6 +48,7 @@
 #import "ContentController_iPad.h"
 #import "DetailViewController.h"
 #import "NoteListViewController.h"
+#import "Note.h"
 
 static NSString *buttonTitle = @"Notes Title";
 
@@ -55,36 +56,19 @@ static NSString *buttonTitle = @"Notes Title";
 
 @synthesize splitViewController, navigationController, masterViewController, popoverController, detailViewController;
 
+/**
+ *
+ */
 - (void)awakeFromNib
-{
-  self.splitViewController.delegate = self;
-  self.masterViewController.contentController = self;
-    
-  // configure the master popover button:
-  //
-  // In portrait mode (when the master view is not being displayed by the split view controller)
-  // add a bar button item to display the master view in a popover; in landcape mode, remove the button.
-  //
-/*
-  if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]))
-  {
-     UIBarButtonItem *popoverMasterViewControllerBarButtonItem =
-     [[UIBarButtonItem alloc] initWithTitle:buttonTitle
-                                      style:UIBarButtonItemStylePlain
-                                    target:self
-                                    action:@selector(presentMasterInPopoverFromBarButtonItem:)];
-      
-    [self.detailViewController.navBar.topItem setLeftBarButtonItem:popoverMasterViewControllerBarButtonItem animated:YES];
-      
-    [popoverMasterViewControllerBarButtonItem release];
-  }
-  else
-  {
-      [self.detailViewController.navBar.topItem setLeftBarButtonItem:nil animated:YES];
-  }
-*/
+{ self.splitViewController.delegate = self;
+  
+  //self.masterViewController.contentController = self;
+  //self.detailViewController.contentController = self;
 }
 
+/**
+ *
+ */
 - (IBAction)presentMasterInPopoverFromBarButtonItem:(UIBarButtonItem *)barButtonItem
 {
   if (popoverController == nil)
@@ -108,11 +92,10 @@ static NSString *buttonTitle = @"Notes Title";
  *
  */
 - (void)dealloc
-{ [splitViewController release];
+{ [splitViewController  release];
   [masterViewController release];
-  [popoverController release];
+  [popoverController    release];
   [navigationController release];
-  
   [detailViewController release];
   
   [super dealloc];
@@ -123,10 +106,13 @@ static NSString *buttonTitle = @"Notes Title";
  */
 - (void)setNote:(Note*)newNote
 { if( note!=newNote )
-  { [note release];
+  { [note updateNoteText:detailViewController.textView.text];    
+    [note release];
+    
     note = [newNote retain];
     
-    detailViewController.textView.text = [[note valueForKey:@"text"] valueForKey:@"data"];
+    detailViewController.textView.text = [note getNoteText];
+    detailViewController.navBar.topItem.title  = [note title];
     [detailViewController.textView flashScrollIndicators];
   } // of if
   

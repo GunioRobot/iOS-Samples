@@ -57,7 +57,7 @@
 @property (nonatomic, retain) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, retain) Note*                   note;
 
-- (UIView *)view;
+- (UIView *) view;
 
 @end
 
