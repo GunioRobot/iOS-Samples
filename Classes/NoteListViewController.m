@@ -73,6 +73,90 @@
 
 
 #pragma mark -
+#pragma mark Fetched results controller
+/**
+ *
+ */
+-(void)saveData
+{ NSManagedObjectContext* context = contentController.managedObjectContext;
+  NSError* error=nil;
+  
+  if( ![context save:&error] ) 
+  { NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    
+    abort();
+  } // of if
+} // of if
+
+/**
+ *
+ */
+- (Note*) addNote:(NSString*)noteText andTitle:(NSString*) title
+{ NSManagedObjectContext* context = self.contentController.managedObjectContext;
+  Note*                   note    = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:context];
+  NSManagedObject*        text    = [NSEntityDescription insertNewObjectForEntityForName:@"Text" inManagedObjectContext:context];
+  
+  note.title   = title;
+  note.created = [NSDate date];
+  note.text    = text;
+  
+  // Set the image for the image managed object.
+  [text setValue:noteText forKey:@"data"];
+  [text setValue:note     forKey:@"note"];
+  
+  return note;
+} // of addNote()
+
+/**
+ *
+ */
+- (void) addNewNote:(id)sender
+{ [self addNote:@"" andTitle:@"Empty Title"];
+  [self saveData];
+} // of addNewNote()
+
+/**
+ *
+ */
+- (void) removeSelectedNote:(id)sender
+{ if( self.contentController.note!=nil )
+  { [contentController.managedObjectContext deleteObject:self.contentController.note];
+    [self saveData];
+  } // of if
+} // of removeSelectedNote()
+
+/**
+ *
+ */
+- (NSFetchedResultsController *)fetchedResultsController 
+{ if( fetchedResultsController==nil ) 
+{ NSManagedObjectContext* context      = contentController.managedObjectContext;
+  NSFetchRequest*         fetchRequest = [[NSFetchRequest alloc] init];
+  NSEntityDescription*    entity       = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:context];
+  
+  [fetchRequest setEntity:entity];
+  
+  NSSortDescriptor* sortDescriptor  = [[NSSortDescriptor alloc] initWithKey:@"created" ascending:NO];
+  NSArray*          sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+  
+  [fetchRequest setSortDescriptors:sortDescriptors];
+  
+  NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
+                                                                                              managedObjectContext:context 
+                                                                                                sectionNameKeyPath:nil 
+                                                                                                         cacheName:@"Root"];
+  aFetchedResultsController.delegate = self;
+  self.fetchedResultsController = aFetchedResultsController;
+  
+  [fetchRequest release];
+  [sortDescriptor release];
+  [sortDescriptors release];
+} // of if
+	
+	return fetchedResultsController;
+} // of fetchedResultsController()
+
+#pragma mark -
 #pragma mark UIViewController
 
 /**
@@ -108,7 +192,17 @@
   { NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 
 		abort();
-	}	
+	}
+  
+  int sectionCount = [[[self fetchedResultsController] sections] count];
+  
+  if( sectionCount<1 )
+  { Note* newNote = [self addNote:@"" andTitle:@"New Note"];
+    
+    [self saveData];
+    
+    self.contentController.note = newNote;
+  } // of if  
 }
 
 /**
@@ -225,108 +319,6 @@
 { }
 
 
-#pragma mark -
-#pragma mark Fetched results controller
-/**
- *
- */
--(void)saveData
-{ NSManagedObjectContext* context = contentController.managedObjectContext;
-  NSError* error=nil;
-  
-  if( ![context save:&error] ) 
-  { NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-    
-    abort();
-  } // of if
-} // of if
-
-/**
- *
- */
-- (Note*) addNote:(NSString*)noteText andTitle:(NSString*) title
-{ NSManagedObjectContext* context = self.contentController.managedObjectContext;
-  Note*                   note    = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:context];
-  NSManagedObject*        text    = [NSEntityDescription insertNewObjectForEntityForName:@"Text" inManagedObjectContext:context];
-  
-  note.title   = title;
-  note.created = [NSDate date];
-  note.text    = text;
-  
-  // Set the image for the image managed object.
-  [text setValue:noteText forKey:@"data"];
-  [text setValue:note     forKey:@"note"];
-  
-  return note;
-} // of addNote()
-
-/**
- *
- */
-- (void) addNewNote:(id)sender
-{
-  [self addNote:@"" andTitle:@"Empty Title"];  
-}
-
-/**
- *
- */
-- (void) removeSelectedNote:(id)sender
-{
-  if( self.contentController.note!=nil )
-    [contentController.managedObjectContext deleteObject:self.contentController.note];
-}
-
-/**
- *
- */
-- (NSFetchedResultsController *)fetchedResultsController 
-{
-  // Set up the fetched results controller if needed.
-  if( fetchedResultsController==nil ) 
-  { NSManagedObjectContext* context = contentController.managedObjectContext;
-    
-    // Create the fetch request for the entity.
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    
-    // Edit the sort key as appropriate.
-    NSSortDescriptor* sortDescriptor  = [[NSSortDescriptor alloc] initWithKey:@"created" ascending:NO];
-    NSArray*          sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-    
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
-    // Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
-                                                                                                managedObjectContext:context 
-                                                                                                  sectionNameKeyPath:nil 
-                                                                                                           cacheName:@"Root"];
-    aFetchedResultsController.delegate = self;
-    self.fetchedResultsController = aFetchedResultsController;
-
-    int sectionCount = [[aFetchedResultsController sections] count];
-    
-    if( sectionCount<1 )
-    { Note* newNote = [self addNote:@"" andTitle:@"New Note"];
-      
-      [self saveData];
-      
-      self.contentController.note = newNote;
-    } // of if
-
-    [fetchRequest release];
-    [sortDescriptor release];
-    [sortDescriptors release];
-  } // of if
-	
-	return fetchedResultsController;
-} // of fetchedResultsController()
-
-
-
 /**
  * Delegate methods of NSFetchedResultsController to respond to additions, removals and so on.
  */
@@ -344,12 +336,10 @@
        atIndexPath:(NSIndexPath *)indexPath 
      forChangeType:(NSFetchedResultsChangeType)type 
       newIndexPath:(NSIndexPath *)newIndexPath 
-{
-	UITableView *tableView = self.tableView;
+{ UITableView *tableView = self.tableView;
 	
 	switch(type) 
-  {
-		case NSFetchedResultsChangeInsert:
+  { case NSFetchedResultsChangeInsert:
 			[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
 			break;
 			

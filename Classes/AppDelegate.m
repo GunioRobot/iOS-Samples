@@ -137,28 +137,29 @@ NSString* kBackgroundColorKey	= @"backgroundColorKey";
 } // of applicationDidFinishLaunching()
 
 /**
- applicationWillTerminate: saves changes in the application's managed object context before the application terminates.
+ *
+ */
+- (void)saveApplicationState
+{ NSError *error;
+  
+  if( ![managedObjectContext save:&error] ) 
+  { NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    
+		abort();
+  } // of if
+} // of saveApplicationState()
+
+/**
+ *
  */
 - (void)applicationWillTerminate:(UIApplication *)application 
-{ NSError *error;
- 
-  if (managedObjectContext != nil) 
-  {
-    if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) 
-    {
-			/*
-			 Replace this implementation with code to handle the error appropriately.
-			 
-			 abort() causes the application to generate a crash log and terminate. You should not use this function 
-       in a shipping application, although it may be useful during development. If it is not possible to recover from the error, 
-       display an alert panel that instructs the user to quit the application by pressing the Home button.
-			 */
-      
-			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-			abort();
-    } 
-  }
-}
+{ [self saveApplicationState]; }
+
+/**
+ *
+ */
+- (void)applicationWillResignActive:(UIApplication *)application 
+{ [self saveApplicationState]; }
 
 /**
  *
