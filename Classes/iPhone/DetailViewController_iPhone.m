@@ -1,6 +1,6 @@
 /*
-     File: ContentController_iPhone.m 
- Abstract: Content controller used to manage the navigation controller for the iPhone. 
+     File: DetailViewController.m 
+ Abstract: Detail view showing more extended information running on the iPad. 
   Version: 1.0 
   
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple 
@@ -45,14 +45,18 @@
   
  */
 
-#import "ContentController_iPhone.h"
+#import "DetailViewController.h"
 #import "DetailViewController_iPhone.h"
-#import "NoteListViewController.h"
-#import "Note.h"
 
-@implementation ContentController_iPhone
 
-@synthesize navigationController,masterViewController;
+@implementation DetailViewController_iPhone
+
+@synthesize navBar;
+
+
+#pragma mark -
+#pragma mark View lifecycle
+
 
 /**
  *
@@ -63,53 +67,51 @@
 /**
  *
  */
-- (void)dealloc
-{ [navigationController release];
-  [super dealloc];
+- (void)viewDidLoad 
+{ [super viewDidLoad]; }
+
+
+/**
+ *
+ */
+- (void)viewDidUnload 
+{ self.navBar = nil;
+  
+  [super viewDidUnload];
 }
 
 /**
  *
  */
-- (UIView *)view
-{ return self.navigationController.view; }
+- (void)viewWillAppear:(BOOL)animated 
+{ // Make the keyboard appear when the application launches.
+  [super viewWillAppear:animated];
+  
+  [textView becomeFirstResponder];
+}
 
 /**
  *
  */
-- (void)setNote:(Note*)newNote
-{ if( note!=newNote )
-  { DetailViewController* detailViewController = nil;  
-    UIViewController*     viewController       = [self.navigationController topViewController];
-    
-    if( [viewController isKindOfClass:[DetailViewController class]] )
-      detailViewController = (DetailViewController*)viewController;
-    
-    [note updateNoteText:detailViewController.textView.text];
-    
-    [note release];
-
-    note = [newNote retain];
-  } // of if
-} // of setNote()
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
+{ return YES; }
 
 /**
  *
  */
-- (void)showDetailView
-{ DetailViewController* detailViewController = [[DetailViewController_iPhone alloc] initWithNibName:@"DetailedViewController" bundle:nil];
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+}
+
+#pragma mark -
+#pragma mark Memory management
+
+/**
+ *
+ */
+- (void)dealloc 
+{ [navBar release];
   
-  if( detailViewController!=nil )
-  { detailViewController.textView.text = [note getNoteText];
-    detailViewController.navBar.topItem.title  = [note title];
-    [detailViewController.textView flashScrollIndicators];
-    
-    [self.navigationController pushViewController:detailViewController animated:YES];
-  }
-  
-  [detailViewController release];
-} // of showDetailView()
-
-
-
+  [super dealloc];
+}
 @end

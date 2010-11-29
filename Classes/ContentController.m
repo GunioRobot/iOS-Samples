@@ -52,16 +52,24 @@
 
 @synthesize managedObjectContext,note;
 
+/**
+ *
+ */
 - (void)dealloc
-{
-  [managedObjectContext release];
+{ [managedObjectContext release];
   [note release];
   [super dealloc];
 }
 
+/**
+ *
+ */
 - (UIView *)view
-{
-  return nil; // subclasses need to override this with their own view property
-}
+{ return nil; }
 
+/**
+ *
+ */
+- (void)showDetailView
+{ } 
 @end

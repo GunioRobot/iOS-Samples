@@ -45,17 +45,18 @@
   
  */
 
-#import <UIKit/UIKit.h>
-#import <Foundation/Foundation.h>
 
+#import <Foundation/Foundation.h>
 #import "ContentController.h"
 
+@class DetailViewController;
 @class NoteListViewController;
 
 @interface ContentController_iPhone : ContentController
 {   
   UINavigationController* navigationController;
   NoteListViewController* masterViewController;
+  
 }
 
 @property (nonatomic,retain) IBOutlet UINavigationController* navigationController;

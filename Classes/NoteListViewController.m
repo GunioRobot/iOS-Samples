@@ -244,6 +244,7 @@
 { Note* note = (Note *)[fetchedResultsController objectAtIndexPath:indexPath];
   
   contentController.note = note;
+  [contentController showDetailView];
 }
 
 /**

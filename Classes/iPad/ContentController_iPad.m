@@ -61,29 +61,22 @@ static NSString *buttonTitle = @"Notes Title";
  */
 - (void)awakeFromNib
 { self.splitViewController.delegate = self;
-  
-  //self.masterViewController.contentController = self;
-  //self.detailViewController.contentController = self;
 }
 
 /**
  *
  */
 - (IBAction)presentMasterInPopoverFromBarButtonItem:(UIBarButtonItem *)barButtonItem
-{
-  if (popoverController == nil)
-  {
-    Class cls = NSClassFromString(@"UIPopoverController");
+{ if( popoverController==nil )
+  { Class cls = NSClassFromString(@"UIPopoverController");
+    
     if (cls != nil)
-    {
-      UIPopoverController *aPopoverController = [[cls alloc] initWithContentViewController:self.masterViewController];
+    { UIPopoverController *aPopoverController = [[cls alloc] initWithContentViewController:self.masterViewController];
       self.popoverController = aPopoverController;
             
       [aPopoverController release];
             
-      [popoverController presentPopoverFromBarButtonItem:barButtonItem
-                                permittedArrowDirections:UIPopoverArrowDirectionUp
-                                                animated:YES];
+      [popoverController presentPopoverFromBarButtonItem:barButtonItem permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     }
   }
 }

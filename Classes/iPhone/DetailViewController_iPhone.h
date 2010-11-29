@@ -1,6 +1,6 @@
 /*
-     File: ContentController_iPhone.m 
- Abstract: Content controller used to manage the navigation controller for the iPhone. 
+     File: DetailViewController.h 
+ Abstract: Detail view showing more extended information running on the iPhone. 
   Version: 1.0 
   
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple 
@@ -45,71 +45,15 @@
   
  */
 
-#import "ContentController_iPhone.h"
-#import "DetailViewController_iPhone.h"
-#import "NoteListViewController.h"
-#import "Note.h"
+#import <UIKit/UIKit.h>
+#import "DetailViewController.h"
 
-@implementation ContentController_iPhone
 
-@synthesize navigationController,masterViewController;
-
-/**
- *
- */
-- (void)awakeFromNib
-{ }
-
-/**
- *
- */
-- (void)dealloc
-{ [navigationController release];
-  [super dealloc];
+@interface DetailViewController_iPhone: DetailViewController
+{
+  UINavigationBar* navBar;
 }
 
-/**
- *
- */
-- (UIView *)view
-{ return self.navigationController.view; }
-
-/**
- *
- */
-- (void)setNote:(Note*)newNote
-{ if( note!=newNote )
-  { DetailViewController* detailViewController = nil;  
-    UIViewController*     viewController       = [self.navigationController topViewController];
-    
-    if( [viewController isKindOfClass:[DetailViewController class]] )
-      detailViewController = (DetailViewController*)viewController;
-    
-    [note updateNoteText:detailViewController.textView.text];
-    
-    [note release];
-
-    note = [newNote retain];
-  } // of if
-} // of setNote()
-
-/**
- *
- */
-- (void)showDetailView
-{ DetailViewController* detailViewController = [[DetailViewController_iPhone alloc] initWithNibName:@"DetailedViewController" bundle:nil];
-  
-  if( detailViewController!=nil )
-  { detailViewController.textView.text = [note getNoteText];
-    detailViewController.navBar.topItem.title  = [note title];
-    [detailViewController.textView flashScrollIndicators];
-    
-    [self.navigationController pushViewController:detailViewController animated:YES];
-  }
-  
-  [detailViewController release];
-} // of showDetailView()
-
-
+@property (nonatomic, retain) IBOutlet UINavigationBar* navBar;
 
 @end
