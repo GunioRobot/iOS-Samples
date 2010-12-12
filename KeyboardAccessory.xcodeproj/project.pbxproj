@@ -32,6 +32,7 @@
 		857AC24112A4198B003CBD09 /* DetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857AC23F12A4198B003CBD09 /* DetailedViewController.xib */; };
 		859711C7129069DC006D5710 /* DetailViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 859711C6129069DC006D5710 /* DetailViewController_iPad.m */; };
 		859711CA129069E6006D5710 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 859711C9129069E6006D5710 /* DetailViewController.m */; };
+		85A3497F12B44AB1009CDD7C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 85A3497D12B44AB1009CDD7C /* Localizable.strings */; };
 		85B49D65128E16670037647E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B49D64128E16670037647E /* AppDelegate.m */; };
 		85D4D9C7128F6DA60093DF2A /* NoteListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85D4D9C5128F6DA60093DF2A /* NoteListViewController.xib */; };
 		85D4D9D2128F6E1B0093DF2A /* ContentController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D4D9CA128F6E1B0093DF2A /* ContentController_iPad.m */; };
@@ -59,6 +60,14 @@
 		53D3DE8D11763723002FCB6E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AccessoryView.xib; sourceTree = "<group>"; };
 		53D3DE8F11763723002FCB6E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		53D3DE9111763723002FCB6E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		8552A8B112B44D1000263617 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		8552A8BA12B44D1800263617 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/NoteListViewController.xib; sourceTree = "<group>"; };
+		8552A8BB12B44D1800263617 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/ViewController.xib; sourceTree = "<group>"; };
+		8552A8BC12B44D2100263617 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/AccessoryView.xib; sourceTree = "<group>"; };
+		8552A8D912B44D9A00263617 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/iPad/de.lproj/Content_iPad.xib; sourceTree = SOURCE_ROOT; };
+		8552A8DA12B44D9A00263617 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/iPad/de.lproj/DetailViewController.xib; sourceTree = SOURCE_ROOT; };
+		8552A8DB12B44DA600263617 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/iPhone/de.lproj/Content_iPhone.xib; sourceTree = SOURCE_ROOT; };
+		8552A8DC12B44DA600263617 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/iPhone/de.lproj/DetailedViewController.xib; sourceTree = SOURCE_ROOT; };
 		856FACBF128E0D3D00BF9257 /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
 		856FACC0128E0D3D00BF9257 /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
 		856FACC1128E0D3D00BF9257 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -78,6 +87,8 @@
 		859711C6129069DC006D5710 /* DetailViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController_iPad.m; sourceTree = "<group>"; };
 		859711C8129069E6006D5710 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		859711C9129069E6006D5710 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		85A3497E12B44AB1009CDD7C /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		85A3498012B44AC1009CDD7C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		85B49D63128E16670037647E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		85B49D64128E16670037647E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		85D4D9C3128F6D8C0093DF2A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -167,6 +178,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				85A3497D12B44AB1009CDD7C /* Localizable.strings */,
 				85D4D9C3128F6D8C0093DF2A /* Info.plist */,
 				85D4D9C5128F6DA60093DF2A /* NoteListViewController.xib */,
 				85D8A075128EFB00000BA8A4 /* iPad */,
@@ -296,6 +308,7 @@
 				French,
 				German,
 				en,
+				de,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -332,6 +345,7 @@
 				85D8A080128EFB00000BA8A4 /* Content_iPhone.xib in Resources */,
 				85D4D9C7128F6DA60093DF2A /* NoteListViewController.xib in Resources */,
 				857AC24112A4198B003CBD09 /* DetailedViewController.xib in Resources */,
+				85A3497F12B44AB1009CDD7C /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +378,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				53D3DE8D11763723002FCB6E /* en */,
+				8552A8BC12B44D2100263617 /* de */,
 			);
 			name = AccessoryView.xib;
 			sourceTree = "<group>";
@@ -372,6 +387,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				53D3DE8F11763723002FCB6E /* en */,
+				8552A8B112B44D1000263617 /* de */,
 			);
 			name = MainWindow.xib;
 			sourceTree = "<group>";
@@ -380,6 +396,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				53D3DE9111763723002FCB6E /* en */,
+				8552A8BB12B44D1800263617 /* de */,
 			);
 			name = ViewController.xib;
 			sourceTree = "<group>";
@@ -388,14 +405,25 @@
 			isa = PBXVariantGroup;
 			children = (
 				857AC24012A4198B003CBD09 /* en */,
+				8552A8DC12B44DA600263617 /* de */,
 			);
 			name = DetailedViewController.xib;
+			sourceTree = "<group>";
+		};
+		85A3497D12B44AB1009CDD7C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85A3497E12B44AB1009CDD7C /* en */,
+				85A3498012B44AC1009CDD7C /* de */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		85D4D9C5128F6DA60093DF2A /* NoteListViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				85D4D9C6128F6DA60093DF2A /* en */,
+				8552A8BA12B44D1800263617 /* de */,
 			);
 			name = NoteListViewController.xib;
 			sourceTree = "<group>";
@@ -404,6 +432,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				85D8A077128EFB00000BA8A4 /* en */,
+				8552A8D912B44D9A00263617 /* de */,
 			);
 			name = Content_iPad.xib;
 			sourceTree = "<group>";
@@ -412,6 +441,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				85D8A079128EFB00000BA8A4 /* en */,
+				8552A8DA12B44D9A00263617 /* de */,
 			);
 			name = DetailViewController.xib;
 			sourceTree = "<group>";
@@ -420,6 +450,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				85D8A07C128EFB00000BA8A4 /* en */,
+				8552A8DB12B44DA600263617 /* de */,
 			);
 			name = Content_iPhone.xib;
 			sourceTree = "<group>";
@@ -464,7 +495,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				PREBINDING = NO;
-				SDKROOT = iphonesimulator4.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -480,7 +511,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
-				SDKROOT = iphonesimulator4.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

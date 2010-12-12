@@ -69,7 +69,6 @@
 
 @private
   NSDateFormatter*            dateFormatter;
-  
 }
 
 @property (nonatomic, retain) IBOutlet ContentController*          contentController;

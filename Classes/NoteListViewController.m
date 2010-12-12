@@ -86,7 +86,7 @@
     
     abort();
   } // of if
-} // of if
+} // of saveData:s
 
 /**
  *
@@ -105,15 +105,15 @@
   [text setValue:note     forKey:@"note"];
   
   return note;
-} // of addNote()
+} // of addNote:
 
 /**
  *
  */
 - (void) addNewNote:(id)sender
-{ [self addNote:@"" andTitle:@"Empty Title"];
+{ [self addNote:@"" andTitle:NSLocalizedString(@"EmptyTitle", @"Empty")];
   [self saveData];
-} // of addNewNote()
+} // of addNewNote:
 
 /**
  *
@@ -123,38 +123,38 @@
   { [contentController.managedObjectContext deleteObject:self.contentController.note];
     [self saveData];
   } // of if
-} // of removeSelectedNote()
+} // of removeSelectedNote:
 
 /**
  *
  */
 - (NSFetchedResultsController *)fetchedResultsController 
 { if( fetchedResultsController==nil ) 
-{ NSManagedObjectContext* context      = contentController.managedObjectContext;
-  NSFetchRequest*         fetchRequest = [[NSFetchRequest alloc] init];
-  NSEntityDescription*    entity       = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:context];
-  
-  [fetchRequest setEntity:entity];
-  
-  NSSortDescriptor* sortDescriptor  = [[NSSortDescriptor alloc] initWithKey:@"created" ascending:NO];
-  NSArray*          sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-  
-  [fetchRequest setSortDescriptors:sortDescriptors];
-  
-  NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
-                                                                                              managedObjectContext:context 
-                                                                                                sectionNameKeyPath:nil 
-                                                                                                         cacheName:@"Root"];
-  aFetchedResultsController.delegate = self;
-  self.fetchedResultsController = aFetchedResultsController;
-  
-  [fetchRequest release];
-  [sortDescriptor release];
-  [sortDescriptors release];
-} // of if
+  { NSManagedObjectContext* context      = contentController.managedObjectContext;
+    NSFetchRequest*         fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription*    entity       = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:context];
+    
+    [fetchRequest setEntity:entity];
+    
+    NSSortDescriptor* sortDescriptor  = [[NSSortDescriptor alloc] initWithKey:@"created" ascending:NO];
+    NSArray*          sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
+                                                                                                managedObjectContext:context 
+                                                                                                  sectionNameKeyPath:nil 
+                                                                                                           cacheName:@"Root"];
+    aFetchedResultsController.delegate = self;
+    self.fetchedResultsController = aFetchedResultsController;
+    
+    [fetchRequest release];
+    [sortDescriptor release];
+    [sortDescriptors release];
+  } // of if
 	
 	return fetchedResultsController;
-} // of fetchedResultsController()
+} // of fetchedResultsController:
 
 #pragma mark -
 #pragma mark UIViewController
@@ -168,7 +168,7 @@
   dateFormatter = [[NSDateFormatter alloc] init];
   [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
   [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-}
+} // of awakeFromNib:
 
 /**
  *
@@ -202,8 +202,8 @@
     [self saveData];
     
     self.contentController.note = newNote;
-  } // of if  
-}
+  } // of if
+} // of viewDidLoad:
 
 /**
  *
@@ -219,7 +219,7 @@
   [dateFormatter release];
   
   [super dealloc];
-}
+} // of dealloc:
 
 /**
  *
@@ -244,8 +244,11 @@
 { Note* note = (Note *)[fetchedResultsController objectAtIndexPath:indexPath];
   
   contentController.note = note;
+  
+  [tableView selectRowAtIndexPath:indexPath animated:TRUE scrollPosition:FALSE];
+  
   [contentController showDetailView];
-}
+} // of tableView:didSelectRowAtIndexPath:
 
 /**
  *
@@ -253,11 +256,11 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView 
 { NSInteger count = [[fetchedResultsController sections] count];
   
-	if (count == 0) 
+	if( count==0 ) 
 		count = 1;
 	
   return count;
-}
+} // of numberOfSectionsInTableView:
 
 
 /**
@@ -270,10 +273,10 @@
   { id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchedResultsController sections] objectAtIndex:section];
   
     numberOfRows = [sectionInfo numberOfObjects];
-  }
+  } // of if
   
   return numberOfRows;
-}
+} // of tableView:numberOfRowsInSection:
 
 /**
  *
@@ -282,11 +285,11 @@
 { static NSString *PlaceholderCellIdentifier = @"PlaceholderCell";
   
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PlaceholderCellIdentifier];
-  if (cell == nil)
+  if( cell==nil )
 	{ cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:PlaceholderCellIdentifier] autorelease];   
       
     cell.detailTextLabel.textAlignment = UITextAlignmentCenter;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
   } // of if
 
   Note* note = (Note *)[fetchedResultsController objectAtIndexPath:indexPath];
@@ -296,12 +299,13 @@
     cell.textLabel.text       = note.title;
   }
   else 
-  { cell.detailTextLabel.text = @"Details";
-    cell.textLabel.text       = @"aa";
-  }
-			
+  { NSLog(@"couldn't get note");
+    
+    abort();
+  } // of if
+  
   return cell;
-}
+} // of tableView:cellForRowAtIndexPath:
 
 
 #pragma mark -
@@ -327,7 +331,7 @@
 {
 	// The fetch controller is about to start sending change notifications, so prepare the table view for updates.
 	[self.tableView beginUpdates];
-}
+} // of controllerWillChangeContent:
 
 /**
  *
@@ -357,8 +361,8 @@
 			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]    withRowAnimation:UITableViewRowAnimationFade];
       [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
       break;
-	}
-}
+	} // of switch
+} // of controller:didChangeObject:atIndexPath:forChangeType:newIndexPath:
 
 /**
  *
@@ -369,16 +373,16 @@
      forChangeType:(NSFetchedResultsChangeType)type 
 {
 	switch(type) 
-  {
-		case NSFetchedResultsChangeInsert:
+  { case NSFetchedResultsChangeInsert:
 			[self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
 			break;
 			
 		case NSFetchedResultsChangeDelete:
 			[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
 			break;
-	}
-}
+	} // of switch
+} // of controller:didChangeSection:atIndex:forChangeType: 
+
 
 /**
  *
@@ -387,6 +391,5 @@
 {
 	// The fetch controller has sent all current change notifications, so tell the table view to process all updates.
 	[self.tableView endUpdates];
-}
-
+} // of controllerDidChangeContent:
 @end

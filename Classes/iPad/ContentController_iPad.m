@@ -70,16 +70,16 @@ static NSString *buttonTitle = @"Notes Title";
 { if( popoverController==nil )
   { Class cls = NSClassFromString(@"UIPopoverController");
     
-    if (cls != nil)
+    if( cls!=nil )
     { UIPopoverController *aPopoverController = [[cls alloc] initWithContentViewController:self.masterViewController];
       self.popoverController = aPopoverController;
             
       [aPopoverController release];
             
       [popoverController presentPopoverFromBarButtonItem:barButtonItem permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
-    }
-  }
-}
+    } // of if
+  } // of if
+} // of presentMasterInPopoverFromBarButtonItem:
 
 /**
  *
@@ -92,7 +92,7 @@ static NSString *buttonTitle = @"Notes Title";
   [detailViewController release];
   
   [super dealloc];
-}
+} // of dealloc:
 
 /**
  * when setting the detail item, update the view and dismiss the popover controller if it's showing
@@ -111,7 +111,7 @@ static NSString *buttonTitle = @"Notes Title";
   
   if( popoverController!=nil )
     [popoverController dismissPopoverAnimated:YES];
-} // of setNote()
+} // of setNote:
 
 
 #pragma mark -
