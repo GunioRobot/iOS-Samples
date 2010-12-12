@@ -52,19 +52,23 @@
 
 @implementation ContentController_iPhone
 
-@synthesize navigationController,masterViewController;
+@synthesize navigationController,masterViewController,detailViewController;
 
 /**
  *
  */
 - (void)awakeFromNib
-{ }
+{ self.navigationController.delegate = self;
+  [super awakeFromNib];
+}
 
 /**
  *
  */
 - (void)dealloc
 { [navigationController release];
+  [masterViewController release];
+  [detailViewController release];
   [super dealloc];
 }
 
@@ -79,13 +83,8 @@
  */
 - (void)setNote:(Note*)newNote
 { if( note!=newNote )
-  { DetailViewController* detailViewController = nil;  
-    UIViewController*     viewController       = [self.navigationController topViewController];
-    
-    if( [viewController isKindOfClass:[DetailViewController class]] )
-      detailViewController = (DetailViewController*)viewController;
-    
-    [note updateNoteText:detailViewController.textView.text];
+  { if( detailViewController!=nil )
+      [note updateNoteText:detailViewController.textView.text];
     
     [note release];
 
@@ -97,19 +96,40 @@
  *
  */
 - (void)showDetailView
-{ DetailViewController* detailViewController = [[DetailViewController_iPhone alloc] initWithNibName:@"DetailedViewController" bundle:nil];
+{ //self.detailViewController = [DetailViewController_iPhone alloc] initWithNibName:@"Detail_iPhone" bundle:nil];
   
-  if( detailViewController!=nil )
-  { detailViewController.textView.text = [note getNoteText];
-    detailViewController.navBar.topItem.title  = [note title];
-    [detailViewController.textView flashScrollIndicators];
+  self.detailViewController = [[DetailViewController_iPhone alloc] init];
+  [[NSBundle mainBundle] loadNibNamed:@"Detail_iPhone" owner:self.detailViewController options:nil];
+  
+  self.detailViewController.navBar = self.navigationController.navigationBar;
+  
+  self.detailViewController.textView.text = [note getNoteText];
+  self.detailViewController.navBar.topItem.title  = [note title];
+  [self.detailViewController.textView flashScrollIndicators];
     
-    [self.navigationController pushViewController:detailViewController animated:YES];
-  }
-  
-  [detailViewController release];
+  [self.navigationController pushViewController:self.detailViewController animated:YES];
 } // of showDetailView()
 
+#pragma mark -
+#pragma mark UINavigationControllerDelegate
 
+/**
+ *
+ */
+- (void)navigationController:(UINavigationController *)navigationController 
+      willShowViewController:(UIViewController *)viewController 
+                    animated:(BOOL)animated
+{ NSLog(@"willShowViewController:%@",[[viewController class] description]);
+  
+  if( viewController==masterViewController && detailViewController!=nil )
+    [note updateNoteText:detailViewController.textView.text];
+} // of navigationController:willShowViewController:animated:
 
+/**
+ *
+ */
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{ if( viewController==masterViewController )
+    [masterViewController reloadData];
+} // of navigationController:didShowViewController:animated:
 @end

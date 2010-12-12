@@ -62,13 +62,17 @@
  *
  */
 - (void)awakeFromNib
-{ }
+{ 
+  [super awakeFromNib]; 
+}
 
 /**
  *
  */
 - (void)viewDidLoad 
-{ [super viewDidLoad]; }
+{ 
+  [super viewDidLoad]; 
+}
 
 
 /**

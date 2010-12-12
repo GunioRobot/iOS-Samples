@@ -69,7 +69,7 @@
 
 @implementation NoteListViewController
 
-@synthesize contentController,fetchedResultsController;
+@synthesize contentController,fetchedResultsController,actualNoteIndexPath;
 
 
 #pragma mark -
@@ -111,7 +111,8 @@
  *
  */
 - (void) addNewNote:(id)sender
-{ [self addNote:@"" andTitle:NSLocalizedString(@"EmptyTitle", @"Empty")];
+{ self.contentController.note = [self addNote:@"" andTitle:NSLocalizedString(@"EmptyTitle", @"Empty")];
+  
   [self saveData];
 } // of addNewNote:
 
@@ -122,6 +123,8 @@
 { if( self.contentController.note!=nil )
   { [contentController.managedObjectContext deleteObject:self.contentController.note];
     [self saveData];
+    
+    self.contentController.note = nil;
   } // of if
 } // of removeSelectedNote:
 
@@ -176,11 +179,15 @@
 - (void)viewDidLoad
 { [super viewDidLoad];
   
-  UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewNote:)];
+  UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
+                                                                                 target:self 
+                                                                                 action:@selector(addNewNote:)];
   self.navigationItem.leftBarButtonItem = addButtonItem;
   [addButtonItem release];
   
-  UIBarButtonItem *removeButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeSelectedNote:)];
+  UIBarButtonItem *removeButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash 
+                                                                                    target:self 
+                                                                                    action:@selector(removeSelectedNote:)];
   self.navigationItem.rightBarButtonItem = removeButtonItem;
   [removeButtonItem release];
   
@@ -245,6 +252,8 @@
   
   contentController.note = note;
   
+  self.actualNoteIndexPath = [indexPath copy];
+  
   [tableView selectRowAtIndexPath:indexPath animated:TRUE scrollPosition:FALSE];
   
   [contentController showDetailView];
@@ -307,6 +316,13 @@
   return cell;
 } // of tableView:cellForRowAtIndexPath:
 
+/**
+ *
+ */
+- (void)reloadData
+{ [self.tableView reloadData];
+}
+
 
 #pragma mark -
 #pragma mark Deferred image loading (UIScrollViewDelegate)
@@ -322,6 +338,9 @@
  */
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 { }
+
+#pragma mark -
+#pragma mark NSFetchedResultsControllerDelegate
 
 
 /**
@@ -346,11 +365,12 @@
 	switch(type) 
   { case NSFetchedResultsChangeInsert:
 			[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+      self.actualNoteIndexPath = [newIndexPath copy];
 			break;
 			
 		case NSFetchedResultsChangeDelete:
 			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-      self.contentController.note = nil;
+      self.actualNoteIndexPath = nil;
 			break;
 			
 		case NSFetchedResultsChangeUpdate:
@@ -360,6 +380,7 @@
 		case NSFetchedResultsChangeMove:
 			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]    withRowAnimation:UITableViewRowAnimationFade];
       [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+      self.actualNoteIndexPath = [newIndexPath copy];
       break;
 	} // of switch
 } // of controller:didChangeObject:atIndexPath:forChangeType:newIndexPath:

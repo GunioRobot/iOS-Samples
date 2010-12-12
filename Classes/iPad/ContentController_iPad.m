@@ -61,6 +61,7 @@ static NSString *buttonTitle = @"Notes Title";
  */
 - (void)awakeFromNib
 { self.splitViewController.delegate = self;
+  [super awakeFromNib];
 }
 
 /**
