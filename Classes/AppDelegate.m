@@ -47,6 +47,8 @@
  */
 #import "AppDelegate.h"
 #import "ContentController.h"
+#import "NoteListViewController.h"
+
 
 NSString* kTextColorKey			  = @"textColorKey";
 NSString* kBackgroundColorKey	= @"backgroundColorKey";
@@ -140,13 +142,8 @@ NSString* kBackgroundColorKey	= @"backgroundColorKey";
  *
  */
 - (void)saveApplicationState
-{ NSError *error;
-  
-  if( ![managedObjectContext save:&error] ) 
-  { NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-    
-		abort();
-  } // of if
+{ 
+  [self.contentController.masterViewController saveData];
 } // of saveApplicationState()
 
 /**

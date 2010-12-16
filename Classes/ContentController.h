@@ -47,15 +47,18 @@
 #import <Foundation/Foundation.h>
 
 @class Note;
+@class NoteListViewController;
 
 @interface ContentController : NSObject
 {
   NSManagedObjectContext* managedObjectContext;
   Note*                   note;
+  NoteListViewController*    masterViewController;
 }
 
-@property (nonatomic, retain) NSManagedObjectContext* managedObjectContext;
-@property (nonatomic, retain) Note*                   note;
+@property (nonatomic, retain)          NSManagedObjectContext* managedObjectContext;
+@property (nonatomic, retain)          Note*                   note;
+@property (nonatomic, retain) IBOutlet NoteListViewController* masterViewController;
 
 - (UIView*) view;
 - (void)    showDetailView;

@@ -50,18 +50,15 @@
 #import "ContentController.h"
 
 @class DetailViewController;
-@class NoteListViewController;
 
 @interface ContentController_iPhone : ContentController<UINavigationControllerDelegate>
 {   
   UINavigationController* navigationController;
-  NoteListViewController* masterViewController;
   DetailViewController*   detailViewController;
   
 }
 
 @property (nonatomic,retain) IBOutlet UINavigationController* navigationController;
-@property (nonatomic,retain) IBOutlet NoteListViewController* masterViewController;
 @property (nonatomic,retain) IBOutlet DetailViewController*   detailViewController;
 
 - (UIView *)view;

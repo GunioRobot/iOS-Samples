@@ -69,15 +69,14 @@
 
 @private
   NSDateFormatter*            dateFormatter;
-  NSIndexPath*                actualNoteIndexPath;
 }
 
 @property (nonatomic, retain) IBOutlet ContentController*          contentController;
 @property (nonatomic, retain)          NSFetchedResultsController* fetchedResultsController;
-@property (nonatomic, retain)          NSIndexPath*                actualNoteIndexPath;
 
 - (IBAction) addNewNote:(id)sender;
-- (IBAction) removeSelectedNote:(id)sender;
+- (IBAction) toggleEdit:(id)sender;
 - (void)     reloadData;
+- (void)     saveData;
 
 @end

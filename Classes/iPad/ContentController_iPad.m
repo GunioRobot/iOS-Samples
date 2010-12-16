@@ -54,7 +54,7 @@ static NSString *buttonTitle = @"Notes Title";
 
 @implementation ContentController_iPad
 
-@synthesize splitViewController, navigationController, masterViewController, popoverController, detailViewController;
+@synthesize splitViewController, navigationController, popoverController, detailViewController;
 
 /**
  *

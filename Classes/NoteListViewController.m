@@ -69,7 +69,17 @@
 
 @implementation NoteListViewController
 
-@synthesize contentController,fetchedResultsController,actualNoteIndexPath;
+@synthesize contentController,fetchedResultsController; 
+
+
+/**
+ * called if this controller pops up in navigationcontroller stack
+ */
+- (void)reloadData
+{ [self.tableView reloadData];
+  
+  self.contentController.note = nil;
+}
 
 
 #pragma mark -
@@ -78,7 +88,9 @@
  *
  */
 -(void)saveData
-{ NSManagedObjectContext* context = contentController.managedObjectContext;
+{ NSLog(@"NoteListViewController saveData:");
+  
+  NSManagedObjectContext* context = contentController.managedObjectContext;
   NSError* error=nil;
   
   if( ![context save:&error] ) 
@@ -106,27 +118,6 @@
   
   return note;
 } // of addNote:
-
-/**
- *
- */
-- (void) addNewNote:(id)sender
-{ self.contentController.note = [self addNote:@"" andTitle:NSLocalizedString(@"EmptyTitle", @"Empty")];
-  
-  [self saveData];
-} // of addNewNote:
-
-/**
- *
- */
-- (void) removeSelectedNote:(id)sender
-{ if( self.contentController.note!=nil )
-  { [contentController.managedObjectContext deleteObject:self.contentController.note];
-    [self saveData];
-    
-    self.contentController.note = nil;
-  } // of if
-} // of removeSelectedNote:
 
 /**
  *
@@ -160,15 +151,48 @@
 } // of fetchedResultsController:
 
 #pragma mark -
+#pragma mark Actions
+
+/**
+ *
+ */
+- (void) addNewNote:(id)sender
+{ [self addNote:@"" andTitle:NSLocalizedString(@"EmptyTitle", @"Empty")];
+  
+  [self saveData];
+} // of addNewNote:
+
+
+/**
+ *
+ */
+- (void) toggleEdit:(id)sender
+{ [self.tableView setEditing: !self.tableView.editing animated:YES];
+  
+  if( self.tableView.editing )
+  { UIBarButtonItem *removeButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone 
+                                                                                      target:self 
+                                                                                      action:@selector(toggleEdit:)];
+    self.navigationItem.rightBarButtonItem = removeButtonItem;
+    [removeButtonItem release];
+  } // of if
+  else 
+  { UIBarButtonItem *removeButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash 
+                                                                                      target:self 
+                                                                                      action:@selector(toggleEdit:)];
+    self.navigationItem.rightBarButtonItem = removeButtonItem;
+    [removeButtonItem release];
+  } // of else
+} // of toggleEdit:
+
+#pragma mark -
 #pragma mark UIViewController
 
 /**
  *
  */
 - (void)awakeFromNib
-{ NSLog(@"NoteListViewController.awakeFromNib()");
-  
-  dateFormatter = [[NSDateFormatter alloc] init];
+{ dateFormatter = [[NSDateFormatter alloc] init];
   [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
   [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
 } // of awakeFromNib:
@@ -187,7 +211,7 @@
   
   UIBarButtonItem *removeButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash 
                                                                                     target:self 
-                                                                                    action:@selector(removeSelectedNote:)];
+                                                                                    action:@selector(toggleEdit:)];
   self.navigationItem.rightBarButtonItem = removeButtonItem;
   [removeButtonItem release];
   
@@ -204,11 +228,9 @@
   int sectionCount = [[[self fetchedResultsController] sections] count];
   
   if( sectionCount<1 )
-  { Note* newNote = [self addNote:@"" andTitle:@"New Note"];
+  { [self addNote:@"" andTitle:@"New Note"];
     
     [self saveData];
-    
-    self.contentController.note = newNote;
   } // of if
 } // of viewDidLoad:
 
@@ -242,7 +264,7 @@
 
 
 #pragma mark -
-#pragma mark Table view creation (UITableViewDataSource)
+#pragma mark UITableViewDataSource
 
 /**
  *
@@ -251,8 +273,6 @@
 { Note* note = (Note *)[fetchedResultsController objectAtIndexPath:indexPath];
   
   contentController.note = note;
-  
-  self.actualNoteIndexPath = [indexPath copy];
   
   [tableView selectRowAtIndexPath:indexPath animated:TRUE scrollPosition:FALSE];
   
@@ -299,6 +319,7 @@
       
     cell.detailTextLabel.textAlignment = UITextAlignmentCenter;
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    cell.accessoryType  = UITableViewCellAccessoryDisclosureIndicator;
   } // of if
 
   Note* note = (Note *)[fetchedResultsController objectAtIndexPath:indexPath];
@@ -316,12 +337,18 @@
   return cell;
 } // of tableView:cellForRowAtIndexPath:
 
+
 /**
  *
  */
-- (void)reloadData
-{ [self.tableView reloadData];
-}
+- (void)tableView:(UITableView*)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath
+{ self.contentController.note = nil;
+  
+  Note* note = (Note *)[fetchedResultsController objectAtIndexPath:indexPath];
+  [contentController.managedObjectContext deleteObject:note];
+  
+  [self saveData];
+} // of tableView:commitEditingStyle:forRowAtIndexPath:
 
 
 #pragma mark -
@@ -365,13 +392,11 @@
 	switch(type) 
   { case NSFetchedResultsChangeInsert:
 			[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-      self.actualNoteIndexPath = [newIndexPath copy];
-			break;
+      break;
 			
 		case NSFetchedResultsChangeDelete:
 			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-      self.actualNoteIndexPath = nil;
-			break;
+      break;
 			
 		case NSFetchedResultsChangeUpdate:
       [tableView cellForRowAtIndexPath:indexPath];
@@ -380,7 +405,6 @@
 		case NSFetchedResultsChangeMove:
 			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]    withRowAnimation:UITableViewRowAnimationFade];
       [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-      self.actualNoteIndexPath = [newIndexPath copy];
       break;
 	} // of switch
 } // of controller:didChangeObject:atIndexPath:forChangeType:newIndexPath:

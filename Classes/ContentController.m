@@ -50,13 +50,14 @@
 
 @implementation ContentController
 
-@synthesize managedObjectContext,note;
+@synthesize managedObjectContext,note,masterViewController;
 
 /**
  *
  */
 - (void)dealloc
 { [managedObjectContext release];
+  [masterViewController release];
   [note release];
   [super dealloc];
 }

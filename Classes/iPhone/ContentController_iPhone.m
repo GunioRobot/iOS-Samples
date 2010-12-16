@@ -52,7 +52,7 @@
 
 @implementation ContentController_iPhone
 
-@synthesize navigationController,masterViewController,detailViewController;
+@synthesize navigationController,detailViewController;
 
 /**
  *
@@ -67,7 +67,6 @@
  */
 - (void)dealloc
 { [navigationController release];
-  [masterViewController release];
   [detailViewController release];
   [super dealloc];
 }
@@ -104,10 +103,12 @@
   self.detailViewController.navBar = self.navigationController.navigationBar;
   
   self.detailViewController.textView.text = [note getNoteText];
-  self.detailViewController.navBar.topItem.title  = [note title];
-  [self.detailViewController.textView flashScrollIndicators];
+  //self.detailViewController.navBar.topItem.title  = [note title];
+  
     
   [self.navigationController pushViewController:self.detailViewController animated:YES];
+  
+  [self.detailViewController.textView flashScrollIndicators];
 } // of showDetailView()
 
 #pragma mark -
@@ -119,9 +120,7 @@
 - (void)navigationController:(UINavigationController *)navigationController 
       willShowViewController:(UIViewController *)viewController 
                     animated:(BOOL)animated
-{ NSLog(@"willShowViewController:%@",[[viewController class] description]);
-  
-  if( viewController==masterViewController && detailViewController!=nil )
+{ if( viewController==masterViewController && detailViewController!=nil )
     [note updateNoteText:detailViewController.textView.text];
 } // of navigationController:willShowViewController:animated:
 
