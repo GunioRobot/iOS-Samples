@@ -47,11 +47,11 @@
 
 #import "DetailViewController.h"
 #import "DetailViewController_iPhone.h"
+#import "Note.h"
 
+static DetailViewController_iPhone* gDetailedViewController=nil;
 
 @implementation DetailViewController_iPhone
-
-@synthesize navBar;
 
 
 #pragma mark -
@@ -61,61 +61,33 @@
 /**
  *
  */
-- (void)awakeFromNib
-{ 
-  [super awakeFromNib]; 
-}
-
-/**
- *
- */
-- (void)viewDidLoad 
-{ 
-  [super viewDidLoad]; 
-}
-
-
-/**
- *
- */
-- (void)viewDidUnload 
-{ self.navBar = nil;
+- (void)viewWillAppear:(BOOL)animated
+{ textView.text = [note getNoteText];
   
-  [super viewDidUnload];
-}
-
-/**
- *
- */
-- (void)viewWillAppear:(BOOL)animated 
-{ // Make the keyboard appear when the application launches.
+  // Make the keyboard appear when the application launches.
   [super viewWillAppear:animated];
   
   [textView becomeFirstResponder];
 }
 
-/**
- *
- */
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
-{ return YES; }
-
-/**
- *
- */
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-}
 
 #pragma mark -
 #pragma mark Memory management
 
+
+#pragma mark -
+#pragma mark Constructor
+
 /**
  *
  */
-- (void)dealloc 
-{ [navBar release];
++ (DetailViewController*) getInstance:(Note*)note withNavigationBar:(UINavigationBar*) navBar
+{ if( gDetailedViewController==nil )
+    gDetailedViewController = [[DetailViewController_iPhone alloc] initWithNibName:@"Detail_iPhone" bundle:nil];
+
+  gDetailedViewController.note   = note;
+  gDetailedViewController.navBar = navBar;
   
-  [super dealloc];
-}
+  return gDetailedViewController;
+} // of getInstance()
 @end

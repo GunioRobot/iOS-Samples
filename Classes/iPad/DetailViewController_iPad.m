@@ -47,11 +47,10 @@
 
 #import "DetailViewController.h"
 #import "DetailViewController_iPad.h"
+#import "Note.h"
 
 
 @implementation DetailViewController_iPad
-
-@synthesize navBar;
 
 
 #pragma mark -
@@ -61,30 +60,11 @@
 /**
  *
  */
-- (void)awakeFromNib
-{ [super awakeFromNib]; }
-
-/**
- *
- */
-- (void)viewDidLoad 
-{ [super viewDidLoad]; }
-
-
-/**
- *
- */
-- (void)viewDidUnload 
-{ self.navBar = nil;
-  
-  [super viewDidUnload];
-}
-
-/**
- *
- */
 - (void)viewWillAppear:(BOOL)animated 
-{ // Make the keyboard appear when the application launches.
+{ textView.text = [note getNoteText];
+  navBar.topItem.title  = [note title];
+  
+  // Make the keyboard appear when the application launches.
   [super viewWillAppear:animated];
   
   [textView becomeFirstResponder];
@@ -95,6 +75,7 @@
  */
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
 { return YES; }
+
 
 /**
  *
@@ -109,15 +90,18 @@
   }
 }
 
-#pragma mark -
-#pragma mark Memory management
-
 /**
- *
+ * when setting the detail item, update the view and dismiss the popover controller if it's showing
  */
-- (void)dealloc 
-{ [navBar release];
-  
-  [super dealloc];
-}
+- (void)setNote:(Note*)newNote
+{ if( note!=newNote )
+  { [note updateNoteText:textView.text];    
+    [note release];
+
+    note = [newNote retain];
+
+    note = note;
+    textView.text = [note getNoteText];
+  } // of if
+} // of setNote:
 @end

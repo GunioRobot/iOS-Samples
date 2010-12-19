@@ -48,12 +48,12 @@
 #import <UIKit/UIKit.h>
 #import "DetailViewController.h"
 
+@class Note;
 
 @interface DetailViewController_iPhone: DetailViewController
 {
-  UINavigationBar* navBar;
 }
 
-@property (nonatomic, retain) IBOutlet UINavigationBar* navBar;
++ (DetailViewController*) getInstance:(Note*)note withNavigationBar:(UINavigationBar*) navBar;
 
 @end

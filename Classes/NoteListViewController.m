@@ -232,6 +232,10 @@
     
     [self saveData];
   } // of if
+  
+  Note* note = (Note *)[fetchedResultsController.fetchedObjects objectAtIndex:0];
+  
+  contentController.note = note;
 } // of viewDidLoad:
 
 /**
@@ -239,6 +243,29 @@
  */
 - (void)viewDidUnload
 { [super viewDidUnload]; }
+
+
+/**
+ *
+ */
+- (void)viewWillAppear:(BOOL)animated
+{ [self reloadData];
+  
+  [super viewWillAppear:animated];
+}
+
+/**
+ *
+ */
+- (void)didReceiveMemoryWarning
+{ [super didReceiveMemoryWarning]; }
+
+
+/**
+ *
+ */
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
+{ return YES; }
 
 /**
  *
@@ -249,19 +276,6 @@
   
   [super dealloc];
 } // of dealloc:
-
-/**
- *
- */
-- (void)didReceiveMemoryWarning
-{ [super didReceiveMemoryWarning]; }
-
-/**
- *
- */
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-{ return YES; }
-
 
 #pragma mark -
 #pragma mark UITableViewDataSource

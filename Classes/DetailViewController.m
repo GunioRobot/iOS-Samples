@@ -51,8 +51,7 @@
 
 @implementation DetailViewController
 
-@synthesize textView, accessoryView,contentController;
-@dynamic navBar;
+@synthesize textView, accessoryView,contentController,note,navBar;
 
 /**
  * this is called when the app finishes launching (i.e. UIApplicationDidFinishLaunchingNotification)
@@ -115,8 +114,10 @@
  *
  */
 - (void)viewDidUnload 
-{ self.textView = nil;
+{ self.textView      = nil;
   self.accessoryView = nil;
+  self.navBar        = nil;
+  self.note          = nil;
   
   [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
   [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
@@ -203,6 +204,9 @@
 - (void)dealloc 
 { [[NSNotificationCenter defaultCenter] removeObserver:self name:nil object:nil];
   [textView release];
+  [note release];
+  [navBar release];
+  
   [super dealloc];
 }
 

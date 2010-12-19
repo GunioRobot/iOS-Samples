@@ -80,6 +80,7 @@ static NSString *buttonTitle = @"Notes Title";
       [popoverController presentPopoverFromBarButtonItem:barButtonItem permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     } // of if
   } // of if
+  
 } // of presentMasterInPopoverFromBarButtonItem:
 
 /**
@@ -100,14 +101,11 @@ static NSString *buttonTitle = @"Notes Title";
  */
 - (void)setNote:(Note*)newNote
 { if( note!=newNote )
-  { [note updateNoteText:detailViewController.textView.text];    
-    [note release];
+  { [note release];
     
     note = [newNote retain];
     
-    detailViewController.textView.text = [note getNoteText];
-    detailViewController.navBar.topItem.title  = [note title];
-    [detailViewController.textView flashScrollIndicators];
+    self.detailViewController.note = note;
   } // of if
   
   if( popoverController!=nil )

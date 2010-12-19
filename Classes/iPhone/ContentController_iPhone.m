@@ -95,20 +95,9 @@
  *
  */
 - (void)showDetailView
-{ self.detailViewController = [[DetailViewController_iPhone alloc] initWithNibName:@"Detail_iPhone" bundle:nil];
-  self.detailViewController.view;
+{ self.detailViewController = [DetailViewController_iPhone getInstance:note withNavigationBar:self.navigationController.navigationBar];
   
-  //self.detailViewController = [[DetailViewController_iPhone alloc] init];
-  //[[NSBundle mainBundle] loadNibNamed:@"Detail_iPhone" owner:self.detailViewController options:nil];
-  
-  self.detailViewController.navBar = self.navigationController.navigationBar;
-  
-  self.detailViewController.textView.text = [note getNoteText];
-  //self.detailViewController.navBar.topItem.title  = [note title];
-  
-    
   [self.navigationController pushViewController:self.detailViewController animated:YES];
-  
   [self.detailViewController.textView flashScrollIndicators];
 } // of showDetailView()
 
@@ -129,7 +118,6 @@
  *
  */
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
-{ if( viewController==masterViewController )
-    [masterViewController reloadData];
+{ 
 } // of navigationController:didShowViewController:animated:
 @end

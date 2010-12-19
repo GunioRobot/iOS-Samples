@@ -47,6 +47,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class Note;
 @class ContentController;
 
 @interface DetailViewController : UIViewController
@@ -54,12 +55,15 @@
   UITextView*         textView;
 	UIView*             accessoryView;
   ContentController*  contentController;
+  Note*               note;
+  UINavigationBar*    navBar;
 }
 
 @property (nonatomic, retain) IBOutlet UITextView*        textView;
 @property (nonatomic, assign) IBOutlet UIView*            accessoryView;
 @property (nonatomic, retain) IBOutlet UINavigationBar*   navBar;
 @property (nonatomic, retain) IBOutlet ContentController* contentController;
+@property (nonatomic, retain)          Note*              note;
 
 - (IBAction) tappedMe:(id)sender;
 - (void)     updateSettings;

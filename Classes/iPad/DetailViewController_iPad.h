@@ -51,9 +51,7 @@
 
 @interface DetailViewController_iPad: DetailViewController
 {
-  UINavigationBar* navBar;
 }
 
-@property (nonatomic, retain) IBOutlet UINavigationBar* navBar;
 
 @end

@@ -109,8 +109,7 @@ NSString* kBackgroundColorKey	= @"backgroundColorKey";
  * so read in the changes and update our UI.
  */
 - (void)defaultsChanged:(NSNotification *)notif
-{
-  [self setupByPreferences];
+{ [self setupByPreferences];
   
   [self.contentController.detailViewController updateSettings];
 } // of defaultsChanged()
