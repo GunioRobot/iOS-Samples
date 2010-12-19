@@ -48,17 +48,20 @@
 
 @class Note;
 @class NoteListViewController;
+@class DetailViewController;
 
 @interface ContentController : NSObject
 {
   NSManagedObjectContext* managedObjectContext;
   Note*                   note;
-  NoteListViewController*    masterViewController;
+  NoteListViewController* masterViewController;
+  DetailViewController*   detailViewController;
 }
 
 @property (nonatomic, retain)          NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, retain)          Note*                   note;
 @property (nonatomic, retain) IBOutlet NoteListViewController* masterViewController;
+@property (nonatomic, retain) IBOutlet DetailViewController*   detailViewController;
 
 - (UIView*) view;
 - (void)    showDetailView;

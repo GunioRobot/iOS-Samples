@@ -48,19 +48,15 @@
 #import <Foundation/Foundation.h>
 #import "ContentController.h"
 
-@class DetailViewController;
-
 @interface ContentController_iPad : ContentController <UIPopoverControllerDelegate, UISplitViewControllerDelegate>
 {   
   UISplitViewController*     splitViewController;    
   UINavigationController*    navigationController;   // contains our MasterViewController (UITableViewController)
-  DetailViewController*      detailViewController;
   UIPopoverController*       popoverController;
 }
 
 @property (nonatomic,retain) IBOutlet UISplitViewController*       splitViewController;
 @property (nonatomic,retain) IBOutlet UINavigationController*      navigationController;
-@property (nonatomic,retain) IBOutlet DetailViewController*        detailViewController;
 @property (nonatomic,retain)          UIPopoverController*         popoverController;
 
 - (UIView *)view;

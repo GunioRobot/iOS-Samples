@@ -62,6 +62,5 @@
 @property (nonatomic, retain) IBOutlet ContentController* contentController;
 
 - (IBAction) tappedMe:(id)sender;
-
-
+- (void)     updateSettings;
 @end

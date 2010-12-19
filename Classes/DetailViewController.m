@@ -54,6 +54,45 @@
 @synthesize textView, accessoryView,contentController;
 @dynamic navBar;
 
+/**
+ * this is called when the app finishes launching (i.e. UIApplicationDidFinishLaunchingNotification)
+ */
+- (void)updateSettings
+{
+	// now change the app view's background color
+	AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+  
+	switch ([appDelegate backgroundColor])
+	{
+		case blackBackColor:
+			self.textView.backgroundColor = [UIColor blackColor];
+			break;
+			
+		case whiteBackColor:
+			self.textView.backgroundColor = [UIColor whiteColor];
+			break;
+      
+		case blueBackColor:
+			self.textView.backgroundColor = [UIColor blueColor];
+			break;
+	}
+  
+  
+	switch ([appDelegate textColor])
+	{
+		case blue:
+			self.textView.textColor = [UIColor blueColor];
+			break;
+			
+		case red:
+			self.textView.textColor = [UIColor redColor];
+			break;
+      
+		case green:
+			self.textView.textColor = [UIColor greenColor];
+			break;
+	}
+}
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -64,10 +103,11 @@
 - (void)viewDidLoad 
 { [super viewDidLoad];
   
+  [self updateSettings];
+  
   // Observe keyboard hide and show notifications to resize the text view appropriately.
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSettings:)   name:UIApplicationDidFinishLaunchingNotification object:nil];
 }
 
 
@@ -80,7 +120,6 @@
   
   [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
   [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-  [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidFinishLaunchingNotification object:nil]; 
   
   [super viewDidUnload];
 }
@@ -167,43 +206,4 @@
   [super dealloc];
 }
 
-/**
- * this is called when the app finishes launching (i.e. UIApplicationDidFinishLaunchingNotification)
- */
-- (void)updateSettings:(NSNotification *)notif
-{
-	// now change the app view's background color
-	AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-  
-	switch ([appDelegate backgroundColor])
-	{
-		case blackBackColor:
-			self.textView.backgroundColor = [UIColor blackColor];
-			break;
-			
-		case whiteBackColor:
-			self.textView.backgroundColor = [UIColor whiteColor];
-			break;
-      
-		case blueBackColor:
-			self.textView.backgroundColor = [UIColor blueColor];
-			break;
-	}
-  
-  
-	switch ([appDelegate textColor])
-	{
-		case blue:
-			self.textView.textColor = [UIColor blueColor];
-			break;
-			
-		case red:
-			self.textView.textColor = [UIColor redColor];
-			break;
-      
-		case green:
-			self.textView.textColor = [UIColor greenColor];
-			break;
-	}
-}
 @end

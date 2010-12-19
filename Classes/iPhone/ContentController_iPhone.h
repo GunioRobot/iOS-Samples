@@ -49,17 +49,12 @@
 #import <Foundation/Foundation.h>
 #import "ContentController.h"
 
-@class DetailViewController;
-
 @interface ContentController_iPhone : ContentController<UINavigationControllerDelegate>
 {   
   UINavigationController* navigationController;
-  DetailViewController*   detailViewController;
-  
 }
 
 @property (nonatomic,retain) IBOutlet UINavigationController* navigationController;
-@property (nonatomic,retain) IBOutlet DetailViewController*   detailViewController;
 
 - (UIView *)view;
 

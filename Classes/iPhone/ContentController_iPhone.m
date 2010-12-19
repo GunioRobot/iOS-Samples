@@ -52,7 +52,7 @@
 
 @implementation ContentController_iPhone
 
-@synthesize navigationController,detailViewController;
+@synthesize navigationController;
 
 /**
  *
@@ -95,10 +95,11 @@
  *
  */
 - (void)showDetailView
-{ //self.detailViewController = [DetailViewController_iPhone alloc] initWithNibName:@"Detail_iPhone" bundle:nil];
+{ self.detailViewController = [[DetailViewController_iPhone alloc] initWithNibName:@"Detail_iPhone" bundle:nil];
+  self.detailViewController.view;
   
-  self.detailViewController = [[DetailViewController_iPhone alloc] init];
-  [[NSBundle mainBundle] loadNibNamed:@"Detail_iPhone" owner:self.detailViewController options:nil];
+  //self.detailViewController = [[DetailViewController_iPhone alloc] init];
+  //[[NSBundle mainBundle] loadNibNamed:@"Detail_iPhone" owner:self.detailViewController options:nil];
   
   self.detailViewController.navBar = self.navigationController.navigationBar;
   

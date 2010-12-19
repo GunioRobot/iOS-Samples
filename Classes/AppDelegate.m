@@ -48,7 +48,7 @@
 #import "AppDelegate.h"
 #import "ContentController.h"
 #import "NoteListViewController.h"
-
+#import "DetailViewController.h"
 
 NSString* kTextColorKey			  = @"textColorKey";
 NSString* kBackgroundColorKey	= @"backgroundColorKey";
@@ -112,7 +112,7 @@ NSString* kBackgroundColorKey	= @"backgroundColorKey";
 {
   [self setupByPreferences];
   
-  //[viewController updateSettings:nil];
+  [self.contentController.detailViewController updateSettings];
 } // of defaultsChanged()
 
 /**

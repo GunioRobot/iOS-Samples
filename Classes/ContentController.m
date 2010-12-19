@@ -46,11 +46,12 @@
  */
 
 #import "ContentController.h"
+#import "DetailViewController.h"
 #import "Note.h"
 
 @implementation ContentController
 
-@synthesize managedObjectContext,note,masterViewController;
+@synthesize managedObjectContext,note,masterViewController,detailViewController;
 
 /**
  *
