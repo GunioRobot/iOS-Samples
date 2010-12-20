@@ -95,7 +95,7 @@
  */
 - (void)setNote:(Note*)newNote
 { if( note!=newNote )
-  { [note updateNoteText:textView.text];    
+  { //[note updateNoteText:textView.text];    
     [note release];
 
     note = [newNote retain];
@@ -104,4 +104,33 @@
     textView.text = [note getNoteText];
   } // of if
 } // of setNote:
+
+#pragma mark -
+#pragma mark UITextViewDelegate
+
+/**
+ *
+ */
+- (void)textViewDidBeginEditing:(UITextView *)tv
+{ NSLog(@"textViewDidBeginEditing");
+  
+}
+
+/**
+ *
+ */
+- (void)textViewDidEndEditing:(UITextView *)tv
+{ NSLog(@"textViewDidEndEditing");
+  
+  [note updateNoteText:textView.text];
+}
+
+/**
+ *
+ */
+- (void)textViewDidChange:(UITextView *)tv
+{ NSLog(@"textViewDidChange");
+  
+  [note updateNoteText:textView.text];
+}
 @end

@@ -58,7 +58,6 @@
  */
 
 #import "AppDelegate.h"
-#import "Note.h"
 #import "NoteListViewController.h"
 #import "ContentController.h"
 
@@ -72,14 +71,6 @@
 @synthesize contentController,fetchedResultsController; 
 
 
-/**
- * called if this controller pops up in navigationcontroller stack
- */
-- (void)reloadData
-{ [self.tableView reloadData];
-  
-  self.contentController.note = nil;
-}
 
 
 #pragma mark -
@@ -249,9 +240,7 @@
  *
  */
 - (void)viewWillAppear:(BOOL)animated
-{ [self reloadData];
-  
-  [super viewWillAppear:animated];
+{ [super viewWillAppear:animated];
 }
 
 /**
@@ -287,6 +276,7 @@
 { Note* note = (Note *)[fetchedResultsController objectAtIndexPath:indexPath];
   
   contentController.note = note;
+  note.delegate = self;
   
   [tableView selectRowAtIndexPath:indexPath animated:TRUE scrollPosition:FALSE];
   
@@ -451,4 +441,21 @@
 	// The fetch controller has sent all current change notifications, so tell the table view to process all updates.
 	[self.tableView endUpdates];
 } // of controllerDidChangeContent:
+
+/**
+ *
+ */
+- (void) noteWasUpdated:(Note*) note
+{ NSIndexPath* indexPath = [fetchedResultsController indexPathForObject:note];
+  
+  NSLog(@"noteWasUpdated: row=%d",indexPath.row);
+  
+  NSArray* rows = [[NSArray alloc] initWithObjects:indexPath,nil];
+  
+  [self.tableView reloadRowsAtIndexPaths:rows withRowAnimation:UITableViewRowAnimationNone];
+  
+  [rows release];
+  
+  [self.tableView selectRowAtIndexPath:indexPath animated:FALSE scrollPosition:FALSE];
+}
 @end

@@ -49,7 +49,7 @@
 #import "DetailViewController.h"
 
 
-@interface DetailViewController_iPad: DetailViewController
+@interface DetailViewController_iPad: DetailViewController<UITextViewDelegate>
 {
 }
 

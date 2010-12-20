@@ -11,7 +11,6 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
-		2893B14B114EFD4D0094356F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2893B14A114EFD4D0094356F /* ViewController.m */; };
 		2893B14F114EFD5B0094356F /* ReadMe.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2893B14E114EFD5B0094356F /* ReadMe.txt */; };
 		53D3DE9211763723002FCB6E /* AccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53D3DE8C11763723002FCB6E /* AccessoryView.xib */; };
 		53D3DE9311763723002FCB6E /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53D3DE8E11763723002FCB6E /* MainWindow.xib */; };
@@ -52,8 +51,6 @@
 		1D6058910D05DD3D006BFB54 /* KeyboardAccessory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyboardAccessory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		2893B149114EFD4D0094356F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2893B14A114EFD4D0094356F /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2893B14E114EFD5B0094356F /* ReadMe.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* KeyboardAccessory_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardAccessory_Prefix.pch; sourceTree = "<group>"; };
@@ -138,8 +135,6 @@
 				85D4D9D1128F6E1B0093DF2A /* NoteListViewController.m */,
 				85B49D63128E16670037647E /* AppDelegate.h */,
 				85B49D64128E16670037647E /* AppDelegate.m */,
-				2893B149114EFD4D0094356F /* ViewController.h */,
-				2893B14A114EFD4D0094356F /* ViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -357,7 +352,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				2893B14B114EFD4D0094356F /* ViewController.m in Sources */,
 				85B49D65128E16670037647E /* AppDelegate.m in Sources */,
 				85D8A092128EFB5A000BA8A4 /* KeyboardAccessory.xcdatamodel in Sources */,
 				85D8A095128EFC96000BA8A4 /* Note.m in Sources */,

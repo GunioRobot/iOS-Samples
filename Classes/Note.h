@@ -46,6 +46,12 @@
  
  */
 
+@class Note;
+
+@protocol NoteDelegate
+- (void) noteWasUpdated:(Note*) note;
+@end
+
 @interface TextToDataTransformer : NSValueTransformer 
 {
 }
@@ -54,12 +60,14 @@
 
 @interface Note : NSManagedObject 
 {
+  id<NoteDelegate> delegate;
 }
 
 @property (nonatomic, retain) NSString*        title;
 @property (nonatomic, retain) NSDate*          created;
 @property (nonatomic, retain) NSDate*          modified;
 @property (nonatomic, retain) NSManagedObject* text;
+@property (nonatomic, assign) id<NoteDelegate> delegate;
 
 - (void)      updateNoteText:(NSString*) text;
 - (NSString*) getNoteText;

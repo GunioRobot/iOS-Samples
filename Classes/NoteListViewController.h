@@ -58,11 +58,12 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "Note.h"
 
 @class DetailViewController;
 @class ContentController;
 
-@interface NoteListViewController : UITableViewController <UIScrollViewDelegate, NSFetchedResultsControllerDelegate>
+@interface NoteListViewController : UITableViewController <UIScrollViewDelegate, NSFetchedResultsControllerDelegate,NoteDelegate>
 {
   ContentController*          contentController;
   NSFetchedResultsController* fetchedResultsController;
@@ -76,7 +77,6 @@
 
 - (IBAction) addNewNote:(id)sender;
 - (IBAction) toggleEdit:(id)sender;
-- (void)     reloadData;
 - (void)     saveData;
 
 @end
