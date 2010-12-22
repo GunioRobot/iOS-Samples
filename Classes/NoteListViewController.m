@@ -225,9 +225,8 @@
     [self saveData];
   } // of if
   
-  Note* note = (Note *)[fetchedResultsController.fetchedObjects objectAtIndex:0];
-  
-  contentController.note = note;
+  if( [fetchedResultsController.fetchedObjects count]>0 )
+    contentController.note = (Note *)[fetchedResultsController.fetchedObjects objectAtIndex:0];
 } // of viewDidLoad:
 
 /**
@@ -471,10 +470,13 @@
 { id oldValue = [change objectForKey:NSKeyValueChangeOldKey];
   id newValue = [change objectForKey:NSKeyValueChangeNewKey];
   
-  if( [oldValue compare:newValue]!=NSOrderedSame )
-  { NSLog(@"observerValueForKeyPath: old=<%@> new=<%@>",oldValue,newValue);
+  NSLog(@"observerValueForKeyPath: old=<%@> new=<%@>",oldValue,newValue);
   
-    NSIndexPath* indexPath = [fetchedResultsController indexPathForObject:note];
+  if( (oldValue==[NSNull null] && newValue!=[NSNull null]) || 
+      (oldValue!=[NSNull null] && newValue==[NSNull null]) || 
+      [oldValue compare:newValue]!=NSOrderedSame 
+    )
+  { NSIndexPath* indexPath = [fetchedResultsController indexPathForObject:note];
     
     NSLog(@"noteWasUpdated: row=%d",indexPath.row);
     
