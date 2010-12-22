@@ -58,12 +58,11 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "Note.h"
 
 @class DetailViewController;
 @class ContentController;
 
-@interface NoteListViewController : UITableViewController <UIScrollViewDelegate, NSFetchedResultsControllerDelegate,NoteDelegate>
+@interface NoteListViewController : UITableViewController <UIScrollViewDelegate, NSFetchedResultsControllerDelegate>
 {
   ContentController*          contentController;
   NSFetchedResultsController* fetchedResultsController;

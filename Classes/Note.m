@@ -50,7 +50,6 @@
 
 @implementation Note
 
-@synthesize delegate;
 @dynamic created,modified,title,text;
 
 /**
@@ -65,10 +64,7 @@
     NSArray*  lines     = [text componentsSeparatedByCharactersInSet: [NSCharacterSet newlineCharacterSet]];
     NSString* firstLine = [lines objectAtIndex:0];
     
-    self.title = firstLine==nil ? text : firstLine;
-    
-    [delegate noteWasUpdated:self];
-  } // of if
+    self.title = firstLine==nil ? text : firstLine;  } // of if
 } // of updateNoteText:
 
 /**

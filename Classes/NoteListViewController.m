@@ -60,6 +60,7 @@
 #import "AppDelegate.h"
 #import "NoteListViewController.h"
 #import "ContentController.h"
+#import "Note.h"
 
 #define kCustomRowHeight    60.0
 #define kCustomRowCount     7
@@ -276,7 +277,8 @@
 { Note* note = (Note *)[fetchedResultsController objectAtIndexPath:indexPath];
   
   contentController.note = note;
-  note.delegate = self;
+  
+  [note addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
   
   [tableView selectRowAtIndexPath:indexPath animated:TRUE scrollPosition:FALSE];
   
@@ -458,4 +460,32 @@
   
   [self.tableView selectRowAtIndexPath:indexPath animated:FALSE scrollPosition:FALSE];
 }
+
+#pragma mark -
+#pragma mark KVO Observer
+
+/**
+ *
+ */
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)note change:(NSDictionary *)change context:(void *)context
+{ id oldValue = [change objectForKey:NSKeyValueChangeOldKey];
+  id newValue = [change objectForKey:NSKeyValueChangeNewKey];
+  
+  if( [oldValue compare:newValue]!=NSOrderedSame )
+  { NSLog(@"observerValueForKeyPath: old=<%@> new=<%@>",oldValue,newValue);
+  
+    NSIndexPath* indexPath = [fetchedResultsController indexPathForObject:note];
+    
+    NSLog(@"noteWasUpdated: row=%d",indexPath.row);
+    
+    NSArray* rows = [[NSArray alloc] initWithObjects:indexPath,nil];
+    
+    [self.tableView reloadRowsAtIndexPaths:rows withRowAnimation:UITableViewRowAnimationNone];
+    
+    [rows release];
+    
+    [self.tableView selectRowAtIndexPath:indexPath animated:FALSE scrollPosition:FALSE];
+  } // of if
+} // of observeValueForKeyPath:ofObject:change:context:
+
 @end

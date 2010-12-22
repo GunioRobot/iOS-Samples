@@ -199,10 +199,10 @@ NSString* kBackgroundColorKey	= @"backgroundColorKey";
   { managedObjectContext = [NSManagedObjectContext new];
    
     [managedObjectContext setPersistentStoreCoordinator: coordinator];
-  }
+  } // of if
   
   return managedObjectContext;
-}
+} // of managedObjectContext:
 
 
 /**
